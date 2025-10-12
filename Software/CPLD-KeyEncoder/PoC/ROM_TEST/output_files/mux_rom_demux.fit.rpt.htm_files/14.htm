@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD>
+<TITLE>Fitter Resource Utilization by Entity</TITLE>
+
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="jquery-ui/1.10.2/css/smoothness/jquery-ui-1.10.2.custom.min.css">
+<link rel="stylesheet" type="text/css" href="jquery-layout/1.3.0.rc30.79/jquery.layout-1.3.0.rc30.79.css">
+<link rel="stylesheet" type="text/css" href="css/override.css">
+
+<script type="text/javascript" src="jquery/1.11.3/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="jquery-ui/1.10.2/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script type="text/javascript" src="jquery-layout/1.3.0.rc30.79/jquery.layout-1.3.0.rc30.79.min.js"></script>
+
+
+</HEAD>
+
+<BODY>
+<TABLE>
+<thead><TR  bgcolor="#BFBFBF">
+<TH>Compilation Hierarchy Node</TH>
+<TH>Logic Cells</TH>
+<TH>LC Registers</TH>
+<TH>UFM Blocks</TH>
+<TH>Pins</TH>
+<TH>Virtual Pins</TH>
+<TH>LUT-Only LCs</TH>
+<TH>Register-Only LCs</TH>
+<TH>LUT/Register LCs</TH>
+<TH>Carry Chain LCs</TH>
+<TH>Packed LCs</TH>
+<TH>Full Hierarchy Name</TH>
+<TH>Entity Name</TH>
+<TH>Library Name</TH>
+</TR>
+</thead><tbody><TR >
+<TD >|mux_rom_demux</TD>
+<TD >70 (33)</TD>
+<TD >28</TD>
+<TD >0</TD>
+<TD >50</TD>
+<TD >0</TD>
+<TD >42 (24)</TD>
+<TD >1 (1)</TD>
+<TD >27 (8)</TD>
+<TD >22 (0)</TD>
+<TD >1 (1)</TD>
+<TD >|mux_rom_demux</TD>
+<TD >mux_rom_demux</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;|conditional_adder:instcond_addr_1|</TD>
+<TD >3 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >3 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >2 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|conditional_adder:instcond_addr_1</TD>
+<TD >conditional_adder</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|lpm_add_sub:LPM_ADD_SUB_component|</TD>
+<TD >3 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >3 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >2 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component</TD>
+<TD >lpm_add_sub</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|addcore:adder|</TD>
+<TD >3 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >3 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >2 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder</TD>
+<TD >addcore</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|a_csnbuffer:result_node|</TD>
+<TD >3 (3)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >3 (3)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >2 (2)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:result_node</TD>
+<TD >a_csnbuffer</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;|eightBitBusSelector:bus_mux|</TD>
+<TD >4 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|eightBitBusSelector:bus_mux</TD>
+<TD >eightBitBusSelector</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|lpm_mux:LPM_MUX_component|</TD>
+<TD >4 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|eightBitBusSelector:bus_mux|lpm_mux:LPM_MUX_component</TD>
+<TD >lpm_mux</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|mux_j9c:auto_generated|</TD>
+<TD >4 (4)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4 (4)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|eightBitBusSelector:bus_mux|lpm_mux:LPM_MUX_component|mux_j9c:auto_generated</TD>
+<TD >mux_j9c</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;|lpm_counter0:debounce_clk|</TD>
+<TD >26 (0)</TD>
+<TD >19</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >7 (0)</TD>
+<TD >0 (0)</TD>
+<TD >19 (0)</TD>
+<TD >20 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_counter0:debounce_clk</TD>
+<TD >lpm_counter0</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|lpm_counter:LPM_COUNTER_component|</TD>
+<TD >26 (0)</TD>
+<TD >19</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >7 (0)</TD>
+<TD >0 (0)</TD>
+<TD >19 (0)</TD>
+<TD >20 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component</TD>
+<TD >lpm_counter</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|cntr_eri:auto_generated|</TD>
+<TD >26 (20)</TD>
+<TD >19</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >7 (1)</TD>
+<TD >0 (0)</TD>
+<TD >19 (19)</TD>
+<TD >20 (20)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated</TD>
+<TD >cntr_eri</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|cmpr_n0c:cmpr1|</TD>
+<TD >6 (6)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >6 (6)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|cmpr_n0c:cmpr1</TD>
+<TD >cmpr_n0c</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;|lpm_max_comparator:comp_max_1|</TD>
+<TD >4 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_max_comparator:comp_max_1</TD>
+<TD >lpm_max_comparator</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|lpm_compare:LPM_COMPARE_component|</TD>
+<TD >4 (0)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_max_comparator:comp_max_1|lpm_compare:LPM_COMPARE_component</TD>
+<TD >lpm_compare</TD>
+<TD >work</TD>
+</TR>
+</tbody><tbody><TR >
+<TD >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|cmpr_dqi:auto_generated|</TD>
+<TD >4 (4)</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >4 (4)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >0 (0)</TD>
+<TD >|mux_rom_demux|lpm_max_comparator:comp_max_1|lpm_compare:LPM_COMPARE_component|cmpr_dqi:auto_generated</TD>
+<TD >cmpr_dqi</TD>
+<TD >work</TD>
+</TR>
+</tbody></TABLE>
+
+<noscript>JavaScript must be enabled to view the report.</noscript>
+</BODY>
+</HTML>

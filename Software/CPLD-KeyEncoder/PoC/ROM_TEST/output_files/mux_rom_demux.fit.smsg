@@ -1,0 +1,6 @@
+Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
+Warning (332153): Family doesn't support jitter analysis.
+Extra Info (176273): Performing register packing on registers with non-logic cell location assignments
+Extra Info (176274): Completed register packing on registers with non-logic cell location assignments
+Extra Info (176244): Moving registers into LUTs to improve timing and density
+Extra Info (176245): Finished moving registers into LUTs: elapsed time is 00:00:00
