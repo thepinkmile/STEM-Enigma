@@ -1,0 +1,440 @@
+Flow report for mux_rom_demux
+Thu Sep 18 15:06:16 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-------------------------------------------------------------------------+
+; Flow Summary                                                            ;
++-----------------------+-------------------------------------------------+
+; Flow Status           ; Successful - Thu Sep 18 15:06:16 2025           ;
+; Quartus Prime Version ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name         ; mux_rom_demux                                   ;
+; Top-level Entity Name ; mux_rom_demux                                   ;
+; Family                ; MAX II                                          ;
+; Device                ; EPM240T100C5                                    ;
+; Timing Models         ; Final                                           ;
+; Total logic elements  ; 70 / 240 ( 29 % )                               ;
+; Total pins            ; 50 / 80 ( 63 % )                                ;
+; Total virtual pins    ; 0                                               ;
+; UFM blocks            ; 0 / 1 ( 0 % )                                   ;
++-----------------------+-------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 09/18/2025 15:05:49 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; mux_rom_demux       ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                               ;
++--------------------------------------------------------------------------------+
+Assignment Name : COMPILER_SIGNATURE_ID
+Value           : 247259809666696.175820434911752
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : EDA_GENERATE_FUNCTIONAL_NETLIST
+Value           : Off
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_board_design_timing
+
+Assignment Name : EDA_GENERATE_FUNCTIONAL_NETLIST
+Value           : Off
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_board_design_boundary_scan
+
+Assignment Name : EDA_GENERATE_FUNCTIONAL_NETLIST
+Value           : Off
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_board_design_signal_integrity
+
+Assignment Name : EDA_GENERATE_FUNCTIONAL_NETLIST
+Value           : Off
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_board_design_symbol
+
+Assignment Name : EDA_NETLIST_WRITER_OUTPUT_DIR
+Value           : simulation/modelsim
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_simulation
+
+Assignment Name : EDA_OUTPUT_DATA_FORMAT
+Value           : Verilog Hdl
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_simulation
+
+Assignment Name : EDA_SIMULATION_TOOL
+Value           : Questa Intel FPGA (Verilog)
+Default Value   : <None>
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : EDA_TIME_SCALE
+Value           : 1 ps
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_simulation
+
+Assignment Name : EDA_USER_COMPILED_SIMULATION_LIBRARY_DIRECTORY
+Value           : sim_files
+Default Value   : --
+Entity Name     : --
+Section Id      : eda_simulation
+
+Assignment Name : FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS
+Value           : On
+Default Value   : Off
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : FLOW_ENABLE_RTL_VIEWER
+Value           : On
+Default Value   : Off
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MAX_CORE_JUNCTION_TEMP
+Value           : 85
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MIN_CORE_JUNCTION_TEMP
+Value           : 0
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_counter0.bsf
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_counter0_inst.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_counter0_bb.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_counter0.inc
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_counter0.cmp
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_counter0_syn.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_max_comparator.bsf
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_max_comparator_inst.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_max_comparator_bb.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_max_comparator.inc
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_max_comparator.cmp
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : lpm_max_comparator_syn.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : conditional_adder.bsf
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : conditional_adder_inst.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : conditional_adder_bb.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : conditional_adder.inc
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : conditional_adder.cmp
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : conditional_adder_syn.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : eightBitBusSelector.bsf
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : eightBitBusSelector_inst.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : eightBitBusSelector_bb.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : eightBitBusSelector.inc
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : eightBitBusSelector.cmp
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : MISC_FILE
+Value           : eightBitBusSelector_syn.v
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : NUM_PARALLEL_PROCESSORS
+Value           : All
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR
+Value           : 3.3V
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : POWER_PRESET_COOLING_SOLUTION
+Value           : No Heat Sink With Still Air
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : PROJECT_OUTPUT_DIRECTORY
+Value           : output_files
+Default Value   : --
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : SMART_RECOMPILE
+Value           : On
+Default Value   : Off
+Entity Name     : --
+Section Id      : --
+
+Assignment Name : TIMING_ANALYZER_MULTICORNER_ANALYSIS
+Value           : On
+Default Value   : Off
+Entity Name     : --
+Section Id      : --
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                              ;
++--------------------------------------------------------------------------------+
+Module Name                        : Analysis & Synthesis
+Elapsed Time                       : 00:00:13
+Average Processors Used            : 1.0
+Peak Virtual Memory                : 4725 MB
+Total CPU Time (on all processors) : 00:00:29
+
+Module Name                        : I/O Assignment Analysis
+Elapsed Time                       : 00:00:01
+Average Processors Used            : 1.0
+Peak Virtual Memory                : 4890 MB
+Total CPU Time (on all processors) : 00:00:01
+
+Module Name                        : Fitter
+Elapsed Time                       : 00:00:01
+Average Processors Used            : 1.0
+Peak Virtual Memory                : 5075 MB
+Total CPU Time (on all processors) : 00:00:01
+
+Module Name                        : Assembler
+Elapsed Time                       : 00:00:00
+Average Processors Used            : 1.0
+Peak Virtual Memory                : 4664 MB
+Total CPU Time (on all processors) : 00:00:01
+
+Module Name                        : Timing Analyzer
+Elapsed Time                       : 00:00:01
+Average Processors Used            : 1.0
+Peak Virtual Memory                : 4665 MB
+Total CPU Time (on all processors) : 00:00:01
+
+Module Name                        : EDA Netlist Writer
+Elapsed Time                       : 00:00:01
+Average Processors Used            : 1.0
+Peak Virtual Memory                : 4624 MB
+Total CPU Time (on all processors) : 00:00:01
+
+Module Name                        : Total
+Elapsed Time                       : 00:00:17
+Average Processors Used            : --
+Peak Virtual Memory                : --
+Total CPU Time (on all processors) : 00:00:34
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Flow OS Summary                                                                ;
++--------------------------------------------------------------------------------+
+Module Name      : Analysis & Synthesis
+Machine Hostname : GBT-LPT-MMG
+OS Name          : Windows 10
+OS Version       : 10.0
+Processor type   : x86_64
+
+Module Name      : I/O Assignment Analysis
+Machine Hostname : GBT-LPT-MMG
+OS Name          : Windows 10
+OS Version       : 10.0
+Processor type   : x86_64
+
+Module Name      : Fitter
+Machine Hostname : GBT-LPT-MMG
+OS Name          : Windows 10
+OS Version       : 10.0
+Processor type   : x86_64
+
+Module Name      : Assembler
+Machine Hostname : GBT-LPT-MMG
+OS Name          : Windows 10
+OS Version       : 10.0
+Processor type   : x86_64
+
+Module Name      : Timing Analyzer
+Machine Hostname : GBT-LPT-MMG
+OS Name          : Windows 10
+OS Version       : 10.0
+Processor type   : x86_64
+
+Module Name      : EDA Netlist Writer
+Machine Hostname : GBT-LPT-MMG
+OS Name          : Windows 10
+OS Version       : 10.0
+Processor type   : x86_64
++--------------------------------------------------------------------------------+
+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off mux_rom_demux -c mux_rom_demux
+quartus_fit --read_settings_files=off --write_settings_files=off mux_rom_demux -c mux_rom_demux --plan
+quartus_fit --read_settings_files=off --write_settings_files=off mux_rom_demux -c mux_rom_demux
+quartus_asm --read_settings_files=off --write_settings_files=off mux_rom_demux -c mux_rom_demux
+quartus_sta mux_rom_demux -c mux_rom_demux
+quartus_eda --read_settings_files=off --write_settings_files=off mux_rom_demux -c mux_rom_demux
+
+
+

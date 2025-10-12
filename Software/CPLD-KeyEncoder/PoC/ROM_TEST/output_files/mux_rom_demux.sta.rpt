@@ -1,0 +1,4223 @@
+Timing Analyzer report for mux_rom_demux
+Thu Sep 18 15:06:14 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow Model Fmax Summary
+  7. Slow Model Setup Summary
+  8. Slow Model Hold Summary
+  9. Slow Model Recovery Summary
+ 10. Slow Model Removal Summary
+ 11. Slow Model Minimum Pulse Width Summary
+ 12. Slow Model Setup: '50M_CLK'
+ 13. Slow Model Hold: '50M_CLK'
+ 14. Fast Model Setup Summary
+ 15. Fast Model Hold Summary
+ 16. Fast Model Recovery Summary
+ 17. Fast Model Removal Summary
+ 18. Fast Model Minimum Pulse Width Summary
+ 19. Fast Model Setup: '50M_CLK'
+ 20. Fast Model Hold: '50M_CLK'
+ 21. Multicorner Timing Analysis Summary
+ 22. Setup Transfers
+ 23. Hold Transfers
+ 24. Report TCCS
+ 25. Report RSKM
+ 26. Unconstrained Paths Summary
+ 27. Clock Status Summary
+ 28. Unconstrained Input Ports
+ 29. Unconstrained Output Ports
+ 30. Unconstrained Input Ports
+ 31. Unconstrained Output Ports
+ 32. Timing Analyzer Messages
+ 33. Timing Analyzer Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                         ;
++-----------------------+---------------------------------------------------------+
+; Quartus Prime Version ; Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                  ;
+; Revision Name         ; mux_rom_demux                                           ;
+; Device Family         ; MAX II                                                  ;
+; Device Name           ; EPM240T100C5                                            ;
+; Timing Models         ; Final                                                   ;
+; Delay Model           ; Combined                                                ;
+; Rise/Fall Delays      ; Unavailable                                             ;
++-----------------------+---------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------+
+; SDC File List                                                                  ;
++--------------------------------------------------------------------------------+
+SDC File Path : mux_rom_demux.sdc
+Status        : OK
+Read at       : Thu Sep 18 15:06:13 2025
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Clocks                                                                         ;
++--------------------------------------------------------------------------------+
+Clock Name  : 50M_CLK
+Type        : Base
+Period      : 20.000
+Frequency   : 50.0 MHz
+Rise        : 0.000
+Fall        : 10.000
+Duty Cycle  : 
+Divide by   : 
+Multiply by : 
+Phase       : 
+Offset      : 
+Edge List   : 
+Edge Shift  : 
+Inverted    : 
+Master      : 
+Source      : 
+Targets     : { clk }
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                        ;
++--------------------------------------------------------------------------------+
+Fmax            : 75.77 MHz
+Restricted Fmax : 75.77 MHz
+Clock Name      : 50M_CLK
+Note            : 
++--------------------------------------------------------------------------------+
+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------------------------------------------------+
+; Slow Model Setup Summary                                                       ;
++--------------------------------------------------------------------------------+
+Clock         : 50M_CLK
+Slack         : 6.802
+End Point TNS : 0.000
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Slow Model Hold Summary                                                        ;
++--------------------------------------------------------------------------------+
+Clock         : 50M_CLK
+Slack         : 2.116
+End Point TNS : 0.000
++--------------------------------------------------------------------------------+
+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width Summary                                         ;
++--------------------------------------------------------------------------------+
+Clock         : 50M_CLK
+Slack         : 9.734
+End Point TNS : 0.000
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Slow Model Setup: '50M_CLK'                                                    ;
++--------------------------------------------------------------------------------+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 6.802
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.865
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.033
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.634
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.187
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.480
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.191
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.476
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.396
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.271
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.422
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.245
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.576
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 12.091
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.669
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.998
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.761
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.906
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.785
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.882
+
+Slack        : 7.833
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.834
+
+Slack        : 7.833
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.834
+
+Slack        : 7.833
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.834
+
+Slack        : 7.833
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 11.834
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Slow Model Hold: '50M_CLK'                                                     ;
++--------------------------------------------------------------------------------+
+Slack        : 2.116
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.337
+
+Slack        : 2.116
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.337
+
+Slack        : 2.117
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.338
+
+Slack        : 2.117
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.338
+
+Slack        : 2.126
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.347
+
+Slack        : 2.126
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.347
+
+Slack        : 2.126
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.347
+
+Slack        : 2.126
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.347
+
+Slack        : 2.127
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.348
+
+Slack        : 2.221
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.442
+
+Slack        : 2.221
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.442
+
+Slack        : 2.221
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.442
+
+Slack        : 2.221
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.442
+
+Slack        : 2.230
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.451
+
+Slack        : 2.230
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.451
+
+Slack        : 2.231
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.452
+
+Slack        : 2.231
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.452
+
+Slack        : 2.231
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.452
+
+Slack        : 2.231
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 2.452
+
+Slack        : 2.948
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.169
+
+Slack        : 2.948
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.169
+
+Slack        : 2.949
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.170
+
+Slack        : 2.949
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.170
+
+Slack        : 2.958
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.179
+
+Slack        : 2.958
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.179
+
+Slack        : 2.958
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.179
+
+Slack        : 2.959
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.180
+
+Slack        : 3.059
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.280
+
+Slack        : 3.059
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.280
+
+Slack        : 3.060
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.281
+
+Slack        : 3.069
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.290
+
+Slack        : 3.069
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.290
+
+Slack        : 3.069
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.290
+
+Slack        : 3.070
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.291
+
+Slack        : 3.161
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.382
+
+Slack        : 3.161
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.382
+
+Slack        : 3.161
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.382
+
+Slack        : 3.170
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.391
+
+Slack        : 3.170
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.391
+
+Slack        : 3.170
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.391
+
+Slack        : 3.170
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.391
+
+Slack        : 3.171
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.392
+
+Slack        : 3.171
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.392
+
+Slack        : 3.180
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.401
+
+Slack        : 3.180
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.401
+
+Slack        : 3.281
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.502
+
+Slack        : 3.281
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.502
+
+Slack        : 3.281
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.502
+
+Slack        : 3.281
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.502
+
+Slack        : 3.282
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.503
+
+Slack        : 3.282
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.503
+
+Slack        : 3.392
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.613
+
+Slack        : 3.392
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.613
+
+Slack        : 3.393
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.614
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.492
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.713
+
+Slack        : 3.503
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.724
+
+Slack        : 3.538
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.759
+
+Slack        : 3.538
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.759
+
+Slack        : 3.538
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.759
+
+Slack        : 3.538
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.759
+
+Slack        : 3.538
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.759
+
+Slack        : 3.539
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.760
+
+Slack        : 3.539
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.760
+
+Slack        : 3.539
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.760
+
+Slack        : 3.539
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.760
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.630
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.851
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.649
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.870
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
+
+Slack        : 3.750
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 3.971
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Fast Model Setup Summary                                                       ;
++--------------------------------------------------------------------------------+
+Clock         : 50M_CLK
+Slack         : 15.477
+End Point TNS : 0.000
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Fast Model Hold Summary                                                        ;
++--------------------------------------------------------------------------------+
+Clock         : 50M_CLK
+Slack         : 0.407
+End Point TNS : 0.000
++--------------------------------------------------------------------------------+
+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width Summary                                         ;
++--------------------------------------------------------------------------------+
+Clock         : 50M_CLK
+Slack         : 9.907
+End Point TNS : 0.000
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Fast Model Setup: '50M_CLK'                                                    ;
++--------------------------------------------------------------------------------+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.477
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.364
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.616
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.225
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.632
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.209
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.660
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.181
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.765
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.076
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.771
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.070
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.790
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.051
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.815
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.026
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.823
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 4.018
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.902
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.939
+
+Slack        : 15.920
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.921
+
+Slack        : 15.920
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.921
+
+Slack        : 15.920
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 20.000
+Clock Skew   : 0.000
+Data Delay   : 3.921
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Fast Model Hold: '50M_CLK'                                                     ;
++--------------------------------------------------------------------------------+
+Slack        : 0.407
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.594
+
+Slack        : 0.407
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.594
+
+Slack        : 0.408
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.595
+
+Slack        : 0.408
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.595
+
+Slack        : 0.412
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.599
+
+Slack        : 0.412
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.599
+
+Slack        : 0.412
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.599
+
+Slack        : 0.412
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.599
+
+Slack        : 0.412
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.599
+
+Slack        : 0.484
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.671
+
+Slack        : 0.484
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.671
+
+Slack        : 0.485
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.672
+
+Slack        : 0.485
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.672
+
+Slack        : 0.488
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.675
+
+Slack        : 0.488
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.675
+
+Slack        : 0.488
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.675
+
+Slack        : 0.488
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.675
+
+Slack        : 0.488
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.675
+
+Slack        : 0.488
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.675
+
+Slack        : 0.607
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.794
+
+Slack        : 0.607
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.794
+
+Slack        : 0.608
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.795
+
+Slack        : 0.608
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.795
+
+Slack        : 0.612
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.799
+
+Slack        : 0.612
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.799
+
+Slack        : 0.612
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.799
+
+Slack        : 0.612
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.799
+
+Slack        : 0.650
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.837
+
+Slack        : 0.650
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.837
+
+Slack        : 0.651
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.838
+
+Slack        : 0.655
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.842
+
+Slack        : 0.655
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.842
+
+Slack        : 0.655
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.842
+
+Slack        : 0.655
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.842
+
+Slack        : 0.689
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.876
+
+Slack        : 0.689
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.876
+
+Slack        : 0.691
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.878
+
+Slack        : 0.692
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.879
+
+Slack        : 0.692
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.879
+
+Slack        : 0.694
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.881
+
+Slack        : 0.694
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.881
+
+Slack        : 0.695
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.882
+
+Slack        : 0.695
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.882
+
+Slack        : 0.695
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.882
+
+Slack        : 0.695
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.882
+
+Slack        : 0.726
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.913
+
+Slack        : 0.726
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.913
+
+Slack        : 0.738
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.925
+
+Slack        : 0.738
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.925
+
+Slack        : 0.738
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.925
+
+Slack        : 0.738
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.925
+
+Slack        : 0.777
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.964
+
+Slack        : 0.777
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.964
+
+Slack        : 0.777
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 0.964
+
+Slack        : 0.814
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.001
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[4]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.858
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[14]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.045
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[2]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.870
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[12]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.057
+
+Slack        : 0.883
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.070
+
+Slack        : 0.883
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.070
+
+Slack        : 0.883
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.070
+
+Slack        : 0.883
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.070
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[1]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.907
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[11]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.094
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[7]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[8]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[3]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[9]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.908
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[13]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[15]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.095
+
+Slack        : 0.939
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.126
+
+Slack        : 0.939
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[17]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.126
+
+Slack        : 0.939
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[10]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[16]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.126
+
+Slack        : 0.939
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[5]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.126
+
+Slack        : 0.939
+From Node    : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[0]
+To Node      : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[6]
+Launch Clock : 50M_CLK
+Latch Clock  : 50M_CLK
+Relationship : 0.000
+Clock Skew   : 0.000
+Data Delay   : 1.126
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++--------------------------------------------------------------------------------+
+Clock               : Worst-case Slack
+Setup               : 6.802
+Hold                : 0.407
+Recovery            : N/A
+Removal             : N/A
+Minimum Pulse Width : 9.734
+
+Clock               :  50M_CLK
+Setup               : 6.802
+Hold                : 0.407
+Recovery            : N/A
+Removal             : N/A
+Minimum Pulse Width : 9.734
+
+Clock               : Design-wide TNS
+Setup               : 0.0
+Hold                : 0.0
+Recovery            : 0.0
+Removal             : 0.0
+Minimum Pulse Width : 0.0
+
+Clock               :  50M_CLK
+Setup               : 0.000
+Hold                : 0.000
+Recovery            : N/A
+Removal             : N/A
+Minimum Pulse Width : 0.000
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Setup Transfers                                                                ;
++--------------------------------------------------------------------------------+
+From Clock : 50M_CLK
+To Clock   : 50M_CLK
+RR Paths   : 1360
+FR Paths   : 0
+RF Paths   : 0
+FF Paths   : 0
++--------------------------------------------------------------------------------+
+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++--------------------------------------------------------------------------------+
+; Hold Transfers                                                                 ;
++--------------------------------------------------------------------------------+
+From Clock : 50M_CLK
+To Clock   : 50M_CLK
+RR Paths   : 1360
+FR Paths   : 0
+RF Paths   : 0
+FF Paths   : 0
++--------------------------------------------------------------------------------+
+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++--------------------------------------------------------------------------------+
+; Unconstrained Paths Summary                                                    ;
++--------------------------------------------------------------------------------+
+Property : Illegal Clocks
+Setup    : 0
+Hold     : 0
+
+Property : Unconstrained Clocks
+Setup    : 7
+Hold     : 7
+
+Property : Unconstrained Input Ports
+Setup    : 36
+Hold     : 36
+
+Property : Unconstrained Input Port Paths
+Setup    : 248
+Hold     : 248
+
+Property : Unconstrained Output Ports
+Setup    : 13
+Hold     : 13
+
+Property : Unconstrained Output Port Paths
+Setup    : 218
+Hold     : 218
++--------------------------------------------------------------------------------+
+
+
+
++--------------------------------------------------------------------------------+
+; Clock Status Summary                                                           ;
++--------------------------------------------------------------------------------+
+Target : clk
+Clock  : 50M_CLK
+Type   : Base
+Status : Constrained
+
+Target : debounce_dff_1
+Clock  : 
+Type   : Base
+Status : Unconstrained
+
+Target : lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Clock  : 
+Type   : Base
+Status : Unconstrained
+
+Target : map_tff_1
+Clock  : 
+Type   : Base
+Status : Unconstrained
+
+Target : map_tff_2
+Clock  : 
+Type   : Base
+Status : Unconstrained
+
+Target : map_tff_3
+Clock  : 
+Type   : Base
+Status : Unconstrained
+
+Target : map_tff_4
+Clock  : 
+Type   : Base
+Status : Unconstrained
+
+Target : map_tff_5
+Clock  : 
+Type   : Base
+Status : Unconstrained
++--------------------------------------------------------------------------------+
+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; IN_1       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_2       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_3       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_4       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_5       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_6       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_7       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_8       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_9       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_10      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_11      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_12      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_13      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_14      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_15      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_16      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_17      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_18      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_19      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_20      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_21      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_22      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_23      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_24      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_25      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_26      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_27      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_28      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_29      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_30      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_31      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_32      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_33      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_34      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_35      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_36      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                             ;
++----------------+---------------------------------------------------------------------------------------+
+; Output Port    ; Comment                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; OUT_1          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_2          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_3          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_4          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_5          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_6          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_7          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_8          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_9          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_10         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_11         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_12         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_OVERFLOW_1 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; IN_1       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_2       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_3       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_4       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_5       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_6       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_7       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_8       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_9       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_10      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_11      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_12      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_13      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_14      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_15      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_16      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_17      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_18      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_19      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_20      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_21      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_22      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_23      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_24      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_25      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_26      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_27      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_28      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_29      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_30      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_31      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_32      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_33      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_34      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_35      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; IN_36      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                             ;
++----------------+---------------------------------------------------------------------------------------+
+; Output Port    ; Comment                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; OUT_1          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_2          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_3          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_4          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_5          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_6          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_7          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_8          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_9          ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_10         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_11         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_12         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT_OVERFLOW_1 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Thu Sep 18 15:06:12 2025
+Info: Command: quartus_sta mux_rom_demux -c mux_rom_demux
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332104): Reading SDC File: 'mux_rom_demux.sdc'
+Warning (332060): Node: debounce_dff_1 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_1 is being clocked by debounce_dff_1
+Warning (332060): Node: map_tff_1 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_2 is being clocked by map_tff_1
+Warning (332060): Node: map_tff_2 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_3 is being clocked by map_tff_2
+Warning (332060): Node: map_tff_3 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_4 is being clocked by map_tff_3
+Warning (332060): Node: map_tff_4 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_5 is being clocked by map_tff_4
+Warning (332060): Node: map_tff_5 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_6 is being clocked by map_tff_5
+Warning (332060): Node: lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register debounce_dff_1 is being clocked by lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Info (332146): Worst-case setup slack is 6.802
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     6.802               0.000 50M_CLK 
+Info (332146): Worst-case hold slack is 2.116
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.116               0.000 50M_CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.734
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.734               0.000 50M_CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Warning (332060): Node: debounce_dff_1 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_1 is being clocked by debounce_dff_1
+Warning (332060): Node: map_tff_1 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_2 is being clocked by map_tff_1
+Warning (332060): Node: map_tff_2 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_3 is being clocked by map_tff_2
+Warning (332060): Node: map_tff_3 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_4 is being clocked by map_tff_3
+Warning (332060): Node: map_tff_4 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_5 is being clocked by map_tff_4
+Warning (332060): Node: map_tff_5 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register map_tff_6 is being clocked by map_tff_5
+Warning (332060): Node: lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register debounce_dff_1 is being clocked by lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|safe_q[18]
+Info (332146): Worst-case setup slack is 15.477
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    15.477               0.000 50M_CLK 
+Info (332146): Worst-case hold slack is 0.407
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.407               0.000 50M_CLK 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.907
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     9.907               0.000 50M_CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info (144001): Generated suppressed messages file C:/__WORK__/DG-STEAM/Enigma/Altera-CPLD/ROM_TEST/output_files/mux_rom_demux.sta.smsg
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4665 megabytes
+    Info: Processing ended: Thu Sep 18 15:06:14 2025
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
++-------------------------------------+
+; Timing Analyzer Suppressed Messages ;
++-------------------------------------+
+The suppressed messages can be found in C:/__WORK__/DG-STEAM/Enigma/Altera-CPLD/ROM_TEST/output_files/mux_rom_demux.sta.smsg.
+
+
