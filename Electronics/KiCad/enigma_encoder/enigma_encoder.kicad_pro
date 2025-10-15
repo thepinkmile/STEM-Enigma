@@ -503,7 +503,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../../dependency_outputs/enigma_encoder.stl",
       "svg": "",
       "vrml": ""
     },
