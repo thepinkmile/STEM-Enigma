@@ -1,4 +1,4 @@
-﻿namespace CodeBreakers.Enigma;
+namespace CodeBreakers.Enigma;
 
 /// <summary>
 /// Represents a rotor in the Enigma machine with configurable wiring and rotation.
@@ -87,6 +87,7 @@ public class Rotor
 
     private static int Mod26(int value)
     {
+        //NB: The additional +26 % 26 is to handle the negative value case and ensures the result is always [0, 25]
         return ((value % 26) + 26) % 26;
     }
 
