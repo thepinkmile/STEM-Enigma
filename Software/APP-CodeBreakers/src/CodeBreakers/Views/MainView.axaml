@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:CodeBreakers.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="CodeBreakers.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!--
+    This only sets the DataContext for the previewer in an IDE.
+    The actual setting of the DataContext is done in the code-behind with an overloaded constructor.
+    -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*,Auto">
+    <TextBox Text="{Binding InputText}" />
+    <Button Content="Encrypt" Command="{Binding ProcessInputCommand}" Grid.Column="1" />
+
+    <TextBlock Text="{Binding CypherText}" Grid.Row="2" Grid.ColumnSpan="2"/>
+  </Grid>
+  
+</UserControl>
