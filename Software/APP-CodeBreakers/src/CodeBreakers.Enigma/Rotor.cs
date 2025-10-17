@@ -5,6 +5,8 @@ namespace CodeBreakers.Enigma;
 /// </summary>
 public class Rotor
 {
+    public event EventHandler? PositionChanged;
+
     private readonly string _wiring;
     private readonly char _notch;
     private int _position;
@@ -16,7 +18,15 @@ public class Rotor
     public int Position
     {
         get => _position;
-        set => _position = value % 26;
+        set
+        {
+            var newValue = value % 26;
+            if (newValue != _position)
+            {
+                _position = newValue;
+                PositionChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 
     /// <summary>

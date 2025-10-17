@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:CodeBreakers.Controls"
              xmlns:vm="clr-namespace:CodeBreakers.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="CodeBreakers.Views.MainView"
@@ -18,6 +19,12 @@
     <TextBox Text="{Binding InputText}" />
     <Button Content="Encrypt" Command="{Binding ProcessInputCommand}" Grid.Column="1" />
 
+    <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
+      <controls:RotorControl Rotor="{Binding LeftRotor}" />
+      <controls:RotorControl Rotor="{Binding MiddleRotor}" />
+      <controls:RotorControl Rotor="{Binding RightRotor}" />
+    </StackPanel>
+    
     <TextBlock Text="{Binding CypherText}" Grid.Row="2" Grid.ColumnSpan="2"/>
   </Grid>
   

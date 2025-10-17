@@ -7,6 +7,8 @@ namespace CodeBreakers.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
+    private readonly EnigmaMachine _enigmaMachine = EnigmaMachine.CreateModelI();
+
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(ProcessInputCommand))]
     public partial string InputText { get; set; }  = "";
@@ -14,11 +16,15 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     public partial string CypherText { get; set; } = "";
 
+    public Rotor LeftRotor => _enigmaMachine.LeftRotor;
+    public Rotor MiddleRotor => _enigmaMachine.MiddleRotor;
+    public Rotor RightRotor => _enigmaMachine.RightRotor;
+
+
     [RelayCommand(CanExecute = nameof(CanProcessInput))]
     private void ProcessInput()
     {
-        var machine = EnigmaMachine.CreateModelI();
-        CypherText = machine.Encrypt(InputText ?? string.Empty);
+        CypherText = _enigmaMachine.Encrypt(InputText ?? string.Empty);
     }
 
     private bool CanProcessInput()

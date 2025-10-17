@@ -5,9 +5,9 @@
 /// </summary>
 public class EnigmaMachine
 {
-    private readonly Rotor _leftRotor;
-    private readonly Rotor _middleRotor;
-    private readonly Rotor _rightRotor;
+    public Rotor LeftRotor { get; }
+    public Rotor MiddleRotor { get; }
+    public Rotor RightRotor { get; }
     private readonly Reflector _reflector;
     private readonly Plugboard _plugboard;
 
@@ -26,9 +26,9 @@ public class EnigmaMachine
         Reflector reflector,
         Plugboard? plugboard = null)
     {
-        _leftRotor = leftRotor ?? throw new ArgumentNullException(nameof(leftRotor));
-        _middleRotor = middleRotor ?? throw new ArgumentNullException(nameof(middleRotor));
-        _rightRotor = rightRotor ?? throw new ArgumentNullException(nameof(rightRotor));
+        LeftRotor = leftRotor ?? throw new ArgumentNullException(nameof(leftRotor));
+        MiddleRotor = middleRotor ?? throw new ArgumentNullException(nameof(middleRotor));
+        RightRotor = rightRotor ?? throw new ArgumentNullException(nameof(rightRotor));
         _reflector = reflector ?? throw new ArgumentNullException(nameof(reflector));
         _plugboard = plugboard ?? new Plugboard();
     }
@@ -56,17 +56,17 @@ public class EnigmaMachine
         position = _plugboard.Swap(position);
 
         // Forward through rotors (right to left)
-        position = _rightRotor.Forward(position);
-        position = _middleRotor.Forward(position);
-        position = _leftRotor.Forward(position);
+        position = RightRotor.Forward(position);
+        position = MiddleRotor.Forward(position);
+        position = LeftRotor.Forward(position);
 
         // Through reflector
         position = _reflector.Reflect(position);
 
         // Backward through rotors (left to right)
-        position = _leftRotor.Backward(position);
-        position = _middleRotor.Backward(position);
-        position = _rightRotor.Backward(position);
+        position = LeftRotor.Backward(position);
+        position = MiddleRotor.Backward(position);
+        position = RightRotor.Backward(position);
 
         // Through plugboard again
         position = _plugboard.Swap(position);
@@ -100,19 +100,19 @@ public class EnigmaMachine
     private void StepRotors()
     {
         // Double-stepping: if middle rotor is at notch, both middle and left rotors step
-        if (_middleRotor.IsAtNotch())
+        if (MiddleRotor.IsAtNotch())
         {
-            _middleRotor.Step();
-            _leftRotor.Step();
+            MiddleRotor.Step();
+            LeftRotor.Step();
         }
         // If right rotor is at notch, middle rotor steps
-        else if (_rightRotor.IsAtNotch())
+        else if (RightRotor.IsAtNotch())
         {
-            _middleRotor.Step();
+            MiddleRotor.Step();
         }
 
         // Right rotor always steps
-        _rightRotor.Step();
+        RightRotor.Step();
     }
 
     /// <summary>
@@ -123,9 +123,9 @@ public class EnigmaMachine
     /// <param name="rightPosition">Right rotor position (0-25 or A-Z).</param>
     public void SetRotorPositions(int leftPosition, int middlePosition, int rightPosition)
     {
-        _leftRotor.Position = leftPosition;
-        _middleRotor.Position = middlePosition;
-        _rightRotor.Position = rightPosition;
+        LeftRotor.Position = leftPosition;
+        MiddleRotor.Position = middlePosition;
+        RightRotor.Position = rightPosition;
     }
 
     /// <summary>
@@ -133,7 +133,7 @@ public class EnigmaMachine
     /// </summary>
     public string GetRotorPositions()
     {
-        return $"{(char)('A' + _leftRotor.Position)}{(char)('A' + _middleRotor.Position)}{(char)('A' + _rightRotor.Position)}";
+        return $"{(char)('A' + LeftRotor.Position)}{(char)('A' + MiddleRotor.Position)}{(char)('A' + RightRotor.Position)}";
     }
 
     /// <summary>
