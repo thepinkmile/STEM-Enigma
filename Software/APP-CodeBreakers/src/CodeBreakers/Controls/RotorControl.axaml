@@ -4,5 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="120" d:DesignHeight="50"
              x:Class="CodeBreakers.Controls.RotorControl">
-  <ButtonSpinner Name="ButtonSpinner" />
+  <StackPanel>
+    <TextBlock Text="Ring Setting" />
+    <ButtonSpinner Name="RingSettingSpinner" />
+    <TextBlock Text="Position" />
+    <ButtonSpinner Name="PositionSpinner" />
+  </StackPanel>
 </UserControl>

@@ -26,24 +26,44 @@ public partial class RotorControl : UserControl
             {
                 rotor.PositionChanged += Rotor_PositionChanged;
                 SetCurrentPosition();
+                RingSettingSpinner.Content = (char)('A' + rotor.RingSetting);
             }
         });
-        ButtonSpinner.Spin += ButtonSpinner_Spin;
+        PositionSpinner.Spin += PositionSpin;
+        RingSettingSpinner.Spin += RingSettingSpin;
     }
+
 
     private void Rotor_PositionChanged(object? sender, EventArgs e)
     {
         SetCurrentPosition();
     }
 
-    private void ButtonSpinner_Spin(object? sender, SpinEventArgs e)
+    private void RingSettingSpin(object? sender, SpinEventArgs e)
     {
         if (Rotor is { } rotor)
         {
             e.Handled = true;
             if (e.Direction == SpinDirection.Increase)
             {
-                rotor.Step();
+                rotor.RingSetting++;
+            }
+            else if (e.Direction == SpinDirection.Decrease)
+            {
+                rotor.RingSetting += 25;
+            }
+            RingSettingSpinner.Content = (char)('A' + rotor.RingSetting);
+        }
+    }
+
+    private void PositionSpin(object? sender, SpinEventArgs e)
+    {
+        if (Rotor is { } rotor)
+        {
+            e.Handled = true;
+            if (e.Direction == SpinDirection.Increase)
+            {
+                rotor.Position++;
             }
             else if (e.Direction == SpinDirection.Decrease)
             {
@@ -57,7 +77,7 @@ public partial class RotorControl : UserControl
     {
         if (Rotor is { } rotor)
         {
-            ButtonSpinner.Content = (char)('A' + rotor.Position);
+            PositionSpinner.Content = (char)('A' + rotor.Position);
         }
     }
 }
