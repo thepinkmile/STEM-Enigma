@@ -1,0 +1,331 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 184 656)
+	(text "encoder" (rect 5 0 52 14)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 624 24 636)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN_1" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_1" (rect 21 27 49 41)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "IN_2" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_2" (rect 21 43 49 57)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "IN_3" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_3" (rect 21 59 49 73)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "IN_4" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_4" (rect 21 75 49 89)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "IN_5" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_5" (rect 21 91 49 105)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "IN_6" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_6" (rect 21 107 49 121)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "IN_7" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_7" (rect 21 123 49 137)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 128)(pt 16 128))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "IN_8" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_8" (rect 21 139 49 153)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 144)(pt 16 144))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "IN_9" (rect 0 0 28 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_9" (rect 21 155 49 169)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "IN_10" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_10" (rect 21 171 57 185)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 176)(pt 16 176))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "IN_11" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_11" (rect 21 187 57 201)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 192)(pt 16 192))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "IN_12" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_12" (rect 21 203 57 217)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 208)(pt 16 208))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "IN_13" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_13" (rect 21 219 57 233)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 224)(pt 16 224))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "IN_14" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_14" (rect 21 235 57 249)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 240)(pt 16 240))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "IN_15" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_15" (rect 21 251 57 265)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 256)(pt 16 256))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "IN_16" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_16" (rect 21 267 57 281)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 272)(pt 16 272))
+	)
+	(port
+		(pt 0 288)
+		(input)
+		(text "IN_17" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_17" (rect 21 283 57 297)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 288)(pt 16 288))
+	)
+	(port
+		(pt 0 304)
+		(input)
+		(text "IN_18" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_18" (rect 21 299 57 313)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 304)(pt 16 304))
+	)
+	(port
+		(pt 0 320)
+		(input)
+		(text "IN_19" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_19" (rect 21 315 57 329)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 320)(pt 16 320))
+	)
+	(port
+		(pt 0 336)
+		(input)
+		(text "IN_20" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_20" (rect 21 331 57 345)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 336)(pt 16 336))
+	)
+	(port
+		(pt 0 352)
+		(input)
+		(text "IN_21" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_21" (rect 21 347 57 361)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 352)(pt 16 352))
+	)
+	(port
+		(pt 0 368)
+		(input)
+		(text "IN_22" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_22" (rect 21 363 57 377)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 368)(pt 16 368))
+	)
+	(port
+		(pt 0 384)
+		(input)
+		(text "IN_23" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_23" (rect 21 379 57 393)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 384)(pt 16 384))
+	)
+	(port
+		(pt 0 400)
+		(input)
+		(text "IN_24" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_24" (rect 21 395 57 409)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 400)(pt 16 400))
+	)
+	(port
+		(pt 0 416)
+		(input)
+		(text "IN_25" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_25" (rect 21 411 57 425)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 416)(pt 16 416))
+	)
+	(port
+		(pt 0 432)
+		(input)
+		(text "IN_26" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_26" (rect 21 427 57 441)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 432)(pt 16 432))
+	)
+	(port
+		(pt 0 448)
+		(input)
+		(text "IN_27" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_27" (rect 21 443 57 457)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 448)(pt 16 448))
+	)
+	(port
+		(pt 0 464)
+		(input)
+		(text "IN_28" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_28" (rect 21 459 57 473)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 464)(pt 16 464))
+	)
+	(port
+		(pt 0 480)
+		(input)
+		(text "IN_29" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_29" (rect 21 475 57 489)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 480)(pt 16 480))
+	)
+	(port
+		(pt 0 496)
+		(input)
+		(text "IN_30" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_30" (rect 21 491 57 505)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 496)(pt 16 496))
+	)
+	(port
+		(pt 0 512)
+		(input)
+		(text "IN_31" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_31" (rect 21 507 57 521)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 512)(pt 16 512))
+	)
+	(port
+		(pt 0 528)
+		(input)
+		(text "IN_32" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_32" (rect 21 523 57 537)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 528)(pt 16 528))
+	)
+	(port
+		(pt 0 544)
+		(input)
+		(text "IN_33" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_33" (rect 21 539 57 553)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 544)(pt 16 544))
+	)
+	(port
+		(pt 0 560)
+		(input)
+		(text "IN_34" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_34" (rect 21 555 57 569)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 560)(pt 16 560))
+	)
+	(port
+		(pt 0 576)
+		(input)
+		(text "IN_35" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_35" (rect 21 571 57 585)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 576)(pt 16 576))
+	)
+	(port
+		(pt 0 592)
+		(input)
+		(text "IN_36" (rect 0 0 36 14)(font "Intel Clear" (font_size 8)))
+		(text "IN_36" (rect 21 587 57 601)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 592)(pt 16 592))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "OUT_BIT_1" (rect 0 0 69 14)(font "Intel Clear" (font_size 8)))
+		(text "OUT_BIT_1" (rect 78 27 147 41)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 32)(pt 152 32))
+	)
+	(port
+		(pt 168 48)
+		(output)
+		(text "OUT_BIT_2" (rect 0 0 69 14)(font "Intel Clear" (font_size 8)))
+		(text "OUT_BIT_2" (rect 78 43 147 57)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 48)(pt 152 48))
+	)
+	(port
+		(pt 168 64)
+		(output)
+		(text "OUT_BIT_3" (rect 0 0 69 14)(font "Intel Clear" (font_size 8)))
+		(text "OUT_BIT_3" (rect 78 59 147 73)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 64)(pt 152 64))
+	)
+	(port
+		(pt 168 80)
+		(output)
+		(text "OUT_BIT_4" (rect 0 0 69 14)(font "Intel Clear" (font_size 8)))
+		(text "OUT_BIT_4" (rect 78 75 147 89)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 80)(pt 152 80))
+	)
+	(port
+		(pt 168 96)
+		(output)
+		(text "OUT_BIT_5" (rect 0 0 69 14)(font "Intel Clear" (font_size 8)))
+		(text "OUT_BIT_5" (rect 78 91 147 105)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 96)(pt 152 96))
+	)
+	(port
+		(pt 168 112)
+		(output)
+		(text "OUT_BIT_6" (rect 0 0 69 14)(font "Intel Clear" (font_size 8)))
+		(text "OUT_BIT_6" (rect 78 107 147 121)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 112)(pt 152 112))
+	)
+	(port
+		(pt 168 128)
+		(output)
+		(text "SIGNAL_KEY" (rect 0 0 76 14)(font "Intel Clear" (font_size 8)))
+		(text "SIGNAL_KEY" (rect 71 123 147 137)(font "Intel Clear" (font_size 8)))
+		(line (pt 168 128)(pt 152 128))
+	)
+	(drawing
+		(rectangle (rect 16 16 152 624))
+	)
+)

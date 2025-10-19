@@ -1,0 +1,17 @@
+#=========================================================
+# create clock
+#=========================================================
+create_generated_clock -name bit1_clk -source [get_ports {COUNTER_CLK}] -multiply_by 2 [get_pins {map_tff_1|clk}]
+create_generated_clock -name bit2_clk -source [get_registers {map_tff_1}] -multiply_by 2 [get_pins {map_tff_2|clk}]
+create_generated_clock -name bit3_clk -source [get_registers {map_tff_2}] -multiply_by 2 [get_pins {map_tff_3|clk}]
+create_generated_clock -name bit4_clk -source [get_registers {map_tff_3}] -multiply_by 2 [get_pins {map_tff_4|clk}]
+
+#=========================================================
+# create generated clock
+#=========================================================
+derive_pll_clocks
+
+#=========================================================
+# set clock uncertainty
+#=========================================================
+derive_clock_uncertainty
