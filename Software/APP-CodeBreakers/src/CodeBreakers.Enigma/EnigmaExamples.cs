@@ -38,8 +38,8 @@ public static class EnigmaExamples
             rotorOrder: "II IV V",        // Rotor selection (left to right)
             rotorPositions: "BUL",        // Initial positions
             ringSettings: "AAV",          // Ring settings
-            reflectorType: "UKW-B",       // Reflector type (B was most common)
-            plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX" // 10 plugboard pairs
+            reflectorType: "UKW-B"        // Reflector type (B was most common)
+            //plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX" // 10 plugboard pairs
         );
 
         string message = "ENIGMA CIPHER MACHINE";
@@ -54,8 +54,8 @@ public static class EnigmaExamples
             rotorOrder: "II IV V",
             rotorPositions: "BUL",
             ringSettings: "AAV",
-            reflectorType: "UKW-B",
-            plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX"
+            reflectorType: "UKW-B"
+            //plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX"
         );
         
         string decrypted = decryptMachine.Encode(encrypted);
@@ -72,7 +72,7 @@ public static class EnigmaExamples
         var middleRotor = Rotor.EnigmaI.II(position: 0, ringSetting: 0);
         var rightRotor = Rotor.EnigmaI.III(position: 0, ringSetting: 0);
         var reflector = Reflector.EnigmaI.UKW_B();
-        var plugboard = new Plugboard("AB CD EF GH IJ");
+        var plugboard = new Plugboard((0, 1), (2, 3), (4, 5), (6, 7), (8, 9));
 
         // Create the machine
         var enigma = new EnigmaMachine(
@@ -103,8 +103,8 @@ public static class EnigmaExamples
             rotorOrder: "II IV V",
             rotorPositions: "BLA",
             ringSettings: "BUL",
-            reflectorType: "UKW-B",
-            plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX"
+            reflectorType: "UKW-B"
+            //plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX"
         );
 
         string message = "OPERATION BARBAROSSA BEGINS AT DAWN";

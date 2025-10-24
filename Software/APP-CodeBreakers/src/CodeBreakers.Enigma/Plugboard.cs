@@ -5,51 +5,37 @@ namespace CodeBreakers.Enigma;
 /// </summary>
 public class Plugboard
 {
-    private readonly Dictionary<char, char> _connections = [];
+    internal static Plugboard Empty { get; } = new();
+
+    private readonly Dictionary<int, int> _connections = [];
+
+    internal int MaxPosition => 
+        _connections.Keys.Concat(_connections.Values).DefaultIfEmpty(0).Max();
 
     /// <summary>
     /// Initializes a new plugboard with the specified letter pairs.
     /// </summary>
-    /// <param name="pairs">Space-separated pairs of letters to swap (e.g., "AB CD EF").</param>
-    public Plugboard(string pairs = "")
+    /// <param name="pairs">Pairs of positions into the machine's key set</param>
+    public Plugboard(params (int, int)[] connections)
     {
-        if (string.IsNullOrWhiteSpace(pairs))
-            return;
-
-        var pairList = pairs.ToUpper().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
-        foreach (var pair in pairList)
+        foreach (var (source, destination) in connections)
         {
-            if (pair.Length != 2)
-                throw new ArgumentException($"Invalid pair: {pair}. Each pair must contain exactly 2 letters.");
+            if (source == destination)
+                throw new ArgumentException($"Cannot connect position to itself: {source}");
+            if (source < 0 || destination < 0)
+                throw new ArgumentException("Positions must be non-negative.");
+            if (_connections.ContainsKey(source))
+                throw new ArgumentException($"Position already connected: {source}");
 
-            char a = pair[0];
-            char b = pair[1];
-
-            if (_connections.ContainsKey(a) || _connections.ContainsKey(b))
-                throw new ArgumentException($"Letter already connected: {pair}");
-
-            _connections[a] = b;
-            _connections[b] = a;
+            _connections[source] = destination;
         }
     }
 
     /// <summary>
-    /// Swaps the letter if it's connected in the plugboard.
-    /// </summary>
-    public char Swap(char letter)
-    {
-        letter = char.ToUpper(letter);
-        return _connections.TryGetValue(letter, out var swapped) ? swapped : letter;
-    }
-
-    /// <summary>
-    /// Swaps the letter by position (0-25).
+    /// Swaps the position if it's connected in the plugboard.
     /// </summary>
     public int Swap(int position)
     {
-        char letter = (char)('A' + position);
-        char swapped = Swap(letter);
-        return swapped - 'A';
+        return _connections.TryGetValue(position, out var swapped) ? swapped : position;
     }
 }

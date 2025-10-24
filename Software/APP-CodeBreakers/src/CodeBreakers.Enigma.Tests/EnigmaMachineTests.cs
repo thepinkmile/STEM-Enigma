@@ -112,7 +112,7 @@ public class EnigmaMachineTests
     }
 
     [Fact]
-    public void Constructor_WithNullPlugboard_CreatesDefaultPlugboard()
+    public void Constructor_WithPlugboardWithOutOfRangeConnection_ThrowsArgumentException()
     {
         // Arrange
         var leftRotor = Rotor.EnigmaI.I();
@@ -120,11 +120,9 @@ public class EnigmaMachineTests
         var rightRotor = Rotor.EnigmaI.III();
         var reflector = Reflector.EnigmaI.UKW_B();
 
-        // Act
-        var enigma = new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector, null);
-
-        // Assert
-        Assert.NotNull(enigma);
+        // Act + Assert
+        var ex = Assert.Throws<ArgumentException>(() => new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector, new Plugboard((0, 26))));
+        Assert.Equal("plugboard", ex.ParamName);
     }
 
     #endregion
@@ -459,19 +457,6 @@ public class EnigmaMachineTests
     }
 
     [Theory]
-    [InlineData("AB CD EF")]
-    [InlineData("")]
-    [InlineData("AB")]
-    public void CreateModelI_WithPlugboardPairs_CreatesValidMachine(string plugboardPairs)
-    {
-        // Act
-        var enigma = EnigmaMachine.CreateModelI(plugboardPairs: plugboardPairs);
-
-        // Assert
-        Assert.NotNull(enigma);
-    }
-
-    [Theory]
     [InlineData("1")]
     [InlineData("2")]
     [InlineData("3")]
@@ -508,8 +493,7 @@ public class EnigmaMachineTests
             rotorOrder: "I II III",
             rotorPositions: "AAA",
             ringSettings: "AAA",
-            reflectorType: "UKW-B",
-            plugboardPairs: ""
+            reflectorType: "UKW-B"
         );
 
         // Act
@@ -545,7 +529,7 @@ public class EnigmaMachineTests
             rotorPositions: "MCK",
             ringSettings: "ABC",
             reflectorType: "UKW-B",
-            plugboardPairs: "AB CD"
+            plugboardPairs: [(0, 1), (2, 3)]
         );
 
         var enigma2 = EnigmaMachine.CreateModelI(
@@ -553,7 +537,7 @@ public class EnigmaMachineTests
             rotorPositions: "MCK",
             ringSettings: "ABC",
             reflectorType: "UKW-B",
-            plugboardPairs: "AB CD"
+            plugboardPairs: [(0, 1), (2, 3)]
         );
 
         var plaintext = "HELLO";
@@ -579,7 +563,18 @@ public class EnigmaMachineTests
             rotorPositions: "WXC",
             ringSettings: "ABC",
             reflectorType: "UKW-C",
-            plugboardPairs: "AD FT GW HY IJ KO LP NZ QM"
+            plugboardPairs: new(int, int)[]
+            { 
+                (0, 3), (3, 0),
+                (5, 19), (19, 5),
+                (6, 22), (22, 6),
+                (7, 24), (24, 7),
+                (8, 9), (9, 8),
+                (10, 14), (14, 10),
+                (11, 15), (15, 11),
+                (13, 25), (25, 13),
+                (16, 12), (12, 16)
+            }
         );
 
         var enigma1 = EnigmaMachine.CreateModelI(

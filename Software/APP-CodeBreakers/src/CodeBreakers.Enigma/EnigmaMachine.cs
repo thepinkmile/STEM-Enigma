@@ -37,7 +37,13 @@ public class EnigmaMachine
             throw new ArgumentException("Reflector wiring length must equal character set length.", nameof(reflector));
         _reflector = reflector;
 
-        _plugboard = plugboard ?? new Plugboard();
+        if (plugboard != null)
+        {
+            if (plugboard.MaxPosition >= CharacterSet.Length)
+                throw new ArgumentException("Plugboard positions must be within character set length.", nameof(plugboard));
+        }
+
+        _plugboard = plugboard ?? Plugboard.Empty;
     }
 
     /// <summary>
@@ -156,7 +162,7 @@ public class EnigmaMachine
         string rotorPositions = "AAA",
         string ringSettings = "AAA",
         string reflectorType = "UKW-B",
-        string plugboardPairs = "")
+        params (int, int)[] plugboardPairs)
     {
         var rotors = rotorOrder.Split(' ', StringSplitOptions.RemoveEmptyEntries);
         if (rotors.Length != 3)
