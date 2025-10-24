@@ -1,13 +1,14 @@
-﻿namespace CodeBreakers.Enigma;
+﻿using System.Text;
+
+namespace CodeBreakers.Enigma;
 
 /// <summary>
 /// Represents an Enigma Model I machine with three rotors, a reflector, and a plugboard.
 /// </summary>
 public class EnigmaMachine
 {
-    public Rotor LeftRotor { get; }
-    public Rotor MiddleRotor { get; }
-    public Rotor RightRotor { get; }
+    public IReadOnlyList<Rotor> Rotors { get; }
+
     private readonly Reflector _reflector;
     private readonly Plugboard _plugboard;
 
@@ -20,15 +21,15 @@ public class EnigmaMachine
     /// <param name="reflector">The reflector.</param>
     /// <param name="plugboard">The plugboard (optional).</param>
     public EnigmaMachine(
-        Rotor leftRotor,
-        Rotor middleRotor,
-        Rotor rightRotor,
+        ICollection<Rotor> rotors,
         Reflector reflector,
         Plugboard? plugboard = null)
     {
-        LeftRotor = leftRotor ?? throw new ArgumentNullException(nameof(leftRotor));
-        MiddleRotor = middleRotor ?? throw new ArgumentNullException(nameof(middleRotor));
-        RightRotor = rightRotor ?? throw new ArgumentNullException(nameof(rightRotor));
+        ArgumentNullException.ThrowIfNull(rotors);
+        if (rotors.Count < 3) throw new ArgumentOutOfRangeException(nameof(rotors), "At least 3 rotors are required.");
+        if (rotors.Any(x => x is null)) throw new ArgumentException("Rotor collection contains null elements.", nameof(rotors));
+        Rotors = [..rotors];
+
         _reflector = reflector ?? throw new ArgumentNullException(nameof(reflector));
         _plugboard = plugboard ?? new Plugboard();
     }
@@ -56,17 +57,19 @@ public class EnigmaMachine
         position = _plugboard.Swap(position);
 
         // Forward through rotors (right to left)
-        position = RightRotor.Forward(position);
-        position = MiddleRotor.Forward(position);
-        position = LeftRotor.Forward(position);
+        for (int i = Rotors.Count - 1; i >= 0; i--)
+        {
+            position = Rotors[i].Forward(position);
+        }
 
         // Through reflector
         position = _reflector.Reflect(position);
 
         // Backward through rotors (left to right)
-        position = LeftRotor.Backward(position);
-        position = MiddleRotor.Backward(position);
-        position = RightRotor.Backward(position);
+        for (int i = 0; i < Rotors.Count; i++)
+        {
+            position = Rotors[i].Backward(position);
+        }
 
         // Through plugboard again
         position = _plugboard.Swap(position);
@@ -99,20 +102,13 @@ public class EnigmaMachine
     /// </summary>
     private void StepRotors()
     {
-        // Double-stepping: if middle rotor is at notch, both middle and left rotors step
-        if (MiddleRotor.IsAtNotch())
+        for(int i = 0; i < Rotors.Count; i++)
         {
-            MiddleRotor.Step();
-            LeftRotor.Step();
+            if (i == Rotors.Count - 1 || Rotors[i + 1].IsAtNotch())
+            {
+                Rotors[i].Step();
+            }
         }
-        // If right rotor is at notch, middle rotor steps
-        else if (RightRotor.IsAtNotch())
-        {
-            MiddleRotor.Step();
-        }
-
-        // Right rotor always steps
-        RightRotor.Step();
     }
 
     /// <summary>
@@ -121,11 +117,12 @@ public class EnigmaMachine
     /// <param name="leftPosition">Left rotor position (0-25 or A-Z).</param>
     /// <param name="middlePosition">Middle rotor position (0-25 or A-Z).</param>
     /// <param name="rightPosition">Right rotor position (0-25 or A-Z).</param>
+    [Obsolete("This API needs to be redone to work with a list")]
     public void SetRotorPositions(int leftPosition, int middlePosition, int rightPosition)
     {
-        LeftRotor.Position = leftPosition;
-        MiddleRotor.Position = middlePosition;
-        RightRotor.Position = rightPosition;
+        Rotors[0].Position = leftPosition;
+        Rotors[1].Position = middlePosition;
+        Rotors[2].Position = rightPosition;
     }
 
     /// <summary>
@@ -133,7 +130,14 @@ public class EnigmaMachine
     /// </summary>
     public string GetRotorPositions()
     {
-        return $"{(char)('A' + LeftRotor.Position)}{(char)('A' + MiddleRotor.Position)}{(char)('A' + RightRotor.Position)}";
+        StringBuilder sb = new();
+
+        foreach (var rotor in Rotors)
+        {
+            sb.Append((char)('A' + rotor.Position));
+        }
+
+        return sb.ToString();
     }
 
     /// <summary>
@@ -169,7 +173,7 @@ public class EnigmaMachine
         for (int i = 0; i < 3; i++)
         {
             positions[i] = char.ToUpper(rotorPositions[i]) - 'A';
-            
+
             char ringSetting = char.ToUpper(ringSettings[i]);
             rings[i] = char.IsDigit(ringSetting) ? int.Parse(ringSetting.ToString()) - 1 : ringSetting - 'A';
         }
@@ -191,7 +195,7 @@ public class EnigmaMachine
         // Create plugboard
         Plugboard plugboard = new(plugboardPairs);
 
-        return new EnigmaMachine(leftRotor, middleRotor, rightRotor, reflector, plugboard);
+        return new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector, plugboard);
     }
 
     private static Rotor CreateRotor(string type, int position, int ringSetting)

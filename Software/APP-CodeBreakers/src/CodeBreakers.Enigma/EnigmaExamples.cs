@@ -76,9 +76,11 @@ public static class EnigmaExamples
 
         // Create the machine
         var enigma = new EnigmaMachine(
+            [
             leftRotor,
             middleRotor,
-            rightRotor,
+            rightRotor
+            ],
             reflector,
             plugboard
         );

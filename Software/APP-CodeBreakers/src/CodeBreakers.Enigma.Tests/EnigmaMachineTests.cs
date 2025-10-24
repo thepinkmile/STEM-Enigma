@@ -15,7 +15,7 @@ public class EnigmaMachineTests
         var plugboard = new Plugboard();
 
         // Act
-        var enigma = new EnigmaMachine(leftRotor, middleRotor, rightRotor, reflector, plugboard);
+        var enigma = new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector, plugboard);
 
         // Assert
         Assert.NotNull(enigma);
@@ -30,8 +30,8 @@ public class EnigmaMachineTests
         var reflector = Reflector.ReflectorType.UKW_B();
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => 
-            new EnigmaMachine(null!, middleRotor, rightRotor, reflector));
+        Assert.Throws<ArgumentException>(() => 
+            new EnigmaMachine([null!, middleRotor, rightRotor], reflector));
     }
 
     [Fact]
@@ -43,8 +43,8 @@ public class EnigmaMachineTests
         var reflector = Reflector.ReflectorType.UKW_B();
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => 
-            new EnigmaMachine(leftRotor, null!, rightRotor, reflector));
+        Assert.Throws<ArgumentException>(() => 
+            new EnigmaMachine([leftRotor, null!, rightRotor], reflector));
     }
 
     [Fact]
@@ -56,8 +56,8 @@ public class EnigmaMachineTests
         var reflector = Reflector.ReflectorType.UKW_B();
 
         // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => 
-            new EnigmaMachine(leftRotor, middleRotor, null!, reflector));
+        Assert.Throws<ArgumentException>(() => 
+            new EnigmaMachine([leftRotor, middleRotor, null!], reflector));
     }
 
     [Fact]
@@ -70,7 +70,7 @@ public class EnigmaMachineTests
 
         // Act & Assert
         Assert.Throws<ArgumentNullException>(() => 
-            new EnigmaMachine(leftRotor, middleRotor, rightRotor, null!));
+            new EnigmaMachine([leftRotor, middleRotor, rightRotor], null!));
     }
 
     [Fact]
@@ -83,7 +83,7 @@ public class EnigmaMachineTests
         var reflector = Reflector.ReflectorType.UKW_B();
 
         // Act
-        var enigma = new EnigmaMachine(leftRotor, middleRotor, rightRotor, reflector, null);
+        var enigma = new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector, null);
 
         // Assert
         Assert.NotNull(enigma);

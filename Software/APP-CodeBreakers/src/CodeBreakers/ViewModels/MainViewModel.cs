@@ -16,9 +16,9 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     public partial string CypherText { get; set; } = "";
 
-    public Rotor LeftRotor => _enigmaMachine.LeftRotor;
-    public Rotor MiddleRotor => _enigmaMachine.MiddleRotor;
-    public Rotor RightRotor => _enigmaMachine.RightRotor;
+    public Rotor LeftRotor => _enigmaMachine.Rotors[0];
+    public Rotor MiddleRotor => _enigmaMachine.Rotors[1];
+    public Rotor RightRotor => _enigmaMachine.Rotors[2];
 
 
     [RelayCommand(CanExecute = nameof(CanProcessInput))]
