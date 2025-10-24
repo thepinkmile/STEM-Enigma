@@ -8,35 +8,7 @@ public class ReflectorTests
     public void Constructor_WithValidWiring_CreatesReflector()
     {
         // Arrange
-        var wiring = "EJMZALYXVBWFCRQUONTSPIKHGD";
-
-        // Act
-        var reflector = new Reflector(wiring);
-
-        // Assert
-        Assert.NotNull(reflector);
-    }
-
-    [Fact]
-    public void Constructor_WithLowercaseWiring_ConvertsToUppercase()
-    {
-        // Arrange
-        var wiring = "ejmzalyxvbwfcrquontspikhgd";
-
-        // Act
-        var reflector = new Reflector(wiring);
-
-        // Assert
-        Assert.NotNull(reflector);
-        // Verify it works correctly (E is at position 0, so input 0 should return 4 (E))
-        Assert.Equal(4, reflector.Reflect(0));
-    }
-
-    [Fact]
-    public void Constructor_WithMixedCaseWiring_ConvertsToUppercase()
-    {
-        // Arrange
-        var wiring = "EjMzAlYxVbWfCrQuOnTsPiKhGd";
+        var wiring = KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EJMZALYXVBWFCRQUONTSPIKHGD");
 
         // Act
         var reflector = new Reflector(wiring);
@@ -47,23 +19,13 @@ public class ReflectorTests
 
     [Theory]
     [InlineData(null)]
-    [InlineData("")]
-    public void Constructor_WithNullOrEmptyWiring_ThrowsArgumentException(string? wiring)
+    [InlineData(new int[] { -1 })]
+    [InlineData(new int[] { 0, 1, 2, 4 })]
+    public void Constructor_WithInvalidWiring_ThrowsArgumentException(int[]? wiring)
     {
         // Act & Assert
-        var exception = Assert.Throws<ArgumentException>(() => new Reflector(wiring!));
-        Assert.Contains("Wiring must contain exactly 26 characters", exception.Message);
-    }
-
-    [Theory]
-    [InlineData("ABCDEFGHIJKLMNOPQRSTUVWXY")]   // 25 characters
-    [InlineData("ABCDEFGHIJKLMNOPQRSTUVWXYZ1")] // 27 characters
-    [InlineData("ABC")]                          // Too short
-    public void Constructor_WithInvalidWiringLength_ThrowsArgumentException(string wiring)
-    {
-        // Act & Assert
-        var exception = Assert.Throws<ArgumentException>(() => new Reflector(wiring));
-        Assert.Contains("Wiring must contain exactly 26 characters", exception.Message);
+        var exception = Assert.ThrowsAny<ArgumentException>(() => new Reflector(wiring!));
+        Assert.Contains("wiring", exception.ParamName);
     }
 
     #endregion
@@ -77,7 +39,7 @@ public class ReflectorTests
     public void Reflect_WithValidInput_ReturnsCorrectOutput(int input, int expected)
     {
         // Arrange - Using UKW-A wiring
-        var reflector = new Reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
+        Reflector reflector = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EJMZALYXVBWFCRQUONTSPIKHGD"));
 
         // Act
         var result = reflector.Reflect(input);
@@ -90,7 +52,7 @@ public class ReflectorTests
     public void Reflect_AllPositions_ReturnsValidOutputs()
     {
         // Arrange
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act & Assert
         for (int i = 0; i < 26; i++)
@@ -104,7 +66,7 @@ public class ReflectorTests
     public void Reflect_IsSymmetric_InputOutputArePaired()
     {
         // Arrange
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act & Assert - If A reflects to E, then E must reflect to A
         for (int i = 0; i < 26; i++)
@@ -119,7 +81,7 @@ public class ReflectorTests
     public void Reflect_NeverReflectsToSamePosition_EnigmaProperty()
     {
         // Arrange - This is a fundamental Enigma property
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act & Assert - A letter should never reflect to itself
         for (int i = 0; i < 26; i++)
@@ -133,7 +95,7 @@ public class ReflectorTests
     public void Reflect_WithCustomWiring_WorksCorrectly()
     {
         // Arrange - Create a simple test wiring where A->Z, B->Y, C->X, etc.
-        var wiring = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
+        var wiring = KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "ZYXWVUTSRQPONMLKJIHGFEDCBA");
         var reflector = new Reflector(wiring);
 
         // Act & Assert
@@ -151,7 +113,7 @@ public class ReflectorTests
     public void ReflectorType_UKW_A_CreatesValidReflector()
     {
         // Act
-        var reflector = Reflector.ReflectorType.UKW_A();
+        var reflector = Reflector.EnigmaI.UKW_A();
 
         // Assert
         Assert.NotNull(reflector);
@@ -163,7 +125,7 @@ public class ReflectorTests
     public void ReflectorType_UKW_B_CreatesValidReflector()
     {
         // Act
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Assert
         Assert.NotNull(reflector);
@@ -175,7 +137,7 @@ public class ReflectorTests
     public void ReflectorType_UKW_C_CreatesValidReflector()
     {
         // Act
-        var reflector = Reflector.ReflectorType.UKW_C();
+        var reflector = Reflector.EnigmaI.UKW_C();
 
         // Assert
         Assert.NotNull(reflector);
@@ -189,9 +151,9 @@ public class ReflectorTests
         // Arrange
         var reflectors = new[]
         {
-            Reflector.ReflectorType.UKW_A(),
-            Reflector.ReflectorType.UKW_B(),
-            Reflector.ReflectorType.UKW_C()
+            Reflector.EnigmaI.UKW_A(),
+            Reflector.EnigmaI.UKW_B(),
+            Reflector.EnigmaI.UKW_C()
         };
 
         // Act & Assert
@@ -212,9 +174,9 @@ public class ReflectorTests
         // Arrange
         var reflectors = new[]
         {
-            Reflector.ReflectorType.UKW_A(),
-            Reflector.ReflectorType.UKW_B(),
-            Reflector.ReflectorType.UKW_C()
+            Reflector.EnigmaI.UKW_A(),
+            Reflector.EnigmaI.UKW_B(),
+            Reflector.EnigmaI.UKW_C()
         };
 
         // Act & Assert
@@ -232,9 +194,9 @@ public class ReflectorTests
     public void ReflectorType_DifferentTypes_ProduceDifferentReflections()
     {
         // Arrange
-        var ukwA = Reflector.ReflectorType.UKW_A();
-        var ukwB = Reflector.ReflectorType.UKW_B();
-        var ukwC = Reflector.ReflectorType.UKW_C();
+        var ukwA = Reflector.EnigmaI.UKW_A();
+        var ukwB = Reflector.EnigmaI.UKW_B();
+        var ukwC = Reflector.EnigmaI.UKW_C();
 
         // Act & Assert - At least some reflections should be different
         bool foundDifference = false;
@@ -261,7 +223,7 @@ public class ReflectorTests
     public void UKW_A_HasCorrectHistoricalWiring()
     {
         // Arrange
-        var reflector = Reflector.ReflectorType.UKW_A();
+        var reflector = Reflector.EnigmaI.UKW_A();
         var expectedWiring = new Dictionary<int, int>
         {
             { 0, 4 },   // A -> E
@@ -283,7 +245,7 @@ public class ReflectorTests
     public void UKW_B_HasCorrectHistoricalWiring()
     {
         // Arrange
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
         var expectedWiring = new Dictionary<int, int>
         {
             { 0, 24 },  // A -> Y
@@ -305,7 +267,7 @@ public class ReflectorTests
     public void UKW_C_HasCorrectHistoricalWiring()
     {
         // Arrange
-        var reflector = Reflector.ReflectorType.UKW_C();
+        var reflector = Reflector.EnigmaI.UKW_C();
         var expectedWiring = new Dictionary<int, int>
         {
             { 0, 5 },   // A -> F
@@ -331,7 +293,7 @@ public class ReflectorTests
     public void Reflector_UsedInEnigmaMachine_MaintainsSymmetry()
     {
         // Arrange - Simulate Enigma machine reflector usage
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
         var testData = Enumerable.Range(0, 26).ToArray();
 
         // Act - Reflect all positions twice
@@ -351,7 +313,7 @@ public class ReflectorTests
     public void Reflector_AllPositionsMapped_NoDuplicates()
     {
         // Arrange
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var reflector = Reflector.EnigmaI.UKW_B();
         var outputs = new HashSet<int>();
 
         // Act

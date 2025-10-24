@@ -8,8 +8,8 @@ public class RotorTests
     public void Constructor_WithValidParameters_CreatesRotor()
     {
         // Arrange
-        var wiring = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
-        var notch = 'Q';
+        var wiring = KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ");
+        var notch = 16;
 
         // Act
         var rotor = new Rotor(wiring, notch);
@@ -24,8 +24,8 @@ public class RotorTests
     public void Constructor_WithPositionAndRingSetting_SetsCorrectly()
     {
         // Arrange
-        var wiring = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
-        var notch = 'Q';
+        var wiring = KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ");
+        var notch = 16;
         var position = 5;
         var ringSetting = 3;
 
@@ -37,52 +37,15 @@ public class RotorTests
         Assert.Equal(3, rotor.RingSetting);
     }
 
-    [Fact]
-    public void Constructor_WithLowercaseWiring_ConvertsToUppercase()
-    {
-        // Arrange
-        var wiring = "ekmflgdqvzntowyhxuspaibrcj";
-        var notch = 'q';
-
-        // Act
-        var rotor = new Rotor(wiring, notch);
-
-        // Assert
-        Assert.NotNull(rotor);
-        // Verify it works (should produce same results as uppercase)
-        var upperRotor = new Rotor(wiring.ToUpper(), 'Q');
-        Assert.Equal(upperRotor.Forward(0), rotor.Forward(0));
-    }
-
     [Theory]
     [InlineData(null)]
-    [InlineData("")]
-    public void Constructor_WithNullOrEmptyWiring_ThrowsArgumentException(string? wiring)
+    [InlineData(new int[] { -1 })]
+    [InlineData(new int[] { 0, 1, 2, 4 })]
+    public void Constructor_WithInvalidWiring_ThrowsArgumentException(int[]? wiring)
     {
         // Act & Assert
-        var exception = Assert.Throws<ArgumentException>(() => new Rotor(wiring!, 'Q'));
-        Assert.Contains("Wiring must contain exactly 26 characters", exception.Message);
-    }
-
-    [Theory]
-    [InlineData("ABCDEFGHIJKLMNOPQRSTUVWXY")]   // 25 characters
-    [InlineData("ABCDEFGHIJKLMNOPQRSTUVWXYZ1")] // 27 characters
-    [InlineData("ABC")]                          // Too short
-    public void Constructor_WithInvalidWiringLength_ThrowsArgumentException(string wiring)
-    {
-        // Act & Assert
-        var exception = Assert.Throws<ArgumentException>(() => new Rotor(wiring, 'Q'));
-        Assert.Contains("Wiring must contain exactly 26 characters", exception.Message);
-    }
-
-    [Fact]
-    public void Constructor_WithLowercaseNotch_ConvertsToUppercase()
-    {
-        // Arrange & Act
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'q', 16);
-
-        // Assert - Position 16 is 'Q', so should be at notch
-        Assert.True(rotor.IsAtNotch());
+        var exception = Assert.ThrowsAny<ArgumentException>(() => new Rotor(wiring!, 16));
+        Assert.Contains("wiring", exception.ParamName);
     }
 
     #endregion
@@ -96,7 +59,7 @@ public class RotorTests
     public void Position_SetValidValue_SetsCorrectly(int position)
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16);
 
         // Act
         rotor.Position = position;
@@ -112,7 +75,7 @@ public class RotorTests
     public void Position_SetValueOver25_WrapsAround(int input, int expected)
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16);
 
         // Act
         rotor.Position = input;
@@ -125,7 +88,7 @@ public class RotorTests
     public void Position_SetNegativeValue_HandlesByModulo()
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16);
 
         // Act
         rotor.Position = -1;
@@ -146,7 +109,7 @@ public class RotorTests
     public void RingSetting_SetValidValue_SetsCorrectly(int ringSetting)
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16);
 
         // Act
         rotor.RingSetting = ringSetting;
@@ -162,7 +125,7 @@ public class RotorTests
     public void RingSetting_SetValueOver25_WrapsAround(int input, int expected)
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16);
 
         // Act
         rotor.RingSetting = input;
@@ -179,7 +142,7 @@ public class RotorTests
     public void Forward_AtPositionZero_EncodesCorrectly()
     {
         // Arrange - Rotor I wiring at position 0
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0, 0);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0, 0);
 
         // Act - A (0) should map to E (4) based on wiring
         var result = rotor.Forward(0);
@@ -192,7 +155,7 @@ public class RotorTests
     public void Forward_AllInputs_ProduceValidOutputs()
     {
         // Arrange
-        var rotor = Rotor.RotorType.I();
+        var rotor = Rotor.EnigmaI.I();
 
         // Act & Assert
         for (int i = 0; i < 26; i++)
@@ -206,8 +169,8 @@ public class RotorTests
     public void Forward_WithDifferentPositions_ProducesDifferentResults()
     {
         // Arrange
-        var rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0, 0);
-        var rotor2 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 1, 0);
+        Rotor rotor1 = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0, 0);
+        Rotor rotor2 = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 1, 0);
 
         // Act
         var result1 = rotor1.Forward(0);
@@ -221,8 +184,8 @@ public class RotorTests
     public void Forward_WithRingSetting_AffectsOutput()
     {
         // Arrange
-        var rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0, 0);
-        var rotor2 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0, 1);
+        Rotor rotor1 = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0, 0);
+        Rotor rotor2 = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0, 1);
 
         // Act
         var result1 = rotor1.Forward(0);
@@ -240,7 +203,7 @@ public class RotorTests
     public void Backward_AtPositionZero_EncodesCorrectly()
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0, 0);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0, 0);
 
         // Act - Find what input produces output 0
         var result = rotor.Backward(4);
@@ -253,7 +216,7 @@ public class RotorTests
     public void Backward_AllInputs_ProduceValidOutputs()
     {
         // Arrange
-        var rotor = Rotor.RotorType.I();
+        var rotor = Rotor.EnigmaI.I();
 
         // Act & Assert
         for (int i = 0; i < 26; i++)
@@ -267,7 +230,7 @@ public class RotorTests
     public void Backward_ReversesForward_ForAllPositions()
     {
         // Arrange
-        var rotor = Rotor.RotorType.I(5, 2);
+        var rotor = Rotor.EnigmaI.I(5, 2);
 
         // Act & Assert
         for (int i = 0; i < 26; i++)
@@ -282,8 +245,8 @@ public class RotorTests
     public void Backward_WithDifferentPositions_ProducesDifferentResults()
     {
         // Arrange
-        var rotor1 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0, 0);
-        var rotor2 = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 1, 0);
+        Rotor rotor1 = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0, 0);
+        Rotor rotor2 = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 1, 0);
 
         // Act
         var result1 = rotor1.Backward(0);
@@ -301,7 +264,7 @@ public class RotorTests
     public void Step_IncrementsPosition()
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0);
 
         // Act
         rotor.Step();
@@ -314,7 +277,7 @@ public class RotorTests
     public void Step_MultipleTimesIncrementsCorrectly()
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 0);
 
         // Act
         rotor.Step();
@@ -329,7 +292,7 @@ public class RotorTests
     public void Step_AtPosition25_WrapsToZero()
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 25);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 25);
 
         // Act
         rotor.Step();
@@ -342,7 +305,7 @@ public class RotorTests
     public void Step_26Times_ReturnsToOriginalPosition()
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 5);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 5);
 
         // Act
         for (int i = 0; i < 26; i++)
@@ -359,36 +322,10 @@ public class RotorTests
     #region IsAtNotch Tests
 
     [Fact]
-    public void IsAtNotch_WhenAtNotchPosition_ReturnsTrue()
-    {
-        // Arrange - Rotor I has notch at Q (position 16)
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 16);
-
-        // Act
-        var result = rotor.IsAtNotch();
-
-        // Assert
-        Assert.True(result);
-    }
-
-    [Fact]
-    public void IsAtNotch_WhenNotAtNotchPosition_ReturnsFalse()
-    {
-        // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 0);
-
-        // Act
-        var result = rotor.IsAtNotch();
-
-        // Assert
-        Assert.False(result);
-    }
-
-    [Fact]
     public void IsAtNotch_AfterSteppingToNotch_ReturnsTrue()
     {
-        // Arrange - Rotor I has notch at Q (position 16)
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', 15);
+        // Arrange - Rotor I has notch at position 16 (Q)
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), 16, 15);
 
         // Act
         rotor.Step();
@@ -398,21 +335,18 @@ public class RotorTests
     }
 
     [Theory]
-    [InlineData('Q', 16)]
-    [InlineData('E', 4)]
-    [InlineData('V', 21)]
-    [InlineData('A', 0)]
-    [InlineData('Z', 25)]
-    public void IsAtNotch_WithDifferentNotches_DetectsCorrectly(char notch, int position)
+    [InlineData(16, 16, true)]
+    [InlineData(16, 0, false)]
+    public void IsAtNotch_WithDifferentNotches_DetectsCorrectly(int notch, int position, bool expectedIsAtNotch)
     {
         // Arrange
-        var rotor = new Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", notch, position);
+        Rotor rotor = new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EKMFLGDQVZNTOWYHXUSPAIBRCJ"), notch, position);
 
         // Act
         var result = rotor.IsAtNotch();
 
         // Assert
-        Assert.True(result);
+        Assert.Equal(expectedIsAtNotch, result);
     }
 
     #endregion
@@ -423,7 +357,7 @@ public class RotorTests
     public void RotorType_I_CreatesValidRotor()
     {
         // Act
-        var rotor = Rotor.RotorType.I();
+        var rotor = Rotor.EnigmaI.I();
 
         // Assert
         Assert.NotNull(rotor);
@@ -435,7 +369,7 @@ public class RotorTests
     public void RotorType_I_WithParameters_SetsCorrectly()
     {
         // Act
-        var rotor = Rotor.RotorType.I(5, 3);
+        var rotor = Rotor.EnigmaI.I(5, 3);
 
         // Assert
         Assert.Equal(5, rotor.Position);
@@ -447,7 +381,7 @@ public class RotorTests
     public void RotorType_I_HasCorrectNotch(int notchPosition)
     {
         // Arrange & Act
-        var rotor = Rotor.RotorType.I(notchPosition);
+        var rotor = Rotor.EnigmaI.I(notchPosition);
 
         // Assert
         Assert.True(rotor.IsAtNotch());
@@ -458,7 +392,7 @@ public class RotorTests
     public void RotorType_II_HasCorrectNotch(int notchPosition)
     {
         // Arrange & Act
-        var rotor = Rotor.RotorType.II(notchPosition);
+        var rotor = Rotor.EnigmaI.II(notchPosition);
 
         // Assert
         Assert.True(rotor.IsAtNotch());
@@ -469,7 +403,7 @@ public class RotorTests
     public void RotorType_III_HasCorrectNotch(int notchPosition)
     {
         // Arrange & Act
-        var rotor = Rotor.RotorType.III(notchPosition);
+        var rotor = Rotor.EnigmaI.III(notchPosition);
 
         // Assert
         Assert.True(rotor.IsAtNotch());
@@ -480,7 +414,7 @@ public class RotorTests
     public void RotorType_IV_HasCorrectNotch(int notchPosition)
     {
         // Arrange & Act
-        var rotor = Rotor.RotorType.IV(notchPosition);
+        var rotor = Rotor.EnigmaI.IV(notchPosition);
 
         // Assert
         Assert.True(rotor.IsAtNotch());
@@ -491,7 +425,7 @@ public class RotorTests
     public void RotorType_V_HasCorrectNotch(int notchPosition)
     {
         // Arrange & Act
-        var rotor = Rotor.RotorType.V(notchPosition);
+        var rotor = Rotor.EnigmaI.V(notchPosition);
 
         // Assert
         Assert.True(rotor.IsAtNotch());
@@ -503,11 +437,11 @@ public class RotorTests
         // Arrange & Act
         var rotors = new[]
         {
-            Rotor.RotorType.I(),
-            Rotor.RotorType.II(),
-            Rotor.RotorType.III(),
-            Rotor.RotorType.IV(),
-            Rotor.RotorType.V()
+            Rotor.EnigmaI.I(),
+            Rotor.EnigmaI.II(),
+            Rotor.EnigmaI.III(),
+            Rotor.EnigmaI.IV(),
+            Rotor.EnigmaI.V()
         };
 
         // Assert
@@ -526,9 +460,9 @@ public class RotorTests
     public void RotorType_DifferentTypes_HaveDifferentWiring()
     {
         // Arrange
-        var rotor1 = Rotor.RotorType.I();
-        var rotor2 = Rotor.RotorType.II();
-        var rotor3 = Rotor.RotorType.III();
+        var rotor1 = Rotor.EnigmaI.I();
+        var rotor2 = Rotor.EnigmaI.II();
+        var rotor3 = Rotor.EnigmaI.III();
 
         // Act & Assert - At least some outputs should be different
         bool foundDifference = false;
@@ -555,7 +489,7 @@ public class RotorTests
     public void Rotor_ForwardAndBackward_AreInverse()
     {
         // Arrange
-        var rotor = Rotor.RotorType.III(10, 5);
+        var rotor = Rotor.EnigmaI.III(10, 5);
 
         // Act & Assert - Forward then backward should return to original
         for (int i = 0; i < 26; i++)
@@ -570,7 +504,7 @@ public class RotorTests
     public void Rotor_WithPositionChange_AffectsBothDirections()
     {
         // Arrange
-        var rotor = Rotor.RotorType.I(0, 0);
+        var rotor = Rotor.EnigmaI.I(0, 0);
         var initialForward = rotor.Forward(0);
         var initialBackward = rotor.Backward(0);
 
@@ -588,7 +522,7 @@ public class RotorTests
     public void Rotor_CompleteRotation_ChangesEncodingAtEachStep()
     {
         // Arrange
-        var rotor = Rotor.RotorType.I(0, 0);
+        var rotor = Rotor.EnigmaI.I(0, 0);
         var results = new List<int>();
 
         // Act - Record output for 'A' at each position
@@ -606,7 +540,7 @@ public class RotorTests
     public void Rotor_SteppingThroughNotch_DetectsCorrectly()
     {
         // Arrange - Rotor I has notch at Q (position 16)
-        var rotor = Rotor.RotorType.I(15);
+        var rotor = Rotor.EnigmaI.I(15);
 
         // Act & Assert
         Assert.False(rotor.IsAtNotch()); // Position 15 (P)
@@ -620,7 +554,7 @@ public class RotorTests
     public void Rotor_HistoricalWiring_RotorI_ProducesKnownOutput()
     {
         // Arrange - Rotor I at position 0 with ring setting 0
-        var rotor = Rotor.RotorType.I(0, 0);
+        var rotor = Rotor.EnigmaI.I(0, 0);
 
         // Act & Assert - Test known Rotor I wiring: EKMFLGDQVZNTOWYHXUSPAIBRCJ
         Assert.Equal(4, rotor.Forward(0));   // A -> E

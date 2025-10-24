@@ -68,10 +68,10 @@ public static class EnigmaExamples
     public static void CustomExample()
     {
         // Create individual components
-        var leftRotor = Rotor.RotorType.I(position: 0, ringSetting: 0);
-        var middleRotor = Rotor.RotorType.II(position: 0, ringSetting: 0);
-        var rightRotor = Rotor.RotorType.III(position: 0, ringSetting: 0);
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var leftRotor = Rotor.EnigmaI.I(position: 0, ringSetting: 0);
+        var middleRotor = Rotor.EnigmaI.II(position: 0, ringSetting: 0);
+        var rightRotor = Rotor.EnigmaI.III(position: 0, ringSetting: 0);
+        var reflector = Reflector.EnigmaI.UKW_B();
         var plugboard = new Plugboard("AB CD EF GH IJ");
 
         // Create the machine

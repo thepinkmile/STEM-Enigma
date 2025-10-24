@@ -8,10 +8,10 @@ public class EnigmaMachineTests
     public void Constructor_WithValidComponents_CreatesEnigmaMachine()
     {
         // Arrange
-        var leftRotor = Rotor.RotorType.I();
-        var middleRotor = Rotor.RotorType.II();
-        var rightRotor = Rotor.RotorType.III();
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var leftRotor = Rotor.EnigmaI.I();
+        var middleRotor = Rotor.EnigmaI.II();
+        var rightRotor = Rotor.EnigmaI.III();
+        var reflector = Reflector.EnigmaI.UKW_B();
         var plugboard = new Plugboard();
 
         // Act
@@ -25,9 +25,9 @@ public class EnigmaMachineTests
     public void Constructor_WithNullLeftRotor_ThrowsArgumentNullException()
     {
         // Arrange
-        var middleRotor = Rotor.RotorType.II();
-        var rightRotor = Rotor.RotorType.III();
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var middleRotor = Rotor.EnigmaI.II();
+        var rightRotor = Rotor.EnigmaI.III();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act & Assert
         Assert.Throws<ArgumentException>(() => 
@@ -38,9 +38,9 @@ public class EnigmaMachineTests
     public void Constructor_WithNullMiddleRotor_ThrowsArgumentNullException()
     {
         // Arrange
-        var leftRotor = Rotor.RotorType.I();
-        var rightRotor = Rotor.RotorType.III();
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var leftRotor = Rotor.EnigmaI.I();
+        var rightRotor = Rotor.EnigmaI.III();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act & Assert
         Assert.Throws<ArgumentException>(() => 
@@ -51,9 +51,9 @@ public class EnigmaMachineTests
     public void Constructor_WithNullRightRotor_ThrowsArgumentNullException()
     {
         // Arrange
-        var leftRotor = Rotor.RotorType.I();
-        var middleRotor = Rotor.RotorType.II();
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var leftRotor = Rotor.EnigmaI.I();
+        var middleRotor = Rotor.EnigmaI.II();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act & Assert
         Assert.Throws<ArgumentException>(() => 
@@ -61,12 +61,37 @@ public class EnigmaMachineTests
     }
 
     [Fact]
+    public void Constructor_WithInvalidNumberOfRotors_ThrowsArgumentException()
+    {
+        // Arrange
+        var reflector = Reflector.EnigmaI.UKW_B();
+        var rotor1 = Rotor.EnigmaI.I();
+        var rotor2 = Rotor.EnigmaI.II();
+        // Act & Assert
+        Assert.Throws<ArgumentOutOfRangeException>(() => 
+            new EnigmaMachine([rotor1, rotor2], reflector));
+    }
+
+    [Fact]
+    public void Constructor_WithRotorWithDifferentWiringLength_ThrowsArgumentException()
+    {
+        // Arrange
+        var leftRotor = new Rotor([0, 1, 2, 3, 4], notch: 0);
+        var middleRotor = Rotor.EnigmaI.II();
+        var rightRotor = Rotor.EnigmaI.III();
+        var reflector = Reflector.EnigmaI.UKW_B();
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => 
+            new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector));
+    }
+
+    [Fact]
     public void Constructor_WithNullReflector_ThrowsArgumentNullException()
     {
         // Arrange
-        var leftRotor = Rotor.RotorType.I();
-        var middleRotor = Rotor.RotorType.II();
-        var rightRotor = Rotor.RotorType.III();
+        var leftRotor = Rotor.EnigmaI.I();
+        var middleRotor = Rotor.EnigmaI.II();
+        var rightRotor = Rotor.EnigmaI.III();
 
         // Act & Assert
         Assert.Throws<ArgumentNullException>(() => 
@@ -74,13 +99,26 @@ public class EnigmaMachineTests
     }
 
     [Fact]
+    public void Constructor_WithRelfectorWithDifferentWiringLength_ThrowsArgumentException()
+    {
+        // Arrange
+        var leftRotor = Rotor.EnigmaI.I();
+        var middleRotor = Rotor.EnigmaI.II();
+        var rightRotor = Rotor.EnigmaI.III();
+        var reflector = new Reflector([0, 1, 2]);
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() =>
+            new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector));
+    }
+
+    [Fact]
     public void Constructor_WithNullPlugboard_CreatesDefaultPlugboard()
     {
         // Arrange
-        var leftRotor = Rotor.RotorType.I();
-        var middleRotor = Rotor.RotorType.II();
-        var rightRotor = Rotor.RotorType.III();
-        var reflector = Reflector.ReflectorType.UKW_B();
+        var leftRotor = Rotor.EnigmaI.I();
+        var middleRotor = Rotor.EnigmaI.II();
+        var rightRotor = Rotor.EnigmaI.III();
+        var reflector = Reflector.EnigmaI.UKW_B();
 
         // Act
         var enigma = new EnigmaMachine([leftRotor, middleRotor, rightRotor], reflector, null);
@@ -128,24 +166,6 @@ public class EnigmaMachineTests
         Assert.True(resultLowercase >= 'A' && resultLowercase <= 'Z');
     }
 
-    [Theory]
-    [InlineData(' ')]
-    [InlineData('0')]
-    [InlineData('9')]
-    [InlineData('!')]
-    [InlineData('.')]
-    public void EncryptChar_WithNonLetterCharacter_ReturnsUnchanged(char input)
-    {
-        // Arrange
-        var enigma = EnigmaMachine.CreateModelI();
-
-        // Act
-        var result = enigma.EncryptChar(input);
-
-        // Assert
-        Assert.Equal(input, result);
-    }
-
     [Fact]
     public void EncryptChar_RotorsAdvanceBeforeEncryption()
     {
@@ -167,8 +187,8 @@ public class EnigmaMachineTests
     #region Encrypt Tests
 
     [Theory]
-    [InlineData("hello world", "ILBDA AMTAZ")]
-    [InlineData("enigma machine", "FQGAHW OXZNBML")]
+    [InlineData("HELLOWORLD", "ILBDAAMTAZ")]
+    [InlineData("ENIGMAMACHINE", "FQGAHWOXZNBML")]
     public void Encrypt_WithString_OutputsExpectedCypherText(string input, string expectedCypher)
     {
         // Arrange
@@ -240,17 +260,13 @@ public class EnigmaMachineTests
     }
 
     [Fact]
-    public void Encrypt_PreservesNonLetterCharacters()
+    public void Encrypt_WithInvalidCharacter_ThrowsArgumentException()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI();
 
-        // Act
-        var result = enigma.Encrypt("HELLO WORLD!");
-
-        // Assert
-        Assert.Contains(" ", result);
-        Assert.Contains("!", result);
+        // Act + Assert
+        Assert.Throws<ArgumentException>(() => enigma.Encrypt("HELLO WORLD!"));
     }
 
     #endregion
@@ -582,7 +598,7 @@ public class EnigmaMachineTests
             settings.plugboardPairs
         );
 
-        var plaintext = "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG";
+        var plaintext = "THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG";
 
         // Act
         var ciphertext = enigma1.Encrypt(plaintext);

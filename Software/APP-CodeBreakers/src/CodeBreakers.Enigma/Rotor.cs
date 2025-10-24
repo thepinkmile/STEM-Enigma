@@ -7,20 +7,22 @@ public class Rotor
 {
     public event EventHandler? PositionChanged;
 
-    private readonly string _wiring;
-    private readonly char _notch;
+    private readonly int[] _wiring;
+    private readonly int _notch;
     private int _position;
     private int _ringSetting;
 
+    public int WiringLength => _wiring.Length;
+
     /// <summary>
-    /// Gets or sets the current position of the rotor (0-25).
+    /// Gets or sets the current position of the rotor.
     /// </summary>
     public int Position
     {
         get => _position;
         set
         {
-            var newValue = value % 26;
+            var newValue = value % WiringLength;
             if (newValue != _position)
             {
                 _position = newValue;
@@ -30,28 +32,38 @@ public class Rotor
     }
 
     /// <summary>
-    /// Gets or sets the ring setting of the rotor (0-25).
+    /// Gets or sets the ring setting of the rotor.
     /// </summary>
     public int RingSetting
     {
         get => _ringSetting;
-        set => _ringSetting = value % 26;
+        set => _ringSetting = value % WiringLength;
     }
 
     /// <summary>
     /// Initializes a new rotor with the specified wiring, notch position, initial position, and ring setting.
     /// </summary>
-    /// <param name="wiring">The wiring configuration (26 unique letters).</param>
+    /// <param name="wiring">The wiring configuration.</param>
     /// <param name="notch">The notch letter that triggers the next rotor to step.</param>
-    /// <param name="position">Initial rotor position (0-25 or A-Z).</param>
-    /// <param name="ringSetting">Ring setting (0-25 or A-Z).</param>
-    public Rotor(string wiring, char notch, int position = 0, int ringSetting = 0)
+    /// <param name="position">Initial rotor position.</param>
+    /// <param name="ringSetting">Ring setting.</param>
+    public Rotor(int[] wiring, int notch, int position = 0, int ringSetting = 0)
     {
-        if (string.IsNullOrEmpty(wiring) || wiring.Length != 26)
-            throw new ArgumentException("Wiring must contain exactly 26 characters.", nameof(wiring));
+        ArgumentNullException.ThrowIfNull(wiring);
+        if (wiring.Any(x => x < 0 || x >= wiring.Length))
+            throw new ArgumentException("Wiring values must be between 0 and the length of the wiring", nameof(wiring));
 
-        _wiring = wiring.ToUpper();
-        _notch = char.ToUpper(notch);
+        ArgumentOutOfRangeException.ThrowIfLessThan(notch, 0);
+        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(notch, wiring.Length);
+
+        ArgumentOutOfRangeException.ThrowIfLessThan(position, 0);
+        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(position, wiring.Length);
+
+        ArgumentOutOfRangeException.ThrowIfLessThan(ringSetting, 0);
+        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(ringSetting, wiring.Length);
+
+        _wiring = wiring;
+        _notch = notch;
         Position = position;
         RingSetting = ringSetting;
     }
@@ -62,9 +74,9 @@ public class Rotor
     public int Forward(int input)
     {
         int shift = Position - RingSetting;
-        int index = Mod26(input + shift);
-        int output = _wiring[index] - 'A';
-        return Mod26(output - shift);
+        int index = Mod(input + shift);
+        int output = _wiring[index];
+        return Mod(output - shift);
     }
 
     /// <summary>
@@ -73,10 +85,9 @@ public class Rotor
     public int Backward(int input)
     {
         int shift = Position - RingSetting;
-        int shiftedInput = Mod26(input + shift);
-        char letter = (char)('A' + shiftedInput);
-        int index = _wiring.IndexOf(letter);
-        return Mod26(index - shift);
+        int shiftedInput = Mod(input + shift);
+        int index = _wiring.IndexOf(shiftedInput);
+        return Mod(index - shift);
     }
 
     /// <summary>
@@ -84,7 +95,7 @@ public class Rotor
     /// </summary>
     public void Step()
     {
-        Position = (Position + 1) % 26;
+        Position = (Position + 1) % WiringLength;
     }
 
     /// <summary>
@@ -92,33 +103,39 @@ public class Rotor
     /// </summary>
     public bool IsAtNotch()
     {
-        return (char)('A' + Position) == _notch;
+        return Position == _notch;
     }
 
-    private static int Mod26(int value)
+    private int Mod(int value)
     {
-        //NB: The additional +26 % 26 is to handle the negative value case and ensures the result is always [0, 25]
-        return ((value % 26) + 26) % 26;
+        //NB: The additional + % is to handle the negative value case and ensures the result is always [0, WiringLength]
+        return ((value % WiringLength) + WiringLength) % WiringLength;
     }
 
     /// <summary>
     /// Historical Enigma I rotor configurations.
     /// </summary>
-    public static class RotorType
+    public static class EnigmaI
     {
+        private static Rotor FromCharacterSet(string characterMapping, int notch, int position, int ringSet)
+        {
+            int[] wiring = KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, characterMapping);
+            return new Rotor(wiring, notch, position, ringSet);
+        }
+
         public static Rotor I(int position = 0, int ringSetting = 0) =>
-            new("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q', position, ringSetting);
+            FromCharacterSet("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 16 /*Q*/, position, ringSetting);
 
         public static Rotor II(int position = 0, int ringSetting = 0) =>
-            new("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E', position, ringSetting);
+            FromCharacterSet("AJDKSIRUXBLHWTMCQGZNPYFVOE", 4 /*E*/, position, ringSetting);
 
         public static Rotor III(int position = 0, int ringSetting = 0) =>
-            new("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V', position, ringSetting);
+            FromCharacterSet("BDFHJLCPRTXVZNYEIWGAKMUSQO", 21 /*V*/, position, ringSetting);
 
         public static Rotor IV(int position = 0, int ringSetting = 0) =>
-            new("ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J', position, ringSetting);
+            FromCharacterSet("ESOVPZJAYQUIRHXLNFTGKDCMWB", 9 /*J*/, position, ringSetting);
 
         public static Rotor V(int position = 0, int ringSetting = 0) =>
-            new("VZBRGITYUPSDNHLXAWMJQOFECK", 'Z', position, ringSetting);
+            FromCharacterSet("VZBRGITYUPSDNHLXAWMJQOFECK", 25 /*Z*/, position, ringSetting);
     }
 }

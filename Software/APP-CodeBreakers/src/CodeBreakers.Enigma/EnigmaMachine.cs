@@ -8,6 +8,7 @@ namespace CodeBreakers.Enigma;
 public class EnigmaMachine
 {
     public IReadOnlyList<Rotor> Rotors { get; }
+    private char[] CharacterSet { get; } = KeySets.EnigmaI_Keyset.ToCharArray();
 
     private readonly Reflector _reflector;
     private readonly Plugboard _plugboard;
@@ -28,9 +29,14 @@ public class EnigmaMachine
         ArgumentNullException.ThrowIfNull(rotors);
         if (rotors.Count < 3) throw new ArgumentOutOfRangeException(nameof(rotors), "At least 3 rotors are required.");
         if (rotors.Any(x => x is null)) throw new ArgumentException("Rotor collection contains null elements.", nameof(rotors));
+        if (rotors.Any(x => x.WiringLength != CharacterSet.Length)) throw new ArgumentException("All rotors must have wiring length equal to character set length.", nameof(rotors));
         Rotors = [..rotors];
 
-        _reflector = reflector ?? throw new ArgumentNullException(nameof(reflector));
+        ArgumentNullException.ThrowIfNull(reflector);
+        if (reflector.WiringLength != CharacterSet.Length)
+            throw new ArgumentException("Reflector wiring length must equal character set length.", nameof(reflector));
+        _reflector = reflector;
+
         _plugboard = plugboard ?? new Plugboard();
     }
 
@@ -42,16 +48,12 @@ public class EnigmaMachine
     public char EncryptChar(char input)
     {
         input = char.ToUpper(input);
-
-        // Only process letters A-Z
-        if (input < 'A' || input > 'Z')
-            return input;
+        int position = CharacterSet.IndexOf(input);
+        if (position == -1)
+            throw new ArgumentException($"Input character '{input}' is not in the valid character set [{string.Join("", CharacterSet)}]");
 
         // Step rotors before encryption (double-stepping mechanism)
         StepRotors();
-
-        // Convert to position (0-25)
-        int position = input - 'A';
 
         // Through plugboard
         position = _plugboard.Swap(position);
@@ -75,7 +77,7 @@ public class EnigmaMachine
         position = _plugboard.Swap(position);
 
         // Convert back to letter
-        return (char)('A' + position);
+        return CharacterSet[position];
     }
 
     /// <summary>
@@ -186,9 +188,9 @@ public class EnigmaMachine
         // Create reflector
         Reflector reflector = reflectorType.ToUpper() switch
         {
-            "UKW-A" or "A" => Reflector.ReflectorType.UKW_A(),
-            "UKW-B" or "B" => Reflector.ReflectorType.UKW_B(),
-            "UKW-C" or "C" => Reflector.ReflectorType.UKW_C(),
+            "UKW-A" or "A" => Reflector.EnigmaI.UKW_A(),
+            "UKW-B" or "B" => Reflector.EnigmaI.UKW_B(),
+            "UKW-C" or "C" => Reflector.EnigmaI.UKW_C(),
             _ => throw new ArgumentException($"Unknown reflector type: {reflectorType}", nameof(reflectorType))
         };
 
@@ -202,11 +204,11 @@ public class EnigmaMachine
     {
         return type.ToUpper() switch
         {
-            "I" or "1" => Rotor.RotorType.I(position, ringSetting),
-            "II" or "2" => Rotor.RotorType.II(position, ringSetting),
-            "III" or "3" => Rotor.RotorType.III(position, ringSetting),
-            "IV" or "4" => Rotor.RotorType.IV(position, ringSetting),
-            "V" or "5" => Rotor.RotorType.V(position, ringSetting),
+            "I" or "1" => Rotor.EnigmaI.I(position, ringSetting),
+            "II" or "2" => Rotor.EnigmaI.II(position, ringSetting),
+            "III" or "3" => Rotor.EnigmaI.III(position, ringSetting),
+            "IV" or "4" => Rotor.EnigmaI.IV(position, ringSetting),
+            "V" or "5" => Rotor.EnigmaI.V(position, ringSetting),
             _ => throw new ArgumentException($"Unknown rotor type: {type}")
         };
     }

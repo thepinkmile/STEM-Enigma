@@ -5,18 +5,21 @@ namespace CodeBreakers.Enigma;
 /// </summary>
 public class Reflector
 {
-    private readonly string _wiring;
+    private readonly int[] _wiring;
+
+    public int WiringLength => _wiring.Length;
 
     /// <summary>
     /// Initializes a new reflector with the specified wiring.
     /// </summary>
     /// <param name="wiring">The wiring configuration (26 unique letters).</param>
-    public Reflector(string wiring)
+    public Reflector(int[] wiring)
     {
-        if (string.IsNullOrEmpty(wiring) || wiring.Length != 26)
-            throw new ArgumentException("Wiring must contain exactly 26 characters.", nameof(wiring));
+        ArgumentNullException.ThrowIfNull(wiring);
+        if (wiring.Any(x => x < 0 || x >= wiring.Length))
+            throw new ArgumentException("Wiring values must be between 0 and the length of the wiring", nameof(wiring));
 
-        _wiring = wiring.ToUpper();
+        _wiring = wiring;
     }
 
     /// <summary>
@@ -24,16 +27,16 @@ public class Reflector
     /// </summary>
     public int Reflect(int input)
     {
-        return _wiring[input] - 'A';
+        return _wiring[input];
     }
 
     /// <summary>
     /// Historical Enigma I reflector configurations.
     /// </summary>
-    public static class ReflectorType
+    public static class EnigmaI
     {
-        public static Reflector UKW_A() => new("EJMZALYXVBWFCRQUONTSPIKHGD");
-        public static Reflector UKW_B() => new("YRUHQSLDPXNGOKMIEBFZCWVJAT");
-        public static Reflector UKW_C() => new("FVPJIAOYEDRZXWGCTKUQSBNMHL");
+        public static Reflector UKW_A() => new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "EJMZALYXVBWFCRQUONTSPIKHGD"));
+        public static Reflector UKW_B() => new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "YRUHQSLDPXNGOKMIEBFZCWVJAT"));
+        public static Reflector UKW_C() => new(KeySets.GetWiringFromCharacterMap(KeySets.EnigmaI_Keyset, "FVPJIAOYEDRZXWGCTKUQSBNMHL"));
     }
 }
