@@ -16,14 +16,14 @@ public static class EnigmaExamples
 
         // Encrypt a message
         string plaintext = "HELLO WORLD";
-        string ciphertext = enigma.Encrypt(plaintext);
+        string ciphertext = enigma.Encode(plaintext);
         
         Console.WriteLine($"Plaintext:  {plaintext}");
         Console.WriteLine($"Ciphertext: {ciphertext}");
 
         // To decrypt, reset the machine to the same starting position
         enigma.SetRotorPositions(0, 0, 0); // Reset to AAA
-        string decrypted = enigma.Encrypt(ciphertext);
+        string decrypted = enigma.Encode(ciphertext);
         
         Console.WriteLine($"Decrypted:  {decrypted}");
     }
@@ -43,7 +43,7 @@ public static class EnigmaExamples
         );
 
         string message = "ENIGMA CIPHER MACHINE";
-        string encrypted = enigma.Encrypt(message);
+        string encrypted = enigma.Encode(message);
         
         Console.WriteLine($"Original:  {message}");
         Console.WriteLine($"Encrypted: {encrypted}");
@@ -58,7 +58,7 @@ public static class EnigmaExamples
             plugboardPairs: "AV BS CG DL FU HZ IN KM OW RX"
         );
         
-        string decrypted = decryptMachine.Encrypt(encrypted);
+        string decrypted = decryptMachine.Encode(encrypted);
         Console.WriteLine($"Decrypted: {decrypted}");
     }
 
@@ -87,7 +87,7 @@ public static class EnigmaExamples
 
         // Use the machine
         string message = "SECRETMESSAGE";
-        string encrypted = enigma.Encrypt(message);
+        string encrypted = enigma.Encode(message);
         
         Console.WriteLine($"Message:   {message}");
         Console.WriteLine($"Encrypted: {encrypted}");
@@ -110,7 +110,7 @@ public static class EnigmaExamples
         string message = "OPERATION BARBAROSSA BEGINS AT DAWN";
         Console.WriteLine($"Original message: {message}");
         
-        string encrypted = enigma.Encrypt(message);
+        string encrypted = enigma.Encode(message);
         Console.WriteLine($"Encrypted:        {encrypted}");
         Console.WriteLine($"Final positions:  {enigma.GetRotorPositions()}");
     }

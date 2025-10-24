@@ -41,18 +41,18 @@ public class EnigmaMachine
     }
 
     /// <summary>
-    /// Encrypts or decrypts a single character.
+    /// Encodes or decodes a single character.
     /// </summary>
-    /// <param name="input">The character to encrypt/decrypt (A-Z).</param>
-    /// <returns>The encrypted/decrypted character.</returns>
-    public char EncryptChar(char input)
+    /// <param name="input">The character to encode/decode.</param>
+    /// <returns>The encoded/decoded character.</returns>
+    public char EncodeChar(char input)
     {
         input = char.ToUpper(input);
         int position = CharacterSet.IndexOf(input);
         if (position == -1)
             throw new ArgumentException($"Input character '{input}' is not in the valid character set [{string.Join("", CharacterSet)}]");
 
-        // Step rotors before encryption (double-stepping mechanism)
+        // Step rotors before encoding (double-stepping mechanism)
         StepRotors();
 
         // Through plugboard
@@ -81,11 +81,11 @@ public class EnigmaMachine
     }
 
     /// <summary>
-    /// Encrypts or decrypts a text string.
+    /// Encodes or decodes a text string.
     /// </summary>
-    /// <param name="text">The text to encrypt/decrypt.</param>
-    /// <returns>The encrypted/decrypted text.</returns>
-    public string Encrypt(string text)
+    /// <param name="text">The text to encode/decode.</param>
+    /// <returns>The encoded/decoded text.</returns>
+    public string Encode(string text)
     {
         if (string.IsNullOrEmpty(text))
             return text;
@@ -93,7 +93,7 @@ public class EnigmaMachine
         var result = new char[text.Length];
         for (int i = 0; i < text.Length; i++)
         {
-            result[i] = EncryptChar(text[i]);
+            result[i] = EncodeChar(text[i]);
         }
 
         return new string(result);

@@ -17,7 +17,7 @@
 
   <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*,Auto">
     <TextBox Text="{Binding InputText}" />
-    <Button Content="Encrypt" Command="{Binding ProcessInputCommand}" Grid.Column="1" />
+    <Button Content="Encode" Command="{Binding ProcessInputCommand}" Grid.Column="1" />
 
     <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
       <controls:RotorControl Rotor="{Binding LeftRotor}" />

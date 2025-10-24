@@ -129,37 +129,37 @@ public class EnigmaMachineTests
 
     #endregion
 
-    #region EncryptChar Tests
+    #region EncodeChar Tests
 
     [Theory]
     [InlineData('A')]
     [InlineData('M')]
     [InlineData('Z')]
-    public void EncryptChar_WithValidLetter_ReturnsEncryptedLetter(char input)
+    public void EncodeChar_WithValidLetter_ReturnsEncodedLetter(char input)
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI();
 
         // Act
-        var result = enigma.EncryptChar(input);
+        var result = enigma.EncodeChar(input);
 
         // Assert
         Assert.True(result >= 'A' && result <= 'Z');
-        Assert.NotEqual(input, result); // Enigma never encrypts a letter to itself
+        Assert.NotEqual(input, result); // Enigma never encode a letter to itself
     }
 
     [Theory]
     [InlineData('a')]
     [InlineData('z')]
-    public void EncryptChar_WithLowercaseLetter_ConvertsToUppercaseAndEncrypts(char input)
+    public void EncodeChar_WithLowercaseLetter_ConvertsToUppercaseAndEncoded(char input)
     {
         // Arrange
         var enigma1 = EnigmaMachine.CreateModelI();
         var enigma2 = EnigmaMachine.CreateModelI();
 
         // Act
-        var resultLowercase = enigma1.EncryptChar(input);
-        var resultUppercase = enigma2.EncryptChar(char.ToUpper(input));
+        var resultLowercase = enigma1.EncodeChar(input);
+        var resultUppercase = enigma2.EncodeChar(char.ToUpper(input));
 
         // Assert
         Assert.Equal(resultLowercase, resultUppercase);
@@ -167,14 +167,14 @@ public class EnigmaMachineTests
     }
 
     [Fact]
-    public void EncryptChar_RotorsAdvanceBeforeEncryption()
+    public void EncodeChar_RotorsAdvanceBeforeEncodeion()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI(rotorPositions: "AAA");
         var initialPositions = enigma.GetRotorPositions();
 
         // Act
-        enigma.EncryptChar('A');
+        enigma.EncodeChar('A');
         var newPositions = enigma.GetRotorPositions();
 
         // Assert
@@ -184,44 +184,44 @@ public class EnigmaMachineTests
 
     #endregion
 
-    #region Encrypt Tests
+    #region Encode Tests
 
     [Theory]
     [InlineData("HELLOWORLD", "ILBDAAMTAZ")]
     [InlineData("ENIGMAMACHINE", "FQGAHWOXZNBML")]
-    public void Encrypt_WithString_OutputsExpectedCypherText(string input, string expectedCypher)
+    public void Encode_WithString_OutputsExpectedCypherText(string input, string expectedCypher)
     {
         // Arrange
         EnigmaMachine enigma = EnigmaMachine.CreateModelI();
         
         // Act
-        string cypherText = enigma.Encrypt(input);
+        string cypherText = enigma.Encode(input);
         
         // Assert
         Assert.Equal(expectedCypher, cypherText);
     }
 
     [Fact]
-    public void Encrypt_WithEmptyString_ReturnsEmptyString()
+    public void Encode_WithEmptyString_ReturnsEmptyString()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI();
 
         // Act
-        var result = enigma.Encrypt("");
+        var result = enigma.Encode("");
 
         // Assert
         Assert.Equal("", result);
     }
 
     [Fact]
-    public void Encrypt_WithNull_ReturnsNull()
+    public void Encode_WithNull_ReturnsNull()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI();
 
         // Act
-        var result = enigma.Encrypt(null!);
+        var result = enigma.Encode(null!);
 
         // Assert
         Assert.Null(result);
@@ -230,43 +230,43 @@ public class EnigmaMachineTests
     [Theory]
     [InlineData("AAAAA")]
     [InlineData("HELLO")]
-    public void Encrypt_IsReversible_DecryptsCiphertext(string plaintext)
+    public void Encode_IsReversible_DecryptsCiphertext(string plaintext)
     {
         // Arrange
         var enigma1 = EnigmaMachine.CreateModelI(rotorPositions: "ABC");
         var enigma2 = EnigmaMachine.CreateModelI(rotorPositions: "ABC");
 
         // Act
-        var ciphertext = enigma1.Encrypt(plaintext);
-        var decrypted = enigma2.Encrypt(ciphertext);
+        var ciphertext = enigma1.Encode(plaintext);
+        var decrypted = enigma2.Encode(ciphertext);
 
         // Assert
         Assert.Equal(plaintext, decrypted);
     }
 
     [Fact]
-    public void Encrypt_WithMixedCase_ConvertsToUppercase()
+    public void Encode_WithMixedCase_ConvertsToUppercase()
     {
         // Arrange
         var enigma1 = EnigmaMachine.CreateModelI();
         var enigma2 = EnigmaMachine.CreateModelI();
 
         // Act
-        var result1 = enigma1.Encrypt("HeLLo");
-        var result2 = enigma2.Encrypt("HELLO");
+        var result1 = enigma1.Encode("HeLLo");
+        var result2 = enigma2.Encode("HELLO");
 
         // Assert
         Assert.Equal(result2, result1);
     }
 
     [Fact]
-    public void Encrypt_WithInvalidCharacter_ThrowsArgumentException()
+    public void Encode_WithInvalidCharacter_ThrowsArgumentException()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI();
 
         // Act + Assert
-        Assert.Throws<ArgumentException>(() => enigma.Encrypt("HELLO WORLD!"));
+        Assert.Throws<ArgumentException>(() => enigma.Encode("HELLO WORLD!"));
     }
 
     #endregion
@@ -274,30 +274,30 @@ public class EnigmaMachineTests
     #region Rotor Stepping Tests
 
     [Fact]
-    public void EncryptChar_RightRotorStepsEveryTime()
+    public void EncodeChar_RightRotorStepsEveryTime()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI(rotorPositions: "AAA");
 
         // Act
-        enigma.EncryptChar('A');
-        enigma.EncryptChar('A');
-        enigma.EncryptChar('A');
+        enigma.EncodeChar('A');
+        enigma.EncodeChar('A');
+        enigma.EncodeChar('A');
 
         // Assert
         Assert.Equal("AAD", enigma.GetRotorPositions());
     }
 
     [Fact]
-    public void EncryptChar_MiddleRotorStepsAtNotch()
+    public void EncodeChar_MiddleRotorStepsAtNotch()
     {
         // Arrange
         // Rotor III has notch at V (position 21)
-        // When right rotor is at the notch, it triggers middle rotor to step on the next encryption
+        // When right rotor is at the notch, it triggers middle rotor to step on the next encode
         var enigma = EnigmaMachine.CreateModelI(rotorPositions: "AAV");
 
         // Act
-        enigma.EncryptChar('A'); // Right rotor at notch
+        enigma.EncodeChar('A'); // Right rotor at notch
 
         // Assert - right rotor always steps, and when at notch it also steps middle rotor
         var positions = enigma.GetRotorPositions();
@@ -306,7 +306,7 @@ public class EnigmaMachineTests
     }
 
     [Fact]
-    public void EncryptChar_DoubleSteppingOccurs()
+    public void EncodeChar_DoubleSteppingOccurs()
     {
         // Arrange
         // Rotor II has notch at E (position 4)
@@ -314,7 +314,7 @@ public class EnigmaMachineTests
         var enigma = EnigmaMachine.CreateModelI(rotorOrder: "I II III", rotorPositions: "AEV");
 
         // Act
-        enigma.EncryptChar('A'); // Middle rotor at notch triggers double-stepping
+        enigma.EncodeChar('A'); // Middle rotor at notch triggers double-stepping
 
         // Assert - middle at notch causes both left and middle to step, plus right always steps
         var positions = enigma.GetRotorPositions();
@@ -501,7 +501,7 @@ public class EnigmaMachineTests
     #region Historical Accuracy Tests
 
     [Fact]
-    public void Encrypt_WithKnownHistoricalSettings_ProducesCorrectOutput()
+    public void Encode_WithKnownHistoricalSettings_ProducesCorrectOutput()
     {
         // Arrange - Using a known Enigma configuration
         var enigma = EnigmaMachine.CreateModelI(
@@ -513,21 +513,21 @@ public class EnigmaMachineTests
         );
 
         // Act
-        var result = enigma.Encrypt("AAAAA");
+        var result = enigma.Encode("AAAAA");
 
-        // Assert - First character should never be 'A' (Enigma never encrypts to itself)
+        // Assert - First character should never be 'A' (Enigma never encodes to itself)
         Assert.NotEqual('A', result[0]);
     }
 
     [Fact]
-    public void Encrypt_EnigmaPropertyNeverEncryptsLetterToItself()
+    public void Encode_EnigmaPropertyNeverEncodedLetterToItself()
     {
         // Arrange
         var enigma = EnigmaMachine.CreateModelI();
         var plaintext = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         // Act
-        var ciphertext = enigma.Encrypt(plaintext);
+        var ciphertext = enigma.Encode(plaintext);
 
         // Assert
         for (int i = 0; i < plaintext.Length; i++)
@@ -537,7 +537,7 @@ public class EnigmaMachineTests
     }
 
     [Fact]
-    public void Encrypt_WithIdenticalSettings_ProducesIdenticalOutput()
+    public void Encode_WithIdenticalSettings_ProducesIdenticalOutput()
     {
         // Arrange
         var enigma1 = EnigmaMachine.CreateModelI(
@@ -559,8 +559,8 @@ public class EnigmaMachineTests
         var plaintext = "HELLO";
 
         // Act
-        var result1 = enigma1.Encrypt(plaintext);
-        var result2 = enigma2.Encrypt(plaintext);
+        var result1 = enigma1.Encode(plaintext);
+        var result2 = enigma2.Encode(plaintext);
 
         // Assert
         Assert.Equal(result1, result2);
@@ -571,7 +571,7 @@ public class EnigmaMachineTests
     #region Integration Tests
 
     [Fact]
-    public void CompleteEncryptionDecryption_WithComplexSettings_WorksCorrectly()
+    public void CompleteEncodeionDecryption_WithComplexSettings_WorksCorrectly()
     {
         // Arrange
         var settings = (
@@ -601,15 +601,15 @@ public class EnigmaMachineTests
         var plaintext = "THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG";
 
         // Act
-        var ciphertext = enigma1.Encrypt(plaintext);
-        var decrypted = enigma2.Encrypt(ciphertext);
+        var ciphertext = enigma1.Encode(plaintext);
+        var decrypted = enigma2.Encode(ciphertext);
 
         // Assert
         Assert.Equal(plaintext, decrypted);
     }
 
     [Fact]
-    public void Encrypt_LongMessage_MaintainsSymmetricProperty()
+    public void Encode_LongMessage_MaintainsSymmetricProperty()
     {
         // Arrange
         var longMessage = string.Concat(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 10));
@@ -617,12 +617,12 @@ public class EnigmaMachineTests
         var enigma2 = EnigmaMachine.CreateModelI(rotorPositions: "AAA");
 
         // Act
-        var encrypted = enigma1.Encrypt(longMessage);
-        var decrypted = enigma2.Encrypt(encrypted);
+        var encoded = enigma1.Encode(longMessage);
+        var decoded = enigma2.Encode(encoded);
 
         // Assert
-        Assert.Equal(longMessage, decrypted);
-        Assert.Equal(longMessage.Length, encrypted.Length);
+        Assert.Equal(longMessage, decoded);
+        Assert.Equal(longMessage.Length, encoded.Length);
     }
 
     #endregion

@@ -24,7 +24,7 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand(CanExecute = nameof(CanProcessInput))]
     private void ProcessInput()
     {
-        CypherText = _enigmaMachine.Encrypt(InputText ?? string.Empty);
+        CypherText = _enigmaMachine.Encode(InputText ?? string.Empty);
     }
 
     private bool CanProcessInput()
