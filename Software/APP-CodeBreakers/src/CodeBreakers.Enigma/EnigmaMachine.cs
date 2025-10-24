@@ -136,7 +136,7 @@ public class EnigmaMachine
 
         foreach (var rotor in Rotors)
         {
-            sb.Append((char)('A' + rotor.Position));
+            sb.Append(CharacterSet[rotor.Position]);
         }
 
         return sb.ToString();
