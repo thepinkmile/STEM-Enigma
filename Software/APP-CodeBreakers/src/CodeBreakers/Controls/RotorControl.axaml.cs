@@ -43,7 +43,6 @@ public partial class RotorControl : UserControl
     {
         if (Rotor is { } rotor)
         {
-            e.Handled = true;
             if (e.Direction == SpinDirection.Increase)
             {
                 rotor.RingSetting++;
@@ -53,6 +52,7 @@ public partial class RotorControl : UserControl
                 rotor.RingSetting += 25;
             }
             RingSettingSpinner.Content = (char)('A' + rotor.RingSetting);
+            e.Handled = true;
         }
     }
 
