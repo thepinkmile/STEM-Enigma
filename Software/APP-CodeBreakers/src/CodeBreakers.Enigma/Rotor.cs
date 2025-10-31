@@ -34,6 +34,9 @@ public class Rotor
     /// <summary>
     /// Gets or sets the ring setting of the rotor.
     /// </summary>
+    /// <remark>
+    /// The ring setting specifies the rotors position offset in relation to the wiring.
+    /// </remark>
     public int RingSetting
     {
         get => _ringSetting;
