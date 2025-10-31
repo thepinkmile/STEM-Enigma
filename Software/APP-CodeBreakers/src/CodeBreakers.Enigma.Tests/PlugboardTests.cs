@@ -12,7 +12,7 @@ public class PlugboardTests
 
         // Assert
         Assert.NotNull(plugboard);
-        Assert.Equal('A', plugboard.Swap('A')); // No swapping should occur
+        Assert.Equal('A', plugboard.Remap('A')); // No swapping should occur
     }
 
     [Fact]
@@ -35,10 +35,10 @@ public class PlugboardTests
 
     #endregion
 
-    #region Swap Tests
+    #region Remap Tests
 
     [Fact]
-    public void Swap_WithConnectedLetter_ReturnsSwappedLetter()
+    public void Remap_WithConnectedLetter_ReturnsSwappedLetter()
     {
         // Arrange
         var plugboard = new Plugboard(
@@ -48,32 +48,32 @@ public class PlugboardTests
         );
 
         // Act & Assert
-        Assert.Equal(1, plugboard.Swap(0));
-        Assert.Equal(0, plugboard.Swap(1));
-        Assert.Equal(3, plugboard.Swap(2));
-        Assert.Equal(2, plugboard.Swap(3));
-        Assert.Equal(5, plugboard.Swap(4));
-        Assert.Equal(4, plugboard.Swap(5));
+        Assert.Equal(1, plugboard.Remap(0));
+        Assert.Equal(0, plugboard.Remap(1));
+        Assert.Equal(3, plugboard.Remap(2));
+        Assert.Equal(2, plugboard.Remap(3));
+        Assert.Equal(5, plugboard.Remap(4));
+        Assert.Equal(4, plugboard.Remap(5));
     }
 
     [Theory]
     [InlineData('G')]
     [InlineData('H')]
     [InlineData('Z')]
-    public void Swap_WithUnconnectedLetter_ReturnsSameLetter(char letter)
+    public void Remap_WithUnconnectedLetter_ReturnsSameLetter(char letter)
     {
         // Arrange
         var plugboard = new Plugboard((0, 1), (2, 3), (4, 5));
 
         // Act
-        var result = plugboard.Swap(letter);
+        var result = plugboard.Remap(letter);
 
         // Assert
         Assert.Equal(letter, result);
     }
 
     [Fact]
-    public void Swap_IsSymmetric_SwappingTwiceReturnsOriginal()
+    public void Remap_IsSymmetric_SwappingTwiceReturnsOriginal()
     {
         // Arrange
         var plugboard = new Plugboard(
@@ -83,9 +83,9 @@ public class PlugboardTests
         );
 
         // Act & Assert
-        Assert.Equal(0, plugboard.Swap(plugboard.Swap(0)));
-        Assert.Equal(2, plugboard.Swap(plugboard.Swap(2)));
-        Assert.Equal(5, plugboard.Swap(plugboard.Swap(5))); // Unconnected
+        Assert.Equal(0, plugboard.Remap(plugboard.Remap(0)));
+        Assert.Equal(2, plugboard.Remap(plugboard.Remap(2)));
+        Assert.Equal(5, plugboard.Remap(plugboard.Remap(5))); // Unconnected
     }
 
 

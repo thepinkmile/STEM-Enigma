@@ -62,7 +62,7 @@ public class EnigmaMachine
         StepRotors();
 
         // Through plugboard
-        position = _plugboard.Swap(position);
+        position = _plugboard.Remap(position);
 
         // Forward through rotors (right to left)
         for (int i = Rotors.Count - 1; i >= 0; i--)
@@ -80,7 +80,7 @@ public class EnigmaMachine
         }
 
         // Through plugboard again
-        position = _plugboard.Swap(position);
+        position = _plugboard.Remap(position);
 
         // Convert back to letter
         return CharacterSet[position];
@@ -122,9 +122,9 @@ public class EnigmaMachine
     /// <summary>
     /// Resets the rotor positions to the specified settings.
     /// </summary>
-    /// <param name="leftPosition">Left rotor position (0-25 or A-Z).</param>
-    /// <param name="middlePosition">Middle rotor position (0-25 or A-Z).</param>
-    /// <param name="rightPosition">Right rotor position (0-25 or A-Z).</param>
+    /// <param name="leftPosition">Left rotor position.</param>
+    /// <param name="middlePosition">Middle rotor position.</param>
+    /// <param name="rightPosition">Right rotor position.</param>
     [Obsolete("This API needs to be redone to work with a list")]
     public void SetRotorPositions(int leftPosition, int middlePosition, int rightPosition)
     {

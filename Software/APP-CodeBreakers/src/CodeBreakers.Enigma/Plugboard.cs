@@ -34,7 +34,7 @@ public class Plugboard
     /// <summary>
     /// Swaps the position if it's connected in the plugboard.
     /// </summary>
-    public int Swap(int position)
+    public int Remap(int position)
     {
         return _connections.TryGetValue(position, out var swapped) ? swapped : position;
     }
