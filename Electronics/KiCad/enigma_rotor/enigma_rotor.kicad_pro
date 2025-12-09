@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 0.5,
-          "width": 0.5
+          "drill": 0.8,
+          "height": 1.27,
+          "width": 2.54
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -64,7 +64,7 @@
       },
       "rule_severities": {
         "annular_width": "error",
-        "clearance": "error",
+        "clearance": "ignore",
         "connection_width": "warning",
         "copper_edge_clearance": "error",
         "copper_sliver": "warning",
@@ -80,8 +80,8 @@
         "footprint_symbol_mismatch": "warning",
         "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
-        "hole_to_hole": "error",
-        "holes_co_located": "error",
+        "hole_to_hole": "warning",
+        "holes_co_located": "warning",
         "invalid_outline": "error",
         "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
@@ -101,7 +101,7 @@
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
-        "silk_over_copper": "warning",
+        "silk_over_copper": "ignore",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
@@ -112,13 +112,13 @@
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
         "track_angle": "error",
-        "track_dangling": "error",
+        "track_dangling": "warning",
         "track_segment_length": "error",
         "track_width": "error",
         "tracks_crossing": "error",
         "unconnected_items": "error",
         "unresolved_variable": "error",
-        "via_dangling": "error",
+        "via_dangling": "warning",
         "zones_intersect": "error"
       },
       "rules": {
@@ -464,7 +464,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "enigma_encoder.kicad_pro",
+    "filename": "enigma_rotor.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -503,7 +503,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../dependency_outputs/enigma_encoder.stl",
+      "step": "",
       "svg": "",
       "vrml": ""
     },
@@ -624,8 +624,24 @@
   },
   "sheets": [
     [
-      "c1e75883-9207-4c9d-a95c-97ab460ccf54",
+      "f34c8e90-0d8b-48c6-b8fc-7dce19fff110",
       "Root"
+    ],
+    [
+      "9abfb9fa-ffff-4ab4-be78-c07277a2f9df",
+      "enigma_rotor_debugging"
+    ],
+    [
+      "c8e56e97-c26f-4b1e-acd0-26839320d67e",
+      "enigma_rotor_debugging1"
+    ],
+    [
+      "f8da25be-f6b6-45c9-980d-fcfdb58c5b7f",
+      "enigma_rotor_debugging2"
+    ],
+    [
+      "025dd528-07e9-461a-8ec2-0d735f457d23",
+      "enigma_rotor_debugging3"
     ]
   ],
   "text_variables": {}

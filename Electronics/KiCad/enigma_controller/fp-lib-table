@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Enigma_Components")(type "Legacy")(uri "${ENIGMA_LIBRARY_DIR}/SamacSys_Parts.mod")(options "")(descr ""))
+  (lib (name "Raspberry-Pi-CM5")(type "KiCad")(uri "${ENIGMA_PROJ_DIR}/Raspberry-Pi-Compute-Module-KiCad-0.2/CM5/CM5 Library/Raspberry-Pi-CM5.pretty")(options "")(descr ""))
+)

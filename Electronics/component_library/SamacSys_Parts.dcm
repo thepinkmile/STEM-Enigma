@@ -1,0 +1,147 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP NE555DR
+D Single Precision Timer
+K
+F http://www.ti.com/lit/ds/symlink/ne555.pdf
+$ENDCMP
+#
+$CMP 206-126
+D DIP Switches / SIP Switches 6 switch sections SPDT
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/DKDS-29/575293.pdf
+$ENDCMP
+#
+$CMP CD74HC283M96
+D Texas Instruments CD74HC283M96, 4-Bit Binary Full Adder, 2  6 V, 16-Pin SOIC
+K
+F http://www.ti.com/lit/gpn/cd74hc283
+$ENDCMP
+#
+$CMP MCS04020D2202BE100
+D Thin Film Resistors - SMD .016W 22Kohms 0.1% 0402 25ppm
+K
+F http://www.vishay.com/docs/28705/mcx0x0xpro.pdf
+$ENDCMP
+#
+$CMP MCS04020C5102FE000
+D Vishay Resistor Chip 0402
+K
+F http://www.vishay.com/docs/28705/mcx0x0xpro.pdf
+$ENDCMP
+#
+$CMP MCS0402MD1002BE100
+D Thin Film Resistors - SMD .063W 10Kohms 0.1% 0402 25ppm Auto
+K
+F http://www.vishay.com/docs/28705/mcx0x0xpro.pdf
+$ENDCMP
+#
+$CMP CL21B105KAFNNNG
+D Samsung Electro-Mechanics 0805 CL 1uF Ceramic Multilayer Capacitor, 25 V, +125C, X7R Dielectric, +/-10% SMD
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA8/2478773.pdf
+$ENDCMP
+#
+$CMP CD74HC4024M96
+D High Speed CMOS Logic 7-Stage Binary Ripple Counter
+K
+F http://www.ti.com/lit/gpn/CD74HC4024
+$ENDCMP
+#
+$CMP SN74LVCH244APWR
+D Octal Buffer/Driver With 3-State Outputs
+K
+F http://www.ti.com/lit/gpn/sn74lvch244a
+$ENDCMP
+#
+$CMP AT28BV64B-20SU-T
+D EEPROM 200NS SOIC IND GRN
+K
+F https://componentsearchengine.com/Datasheets/1/AT28BV64B-20SU-T.pdf
+$ENDCMP
+#
+$CMP 1N4148WT-7
+D Diode 80 V 125mA Surface Mount SOD-523
+K
+F https://www.diodes.com//assets/Datasheets/1N4148WT.pdf
+$ENDCMP
+#
+$CMP KT-0603R
+D Red 615~630nm 1.9~2.2V 0603 Light Emitting Diodes (LED) RoHS
+K
+F https://datasheet.lcsc.com/szlcsc/Hubei-KENTO-Elec-KT-0603R_C2286.pdf
+$ENDCMP
+#
+$CMP ERA2AEB201X
+D Resistor SMD Thin Film 0402 0.1% 200Ohm Panasonic E24 Series Thin Film Surface Mount Resistor 0402 Case 200 +/-0.1% 0.063W +/-25ppm/C
+K
+F http://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf
+$ENDCMP
+#
+$CMP EPM240T100C5N
+D CPLD Max II EPM240T100C5N, TQFP100 EPM240T100C5N, CPLD MAX II Flash 192 Cells, 80 I/O, 24 Labs, ISP, 2.375  3.6 V 100-Pin TQFP
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/0734504d520507bdccc47e3bcdd06d1f.pdf
+$ENDCMP
+#
+$CMP GRM033Z71A104ME14D
+D Multilayer Ceramic Capacitors MLCC - SMD/SMT .1UF     10V   20%        0201
+K
+F https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM033Z71A104ME14-01A.pdf
+$ENDCMP
+#
+$CMP ERJ2RKF5101X
+D Panasonic ERJ2RK Series Thick Film Surface Mount Fixed Resistor 0402 Case +/-1% 0.1W +/-100ppm/C
+K
+F http://docs-europe.electrocomponents.com/webdocs/13ba/0900766b813ba21b.pdf
+$ENDCMP
+#
+$CMP BS-02-A1AJ006
+D Battery base -25+85 CR2032 Plugin  Button And Strip Battery Connector ROHS
+K
+F https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2109141830_MYOUNG-BS-02-A1AJ006_C964745.pdf
+$ENDCMP
+#
+$CMP B3U-1100PM
+D Tactile Switches Top Actuated Ground Tm w/out Boss 0.05A @ 12VDC
+K
+F https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3u.pdf
+$ENDCMP
+#
+$CMP 46765-0301
+D Type D 19 Way Male Right Angle HDMI Connector 30 V
+K
+F https://www.molex.com/molex/products/datasheet.jsp?part=active/0467650301_IO_CONNECTORS.xml
+$ENDCMP
+#
+$CMP SN74LVC257ADR
+D Quadruple 2-Line To 1-Line Data Selector/Multiplexer With 3-State Outputs
+K
+F http://www.ti.com/lit/gpn/sn74lvc257a
+$ENDCMP
+#
+$CMP J1011F21PNL
+D Modular Connectors / Ethernet Connectors Tab up 4-core THT
+K
+F http://productfinder.pulseeng.com/products/datasheets/J402.pdf
+$ENDCMP
+#
+$CMP 0936263006
+D MXMag Gigabit Ethernet 8 Core Non-PoE Single-Port RJ45 Connector, 21.40mm Depth, 3.30mm Phy Pin Length, Right-Angle, Standard Profile, with Shield Tabs, with Green-Yellow LEDs, Standard Temperature, Tray
+K
+F https://www.molex.com/en-us/products/part-detail-pdf/936263006?display=pdf
+$ENDCMP
+#
+$CMP USB1040-GF-L-B
+D USB Connectors USB A Skt, TH, Vertical, GF, With kinked shell stakes, tray
+K
+F https://gct.co/files/drawings/usb1040.pdf
+$ENDCMP
+#
+$CMP MCP23017-E_SO
+D 16-bit I/O Expander,I2C,MCP23017-E/SO
+K
+F https://datasheet.datasheetarchive.com/originals/distributors/SFDatasheet-4/sf-00090057.pdf
+$ENDCMP
+#
+#End Doc Library
