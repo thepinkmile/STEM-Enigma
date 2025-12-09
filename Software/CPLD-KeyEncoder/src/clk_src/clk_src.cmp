@@ -1,0 +1,6 @@
+	component clk_src is
+		port (
+			clk : out std_logic   -- clk
+		);
+	end component clk_src;
+

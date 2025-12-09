@@ -1,5 +1,5 @@
 |mux_rom_demux
-OUT_OVERFLOW_1 <= counter_limiter_36:inst.OUT_OVERFLOW
+OUT_OVERFLOW_1 <= counter_limiter_36:enc_limiter.OUT_OVERFLOW
 IN_1 => encoder:enc01.IN_1
 IN_2 => encoder:enc01.IN_2
 IN_3 => encoder:enc01.IN_3
@@ -36,22 +36,21 @@ IN_33 => encoder:enc01.IN_33
 IN_34 => encoder:enc01.IN_34
 IN_35 => encoder:enc01.IN_35
 IN_36 => encoder:enc01.IN_36
-OUT_1 <= counter_limiter_36:inst.OUT_BIT_1
-OUT_2 <= counter_limiter_36:inst.OUT_BIT_2
-OUT_3 <= counter_limiter_36:inst.OUT_BIT_3
-OUT_4 <= counter_limiter_36:inst.OUT_BIT_4
-OUT_5 <= counter_limiter_36:inst.OUT_BIT_5
-OUT_6 <= counter_limiter_36:inst.OUT_BIT_6
-OUT_7 <= counter:inst3.BIT_1
-CLK => debouncer:inst2.CLK_50M
-OUT_8 <= counter:inst3.BIT_2
-OUT_9 <= counter:inst3.BIT_3
-OUT_10 <= counter:inst3.BIT_4
-OUT_11 <= counter:inst3.BIT_5
-OUT_12 <= counter:inst3.BIT_6
+OUT_1 <= counter_limiter_36:enc_limiter.OUT_BIT_1
+OUT_2 <= counter_limiter_36:enc_limiter.OUT_BIT_2
+OUT_3 <= counter_limiter_36:enc_limiter.OUT_BIT_3
+OUT_4 <= counter_limiter_36:enc_limiter.OUT_BIT_4
+OUT_5 <= counter_limiter_36:enc_limiter.OUT_BIT_5
+OUT_6 <= counter_limiter_36:enc_limiter.OUT_BIT_6
+OUT_7 <= counter:key_counter.BIT_1
+OUT_8 <= counter:key_counter.BIT_2
+OUT_9 <= counter:key_counter.BIT_3
+OUT_10 <= counter:key_counter.BIT_4
+OUT_11 <= counter:key_counter.BIT_5
+OUT_12 <= counter:key_counter.BIT_6
 
 
-|mux_rom_demux|counter_limiter_36:inst
+|mux_rom_demux|counter_limiter_36:enc_limiter
 OUT_OVERFLOW <= lpm_max_comparator:comp_max_1.agb
 IN_BIT_1 => lpm_max_comparator:comp_max_1.dataa[0]
 IN_BIT_1 => conditional_adder:instcond_addr_1.dataa[0]
@@ -79,7 +78,7 @@ OUT_BIT_5 <= out[4].DB_MAX_OUTPUT_PORT_TYPE
 OUT_BIT_6 <= out[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|lpm_max_comparator:comp_max_1
+|mux_rom_demux|counter_limiter_36:enc_limiter|lpm_max_comparator:comp_max_1
 dataa[0] => dataa[0].IN1
 dataa[1] => dataa[1].IN1
 dataa[2] => dataa[2].IN1
@@ -89,7 +88,7 @@ dataa[5] => dataa[5].IN1
 agb <= lpm_compare:LPM_COMPARE_component.agb
 
 
-|mux_rom_demux|counter_limiter_36:inst|lpm_max_comparator:comp_max_1|lpm_compare:LPM_COMPARE_component
+|mux_rom_demux|counter_limiter_36:enc_limiter|lpm_max_comparator:comp_max_1|lpm_compare:LPM_COMPARE_component
 dataa[0] => cmpr_dqi:auto_generated.dataa[0]
 dataa[1] => cmpr_dqi:auto_generated.dataa[1]
 dataa[2] => cmpr_dqi:auto_generated.dataa[2]
@@ -113,7 +112,7 @@ aneb <= <GND>
 ageb <= <GND>
 
 
-|mux_rom_demux|counter_limiter_36:inst|lpm_max_comparator:comp_max_1|lpm_compare:LPM_COMPARE_component|cmpr_dqi:auto_generated
+|mux_rom_demux|counter_limiter_36:enc_limiter|lpm_max_comparator:comp_max_1|lpm_compare:LPM_COMPARE_component|cmpr_dqi:auto_generated
 agb <= agb_int.DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => op_1.IN12
 dataa[1] => op_1.IN10
@@ -129,7 +128,7 @@ datab[4] => op_1.IN3
 datab[5] => op_1.IN1
 
 
-|mux_rom_demux|counter_limiter_36:inst|eightBitBusSelector:bus_mux
+|mux_rom_demux|counter_limiter_36:enc_limiter|eightBitBusSelector:bus_mux
 data0x[0] => sub_wire1[0].IN1
 data0x[1] => sub_wire1[1].IN1
 data0x[2] => sub_wire1[2].IN1
@@ -151,7 +150,7 @@ result[4] <= lpm_mux:LPM_MUX_component.result
 result[5] <= lpm_mux:LPM_MUX_component.result
 
 
-|mux_rom_demux|counter_limiter_36:inst|eightBitBusSelector:bus_mux|lpm_mux:LPM_MUX_component
+|mux_rom_demux|counter_limiter_36:enc_limiter|eightBitBusSelector:bus_mux|lpm_mux:LPM_MUX_component
 data[0][0] => mux_j9c:auto_generated.data[0]
 data[0][1] => mux_j9c:auto_generated.data[1]
 data[0][2] => mux_j9c:auto_generated.data[2]
@@ -176,7 +175,7 @@ result[4] <= mux_j9c:auto_generated.result[4]
 result[5] <= mux_j9c:auto_generated.result[5]
 
 
-|mux_rom_demux|counter_limiter_36:inst|eightBitBusSelector:bus_mux|lpm_mux:LPM_MUX_component|mux_j9c:auto_generated
+|mux_rom_demux|counter_limiter_36:enc_limiter|eightBitBusSelector:bus_mux|lpm_mux:LPM_MUX_component|mux_j9c:auto_generated
 data[0] => result_node[0].IN1
 data[1] => result_node[1].IN1
 data[2] => result_node[2].IN1
@@ -209,7 +208,7 @@ sel[0] => result_node[0].IN0
 sel[0] => _.IN0
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1
 dataa[0] => dataa[0].IN1
 dataa[1] => dataa[1].IN1
 dataa[2] => dataa[2].IN1
@@ -224,7 +223,7 @@ result[4] <= lpm_add_sub:LPM_ADD_SUB_component.result
 result[5] <= lpm_add_sub:LPM_ADD_SUB_component.result
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component
 dataa[0] => addcore:adder.dataa[0]
 dataa[1] => addcore:adder.dataa[1]
 dataa[2] => addcore:adder.dataa[2]
@@ -252,7 +251,7 @@ cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder
 dataa[0] => unreg_res_node[0].IN0
 dataa[0] => _.IN0
 dataa[0] => _.IN0
@@ -301,7 +300,7 @@ bg_out <= <GND>
 bp_out <= <GND>
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:oflow_node
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:oflow_node
 sin[0] => sout_node[0].DATAIN
 sin[1] => sout_node[1].DATAIN
 sin[2] => sout_node[2].DATAIN
@@ -331,7 +330,7 @@ cout[4] <= cout[4].DB_MAX_OUTPUT_PORT_TYPE
 cout[5] <= cout[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:result_node
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:result_node
 sin[0] => cs_buffer[0].SUM_IN
 sin[1] => cs_buffer[1].SUM_IN
 sin[2] => cs_buffer[2].SUM_IN
@@ -361,7 +360,7 @@ cout[4] <= cs_buffer[4].DB_MAX_OUTPUT_PORT_TYPE
 cout[5] <= cs_buffer[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:cout_node
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|addcore:adder|a_csnbuffer:cout_node
 sin[0] => sout_node[0].DATAIN
 sin[1] => sout_node[1].DATAIN
 sin[2] => sout_node[2].DATAIN
@@ -391,7 +390,7 @@ cout[4] <= cout[4].DB_MAX_OUTPUT_PORT_TYPE
 cout[5] <= cout[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|altshift:result_ext_latency_ffs
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|altshift:result_ext_latency_ffs
 data[0] => result[0].DATAIN
 data[1] => result[1].DATAIN
 data[2] => result[2].DATAIN
@@ -409,7 +408,7 @@ result[4] <= data[4].DB_MAX_OUTPUT_PORT_TYPE
 result[5] <= data[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|altshift:carry_ext_latency_ffs
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|altshift:carry_ext_latency_ffs
 data[0] => result[0].DATAIN
 clock => ~NO_FANOUT~
 aclr => ~NO_FANOUT~
@@ -417,7 +416,7 @@ clken => ~NO_FANOUT~
 result[0] <= data[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter_limiter_36:inst|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|altshift:oflow_ext_latency_ffs
+|mux_rom_demux|counter_limiter_36:enc_limiter|conditional_adder:instcond_addr_1|lpm_add_sub:LPM_ADD_SUB_component|altshift:oflow_ext_latency_ffs
 data[0] => result[0].DATAIN
 clock => ~NO_FANOUT~
 aclr => ~NO_FANOUT~
@@ -525,7 +524,7 @@ OUT_BIT_5 <= bit5_or_3.DB_MAX_OUTPUT_PORT_TYPE
 OUT_BIT_6 <= bit6_or_2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|counter:inst3
+|mux_rom_demux|counter:key_counter
 BIT_1 <= map_tff_1.DB_MAX_OUTPUT_PORT_TYPE
 COUNT_CLK => map_tff_1.CLK
 BIT_2 <= map_tff_2.DB_MAX_OUTPUT_PORT_TYPE
@@ -535,13 +534,16 @@ BIT_5 <= map_tff_5.DB_MAX_OUTPUT_PORT_TYPE
 BIT_6 <= map_tff_6.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|mux_rom_demux|debouncer:inst2
+|mux_rom_demux|debouncer:key_debounce
 SIGNAL_OUT <= debounce_and.DB_MAX_OUTPUT_PORT_TYPE
-CLK_50M => lpm_counter0:debounce_clk.clock
+CLK_5M => debounce_dff_1.CLK
+CLK_5M => debounce_dff_2.CLK
+CLK_5M => debounce_dff_3.CLK
+CLK_5M => lpm_counter0:debounce_clk.clock
 SIGNAL_IN => debounce_dff_1.DATAIN
 
 
-|mux_rom_demux|debouncer:inst2|lpm_counter0:debounce_clk
+|mux_rom_demux|debouncer:key_debounce|lpm_counter0:debounce_clk
 clock => clock.IN1
 q[0] <= lpm_counter:LPM_COUNTER_component.q
 q[1] <= lpm_counter:LPM_COUNTER_component.q
@@ -564,8 +566,8 @@ q[17] <= lpm_counter:LPM_COUNTER_component.q
 q[18] <= lpm_counter:LPM_COUNTER_component.q
 
 
-|mux_rom_demux|debouncer:inst2|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component
-clock => cntr_eri:auto_generated.clock
+|mux_rom_demux|debouncer:key_debounce|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component
+clock => cntr_rpi:auto_generated.clock
 clk_en => ~NO_FANOUT~
 cnt_en => ~NO_FANOUT~
 updown => ~NO_FANOUT~
@@ -597,25 +599,25 @@ data[16] => ~NO_FANOUT~
 data[17] => ~NO_FANOUT~
 data[18] => ~NO_FANOUT~
 cin => ~NO_FANOUT~
-q[0] <= cntr_eri:auto_generated.q[0]
-q[1] <= cntr_eri:auto_generated.q[1]
-q[2] <= cntr_eri:auto_generated.q[2]
-q[3] <= cntr_eri:auto_generated.q[3]
-q[4] <= cntr_eri:auto_generated.q[4]
-q[5] <= cntr_eri:auto_generated.q[5]
-q[6] <= cntr_eri:auto_generated.q[6]
-q[7] <= cntr_eri:auto_generated.q[7]
-q[8] <= cntr_eri:auto_generated.q[8]
-q[9] <= cntr_eri:auto_generated.q[9]
-q[10] <= cntr_eri:auto_generated.q[10]
-q[11] <= cntr_eri:auto_generated.q[11]
-q[12] <= cntr_eri:auto_generated.q[12]
-q[13] <= cntr_eri:auto_generated.q[13]
-q[14] <= cntr_eri:auto_generated.q[14]
-q[15] <= cntr_eri:auto_generated.q[15]
-q[16] <= cntr_eri:auto_generated.q[16]
-q[17] <= cntr_eri:auto_generated.q[17]
-q[18] <= cntr_eri:auto_generated.q[18]
+q[0] <= cntr_rpi:auto_generated.q[0]
+q[1] <= cntr_rpi:auto_generated.q[1]
+q[2] <= cntr_rpi:auto_generated.q[2]
+q[3] <= cntr_rpi:auto_generated.q[3]
+q[4] <= cntr_rpi:auto_generated.q[4]
+q[5] <= cntr_rpi:auto_generated.q[5]
+q[6] <= cntr_rpi:auto_generated.q[6]
+q[7] <= cntr_rpi:auto_generated.q[7]
+q[8] <= cntr_rpi:auto_generated.q[8]
+q[9] <= cntr_rpi:auto_generated.q[9]
+q[10] <= cntr_rpi:auto_generated.q[10]
+q[11] <= cntr_rpi:auto_generated.q[11]
+q[12] <= cntr_rpi:auto_generated.q[12]
+q[13] <= cntr_rpi:auto_generated.q[13]
+q[14] <= cntr_rpi:auto_generated.q[14]
+q[15] <= cntr_rpi:auto_generated.q[15]
+q[16] <= cntr_rpi:auto_generated.q[16]
+q[17] <= cntr_rpi:auto_generated.q[17]
+q[18] <= cntr_rpi:auto_generated.q[18]
 cout <= <GND>
 eq[0] <= <GND>
 eq[1] <= <GND>
@@ -635,7 +637,7 @@ eq[14] <= <GND>
 eq[15] <= <GND>
 
 
-|mux_rom_demux|debouncer:inst2|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated
+|mux_rom_demux|debouncer:key_debounce|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_rpi:auto_generated
 clock => counter_cella0.CLK
 clock => counter_cella1.CLK
 clock => counter_cella2.CLK
@@ -676,7 +678,7 @@ q[17] <= counter_cella17.REGOUT
 q[18] <= counter_cella18.REGOUT
 
 
-|mux_rom_demux|debouncer:inst2|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_eri:auto_generated|cmpr_n0c:cmpr1
+|mux_rom_demux|debouncer:key_debounce|lpm_counter0:debounce_clk|lpm_counter:LPM_COUNTER_component|cntr_rpi:auto_generated|cmpr_n0c:cmpr1
 aeb <= aeb_result_wire[0].DB_MAX_OUTPUT_PORT_TYPE
 dataa[0] => data_wire[3].IN0
 dataa[1] => data_wire[3].IN0
@@ -716,5 +718,15 @@ datab[15] => data_wire[10].IN1
 datab[16] => data_wire[11].IN1
 datab[17] => data_wire[11].IN1
 datab[18] => data_wire[12].IN1
+
+
+|mux_rom_demux|ALTUFM_OSC:inst4
+osc <= altufm_osc_iq5:auto_generated.osc
+oscena => altufm_osc_iq5:auto_generated.oscena
+
+
+|mux_rom_demux|ALTUFM_OSC:inst4|altufm_osc_iq5:auto_generated
+osc <= maxii_ufm_block1.OSC
+oscena => maxii_ufm_block1.OSCENA
 
 

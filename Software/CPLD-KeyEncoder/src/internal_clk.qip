@@ -1,0 +1,10 @@
+set_global_assignment -name IP_TOOL_NAME "MAX II/MAX V oscillator"
+set_global_assignment -name IP_TOOL_VERSION "24.1"
+set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{MAX II}"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "internal_clk.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "internal_clk.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "internal_clk_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "internal_clk_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "internal_clk.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "internal_clk.cmp"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "internal_clk_syn.v"]

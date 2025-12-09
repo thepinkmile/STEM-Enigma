@@ -39,7 +39,7 @@ on the Quartus Prime software download page.
 		(line (pt 144 56)(pt 128 56)(line_width 3))
 	)
 	(drawing
-		(text "modulus 263158" (rect 60 31 186 71)(font "Arial" ))
+		(text "modulus 29263" (rect 65 31 191 71)(font "Arial" ))
 		(text "up counter" (rect 84 23 211 55)(font "Arial" ))
 		(line (pt 16 16)(pt 16 64))
 		(line (pt 16 16)(pt 128 16))

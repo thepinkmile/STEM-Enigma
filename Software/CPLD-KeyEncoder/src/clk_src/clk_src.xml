@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2025.11.06.20:18:19"
+ outputDirectory="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="MAX II"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EPM240T100C5"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="5"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clk" kind="clock" start="1">
+   <property name="associatedDirectClock" value="" />
+   <property name="clockRate" value="50000000" />
+   <property name="clockRateKnown" value="false" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk" direction="output" role="clk" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="clk_src:1.0:AUTO_DEVICE=EPM240T100C5,AUTO_DEVICE_FAMILY=MAX II,AUTO_DEVICE_SPEEDGRADE=5,AUTO_GENERATION_ID=1762460297,AUTO_UNIQUE_ID=(altera_avalon_clock_source:24.1:CLOCK_RATE=50,CLOCK_UNIT=1000000)"
+   instancePathKey="clk_src"
+   kind="clk_src"
+   version="1.0"
+   name="clk_src">
+  <parameter name="AUTO_GENERATION_ID" value="1762460297" />
+  <parameter name="AUTO_DEVICE" value="EPM240T100C5" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX II" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="5" />
+  <generatedFiles>
+   <file
+       path="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src/synthesis/clk_src.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src/synthesis/submodules/verbosity_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src/synthesis/submodules/altera_avalon_clock_source.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="C:/intelfpga_lite/ip/altera/sopc_builder_ip/verification/altera_avalon_clock_source/altera_avalon_clock_source_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="clk_src">queue size: 0 starting:clk_src "clk_src"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="clk_src"><![CDATA["<b>clk_src</b>" reuses <b>altera_avalon_clock_source</b> "<b>submodules/altera_avalon_clock_source</b>"]]></message>
+   <message level="Debug" culprit="clk_src">queue size: 0 starting:altera_avalon_clock_source "submodules/altera_avalon_clock_source"</message>
+   <message level="Info" culprit="clock_source_0"><![CDATA["<b>clk_src</b>" instantiated <b>altera_avalon_clock_source</b> "<b>clock_source_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_avalon_clock_source:24.1:CLOCK_RATE=50,CLOCK_UNIT=1000000"
+   instancePathKey="clk_src:.:clock_source_0"
+   kind="altera_avalon_clock_source"
+   version="24.1"
+   name="altera_avalon_clock_source">
+  <generatedFiles>
+   <file
+       path="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src/synthesis/submodules/verbosity_pkg.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+   <file
+       path="C:/__WORK__/DG-STEAM/Enigma/STEM-Enigma/Software/CPLD-KeyEncoder/src/clk_src/synthesis/submodules/altera_avalon_clock_source.sv"
+       type="SYSTEM_VERILOG"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="C:/intelfpga_lite/ip/altera/sopc_builder_ip/verification/altera_avalon_clock_source/altera_avalon_clock_source_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="clk_src" as="clock_source_0" />
+  <messages>
+   <message level="Debug" culprit="clk_src">queue size: 0 starting:altera_avalon_clock_source "submodules/altera_avalon_clock_source"</message>
+   <message level="Info" culprit="clock_source_0"><![CDATA["<b>clk_src</b>" instantiated <b>altera_avalon_clock_source</b> "<b>clock_source_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>

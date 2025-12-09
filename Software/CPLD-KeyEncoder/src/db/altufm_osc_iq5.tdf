@@ -1,0 +1,46 @@
+--altufm_osc OSC_FREQUENCY=136000 osc oscena DEVICE_FAMILY="MAX II"
+--VERSION_BEGIN 24.1 cbx_altufm_osc 2025:03:05:20:06:36:SC cbx_maxii 2025:03:05:20:06:36:SC cbx_mgl 2025:03:05:20:07:01:SC cbx_stratixii 2025:03:05:20:06:36:SC cbx_util_mgl 2025:03:05:20:06:36:SC  VERSION_END
+
+
+-- Copyright (C) 2025  Altera Corporation. All rights reserved.
+--  Your use of Altera Corporation's design tools, logic functions 
+--  and other software and tools, and any partner logic 
+--  functions, and any output files from any of the foregoing 
+--  (including device programming or simulation files), and any 
+--  associated documentation or information are expressly subject 
+--  to the terms and conditions of the Altera Program License 
+--  Subscription Agreement, the Altera Quartus Prime License Agreement,
+--  the Altera IP License Agreement, or other applicable license
+--  agreement, including, without limitation, that your use is for
+--  the sole purpose of programming logic devices manufactured by
+--  Altera and sold by Altera or its authorized distributors.  Please
+--  refer to the Altera Software License Subscription Agreements 
+--  on the Quartus Prime software download page.
+
+
+include "maxii_ufm.inc";
+
+--synthesis_resources = maxii_ufm 1 
+SUBDESIGN altufm_osc_iq5
+( 
+	osc	:	output;
+	oscena	:	input;
+) 
+VARIABLE 
+	maxii_ufm_block1 : maxii_ufm
+		WITH (
+			ADDRESS_WIDTH = 9,
+			OSC_SIM_SETTING = 136000
+		);
+
+BEGIN 
+	maxii_ufm_block1.arclk = B"0";
+	maxii_ufm_block1.ardin = B"0";
+	maxii_ufm_block1.arshft = B"0";
+	maxii_ufm_block1.drclk = B"0";
+	maxii_ufm_block1.drdin = B"0";
+	maxii_ufm_block1.drshft = B"1";
+	maxii_ufm_block1.oscena = oscena;
+	osc = maxii_ufm_block1.osc;
+END;
+--VALID FILE

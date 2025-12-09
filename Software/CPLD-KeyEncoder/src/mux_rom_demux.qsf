@@ -184,3 +184,4 @@ set_global_assignment -name BDF_FILE debouncer.bdf
 set_global_assignment -name BDF_FILE counter.bdf
 set_global_assignment -name BDF_FILE "plugboard-controller.bdf"
 set_global_assignment -name BDF_FILE decoder.bdf
+set_global_assignment -name QIP_FILE internal_clk.qip

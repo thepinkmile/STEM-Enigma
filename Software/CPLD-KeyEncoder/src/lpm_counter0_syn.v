@@ -34,7 +34,7 @@
 //on the Quartus Prime software download page.
 
 
-//lpm_counter DEVICE_FAMILY="MAX II" lpm_direction="UP" lpm_modulus=263158 lpm_port_updown="PORT_UNUSED" lpm_width=19 clock q
+//lpm_counter DEVICE_FAMILY="MAX II" lpm_direction="UP" lpm_modulus=29263 lpm_port_updown="PORT_UNUSED" lpm_width=19 clock q
 //VERSION_BEGIN 24.1 cbx_cycloneii 2025:03:05:20:06:36:SC cbx_lpm_add_sub 2025:03:05:20:06:36:SC cbx_lpm_compare 2025:03:05:20:06:36:SC cbx_lpm_counter 2025:03:05:20:06:36:SC cbx_lpm_decode 2025:03:05:20:06:36:SC cbx_mgl 2025:03:05:20:07:01:SC cbx_nadder 2025:03:05:20:06:36:SC cbx_stratix 2025:03:05:20:06:36:SC cbx_stratixii 2025:03:05:20:06:36:SC  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
@@ -839,7 +839,7 @@ module  lpm_counter0_cntr
 		clk_en = 1'b1,
 		compare_result = wire_cmpr1_aeb,
 		data = {19{1'b0}},
-		modulus_bus = 19'b1000000001111110101,
+		modulus_bus = 19'b0000111001001001110,
 		modulus_trigger = wire_cout_bit_combout,
 		q = safe_q,
 		safe_q = wire_counter_cella_regout,
@@ -884,7 +884,7 @@ endmodule
 // Retrieval info: PRIVATE: Direction NUMERIC "0"
 // Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "MAX II"
 // Retrieval info: PRIVATE: ModulusCounter NUMERIC "1"
-// Retrieval info: PRIVATE: ModulusValue NUMERIC "263158"
+// Retrieval info: PRIVATE: ModulusValue NUMERIC "29263"
 // Retrieval info: PRIVATE: SCLR NUMERIC "0"
 // Retrieval info: PRIVATE: SLOAD NUMERIC "0"
 // Retrieval info: PRIVATE: SSET NUMERIC "0"
@@ -894,7 +894,7 @@ endmodule
 // Retrieval info: PRIVATE: new_diagram STRING "1"
 // Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 // Retrieval info: CONSTANT: LPM_DIRECTION STRING "UP"
-// Retrieval info: CONSTANT: LPM_MODULUS NUMERIC "263158"
+// Retrieval info: CONSTANT: LPM_MODULUS NUMERIC "29263"
 // Retrieval info: CONSTANT: LPM_PORT_UPDOWN STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_COUNTER"
 // Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "19"

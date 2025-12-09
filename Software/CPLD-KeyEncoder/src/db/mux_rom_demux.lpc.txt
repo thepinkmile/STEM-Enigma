@@ -1,7 +1,22 @@
 +--------------------------------------------------------------------------------+
 ; Legal Partition Candidates                                                     ;
 +--------------------------------------------------------------------------------+
-Hierarchy         : inst2|debounce_clk|LPM_COUNTER_component|auto_generated|cmpr1
+Hierarchy         : inst4|auto_generated
+Input             : 1
+Constant Input    : 0
+Unused Input      : 0
+Floating Input    : 0
+Output            : 1
+Constant Output   : 0
+Unused Output     : 0
+Floating Output   : 0
+Bidir             : 0
+Constant Bidir    : 0
+Unused Bidir      : 0
+Input only Bidir  : 0
+Output only Bidir : 0
+
+Hierarchy         : key_debounce|debounce_clk|LPM_COUNTER_component|auto_generated|cmpr1
 Input             : 38
 Constant Input    : 0
 Unused Input      : 0
@@ -16,7 +31,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst2|debounce_clk|LPM_COUNTER_component|auto_generated
+Hierarchy         : key_debounce|debounce_clk|LPM_COUNTER_component|auto_generated
 Input             : 1
 Constant Input    : 0
 Unused Input      : 0
@@ -31,22 +46,22 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst2|debounce_clk
+Hierarchy         : key_debounce|debounce_clk
 Input             : 1
-Constant Input    : 0
+Constant Input    : 19
 Unused Input      : 0
-Floating Input    : 0
+Floating Input    : 19
 Output            : 19
-Constant Output   : 0
-Unused Output     : 0
-Floating Output   : 0
+Constant Output   : 19
+Unused Output     : 19
+Floating Output   : 19
 Bidir             : 0
 Constant Bidir    : 0
 Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst2
+Hierarchy         : key_debounce
 Input             : 2
 Constant Input    : 0
 Unused Input      : 0
@@ -61,7 +76,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst3
+Hierarchy         : key_counter
 Input             : 1
 Constant Input    : 0
 Unused Input      : 0
@@ -91,7 +106,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst|instcond_addr_1
+Hierarchy         : enc_limiter|instcond_addr_1
 Input             : 6
 Constant Input    : 0
 Unused Input      : 0
@@ -106,7 +121,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst|bus_mux|LPM_MUX_component|auto_generated
+Hierarchy         : enc_limiter|bus_mux|LPM_MUX_component|auto_generated
 Input             : 13
 Constant Input    : 0
 Unused Input      : 0
@@ -121,7 +136,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst|bus_mux
+Hierarchy         : enc_limiter|bus_mux
 Input             : 13
 Constant Input    : 0
 Unused Input      : 0
@@ -136,7 +151,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst|comp_max_1|LPM_COMPARE_component|auto_generated
+Hierarchy         : enc_limiter|comp_max_1|LPM_COMPARE_component|auto_generated
 Input             : 12
 Constant Input    : 0
 Unused Input      : 0
@@ -151,7 +166,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst|comp_max_1
+Hierarchy         : enc_limiter|comp_max_1
 Input             : 6
 Constant Input    : 0
 Unused Input      : 0
@@ -166,7 +181,7 @@ Unused Bidir      : 0
 Input only Bidir  : 0
 Output only Bidir : 0
 
-Hierarchy         : inst
+Hierarchy         : enc_limiter
 Input             : 6
 Constant Input    : 0
 Unused Input      : 0

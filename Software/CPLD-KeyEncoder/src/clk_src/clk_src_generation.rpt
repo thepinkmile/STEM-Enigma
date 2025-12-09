@@ -1,0 +1,37 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\__WORK__\DG-STEAM\Enigma\STEM-Enigma\Software\CPLD-KeyEncoder\src\clk_src.qsys --block-symbol-file --output-directory=C:\__WORK__\DG-STEAM\Enigma\STEM-Enigma\Software\CPLD-KeyEncoder\src\clk_src --family="MAX II" --part=EPM240T100C5
+Progress: Loading src/clk_src.qsys
+Progress: Reading input file
+Progress: Adding clock_source_0 [altera_avalon_clock_source 24.1]
+Info: altera_avalon_clock_source: Preferred Simulation Language is set to None.
+Progress: Parameterizing module clock_source_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: clk_src.clock_source_0: Elaborate: altera_clock_source
+Info: clk_src.clock_source_0:            $Revision: #1 $
+Info: clk_src.clock_source_0:            $Date: 2023/12/11 $
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\__WORK__\DG-STEAM\Enigma\STEM-Enigma\Software\CPLD-KeyEncoder\src\clk_src.qsys --synthesis=VERILOG --greybox --output-directory=C:\__WORK__\DG-STEAM\Enigma\STEM-Enigma\Software\CPLD-KeyEncoder\src\clk_src\synthesis --family="MAX II" --part=EPM240T100C5
+Progress: Loading src/clk_src.qsys
+Progress: Reading input file
+Progress: Adding clock_source_0 [altera_avalon_clock_source 24.1]
+Progress: Parameterizing module clock_source_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: clk_src.clock_source_0: Elaborate: altera_clock_source
+Info: clk_src.clock_source_0:            $Revision: #1 $
+Info: clk_src.clock_source_0:            $Date: 2023/12/11 $
+Info: clk_src: Generating "clk_src" for QUARTUS_SYNTH
+Info: clock_source_0: "clk_src" instantiated altera_avalon_clock_source "clock_source_0"
+Info: clk_src: Done "clk_src" with 2 modules, 3 files
+Info: Generating third-party timing and resource estimation model ...
+Info: Done generating third-party timing and resource estimation model.
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
