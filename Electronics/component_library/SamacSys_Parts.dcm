@@ -144,4 +144,28 @@ K
 F https://datasheet.datasheetarchive.com/originals/distributors/SFDatasheet-4/sf-00090057.pdf
 $ENDCMP
 #
+$CMP AP22653W6-7
+D Power Switch ICs - Power Distribution 1-Ch Precision Curr-Limit Load SW
+K
+F https://www.diodes.com//assets/Datasheets/AP22652_53_52A_53A.pdf
+$ENDCMP
+#
+$CMP CKG57NX7R1H106M500JH
+D TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH
+K
+F https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf
+$ENDCMP
+#
+$CMP CKG57NX7R1E107M500JH
+D Multilayer Ceramic Capacitors MLCC - SMD/SMT CKG 2220 25V 100uF X7R 20% T: 5mm
+K
+F https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf
+$ENDCMP
+#
+$CMP RT9742SNGV
+D IC PWR SWITCH N-CHAN 1:1 SOT23-3
+K
+F https://datasheet.lcsc.com/szlcsc/Richtek-Tech-RT9742ANGJ5F_C147955.pdf
+$ENDCMP
+#
 #End Doc Library
