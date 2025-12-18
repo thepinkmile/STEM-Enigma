@@ -4144,454 +4144,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Enigma_Components:CKG57NX7R1E107M500JH"
-			(pin_names
-				(offset 0.762)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 8.89 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "CKG57NX7R1E107M500JH"
-				(at 8.89 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "CAPC6050X550N"
-				(at 8.89 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf"
-				(at 8.89 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT CKG 2220 25V 100uF X7R 20% T: 5mm"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "Multilayer Ceramic Capacitors MLCC - SMD/SMT CKG 2220 25V 100uF X7R 20% T: 5mm"
-				(at 8.89 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Height" "5.5"
-				(at 8.89 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "TDK"
-				(at 8.89 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "CKG57NX7R1E107M500JH"
-				(at 8.89 -11.43 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "810-CKG57NX7R1E107JH"
-				(at 8.89 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TDK/CKG57NX7R1E107M500JH?qs=%2FP2Ij7fVdhHC5m%2FfP7KbHA%3D%3D"
-				(at 8.89 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "CKG57NX7R1E107M500JH"
-				(at 8.89 -19.05 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/ckg57nx7r1e107m500jh/tdk?utm_currency=USD&region=nac"
-				(at 8.89 -21.59 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(symbol "CKG57NX7R1E107M500JH_0_0"
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 12.7 0 180)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "CKG57NX7R1E107M500JH_0_1"
-				(polyline
-					(pts
-						(xy 5.08 0) (xy 5.588 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.588 2.54) (xy 5.588 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 7.112 2.54) (xy 7.112 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 7.112 0) (xy 7.62 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Enigma_Components:CKG57NX7R1H106M500JH"
-			(pin_names
-				(offset 0.762)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 8.89 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "CKG57NX7R1H106M500JH"
-				(at 8.89 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "CAPC6050X550N"
-				(at 8.89 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf"
-				(at 8.89 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Description" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-				(at 8.89 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Height" "5.5"
-				(at 8.89 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "TDK"
-				(at 8.89 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "CKG57NX7R1H106M500JH"
-				(at 8.89 -11.43 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "810-CKG57NX7R1H106M"
-				(at 8.89 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TDK/CKG57NX7R1H106M500JH?qs=NRhsANhppD9S1tw1iTnXgg%3D%3D"
-				(at 8.89 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "CKG57NX7R1H106M500JH"
-				(at 8.89 -19.05 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "null?region=nac"
-				(at 8.89 -21.59 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(symbol "CKG57NX7R1H106M500JH_0_0"
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 12.7 0 180)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "CKG57NX7R1H106M500JH_0_1"
-				(polyline
-					(pts
-						(xy 5.08 0) (xy 5.588 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.588 2.54) (xy 5.588 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 7.112 2.54) (xy 7.112 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 7.112 0) (xy 7.62 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Enigma_Components:ERA2AEB201X"
 			(pin_names
 				(offset 0.762)
@@ -6223,6 +5775,262 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "PCM_JLCPCB-Capacitors:0603,10uF,(2)"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 2.032 1.668 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "10uF"
+				(at 2.032 -0.3782 0)
+				(effects
+					(font
+						(size 0.8 0.8)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "PCM_JLCPCB:C_0603"
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10A106MA8NRNC_C96446.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "25V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "LCSC" "C96446"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Stock" "3388297"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Price" "0.021USD"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Process" "SMT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Minimum Qty" "20"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Attrition Qty" "8"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Class" "Basic Component"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Category" "Capacitors,Multilayer Ceramic Capacitors MLCC - SMD/SMT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Samsung Electro-Mechanics"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Part" "CL10A106MA8NRNC"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Voltage Rated" "25V"
+				(at 2.032 -2.0462 0)
+				(effects
+					(font
+						(size 0.8 0.8)
+					)
+					(justify left)
+				)
+			)
+			(property "Tolerance" "±20%"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Capacitance" "10uF"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Temperature Coefficient" "X5R"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "0603,10uF,(2)_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0.635) (xy 1.27 0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -0.635) (xy 1.27 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "0603,10uF,(2)_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 3.175)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 3.175)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "PCM_JLCPCB-Resistors:0402,10kΩ"
 			(pin_numbers
 				(hide yes)
@@ -7296,6 +7104,153 @@
 						(effects
 							(font
 								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "PCM_SL_Capacitors:100uF_25V"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "100uF_25V"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+				(at 0.762 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0.508 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "100uF, 25V Electrolytic Capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Electrolytic Capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Capacitor_THT:CP_Radial_D5.0mm_* Capacitor_THT:CP_Radial_D4.0mm_* Capacitor_THT:CP_Radial_D6.3mm_* Capacitor_THT:CP_Radial_D7.5mm_* Capacitor_THT:CP_Radial_D8.0mm_* Capacitor_THT:CP_Radial_D10.0mm_* Capacitor_THT:CP_Radial_D14.0mm_* Capacitor_THT:CP_Radial_D16.0mm_* Capacitor_THT:CP_Radial_D18.0mm_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "100uF_25V_0_0"
+				(text "+"
+					(at -2.032 1.524 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(text "-"
+					(at 2.032 1.524 0)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(symbol "100uF_25V_0_1"
+				(rectangle
+					(start -1.016 -2.286)
+					(end -0.508 2.286)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 0.508 -2.286)
+					(end 1.016 2.286)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "100uF_25V_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.7)
+					(name "~"
+						(effects
+							(font
+								(size 0 0)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 0 0)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 3.81 0 180)
+					(length 2.7)
+					(name "~"
+						(effects
+							(font
+								(size 0 0)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 0 0)
 							)
 						)
 					)
@@ -11538,7 +11493,7 @@
 	)
 	(text "[To Rotor Arm]"
 		(exclude_from_sim no)
-		(at 323.596 82.55 0)
+		(at 323.596 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11586,7 +11541,7 @@
 		)
 		(uuid "40059800-2ff6-42b3-8406-823511a85fb3")
 	)
-	(text "[To Rotor Arm]"
+	(text "[To Reflector Enc]"
 		(exclude_from_sim no)
 		(at 323.596 63.5 0)
 		(effects
@@ -11686,7 +11641,7 @@
 		)
 		(uuid "92622bfc-c293-471e-b31f-95abc794a4c0")
 	)
-	(text "[To Rotor Arm]"
+	(text "[To Stator Enc]"
 		(exclude_from_sim no)
 		(at 300.736 63.5 0)
 		(effects
@@ -11727,10 +11682,22 @@
 		(uuid "d3a2068c-5e22-4dc2-b336-121dd7a4402f")
 	)
 	(junction
+		(at 295.91 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "05bec2a5-d736-4fa7-926d-f1aadebf603d")
+	)
+	(junction
 		(at 377.19 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "071a9905-726b-44de-a27a-9740c89cab1a")
+	)
+	(junction
+		(at 384.81 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0b37e57e-37d7-41c3-8a03-da5eaffe6c4d")
 	)
 	(junction
 		(at 184.15 266.7)
@@ -11769,10 +11736,10 @@
 		(uuid "389af1ea-bbed-4a22-9a35-82fdf7a7166d")
 	)
 	(junction
-		(at 384.81 120.65)
+		(at 375.92 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "47e7fb20-2c59-46b2-9d53-d4202dd3a34d")
+		(uuid "3e5c4b2c-0f8d-446a-962e-2795a90f1ee4")
 	)
 	(junction
 		(at 57.15 170.18)
@@ -11827,18 +11794,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9f68616d-23ac-4d28-9b36-4790635646da")
-	)
-	(junction
-		(at 375.92 120.65)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b3331559-84f6-4e01-9299-f5761aa153e8")
-	)
-	(junction
-		(at 295.91 120.65)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dee2c1e6-1fcd-4120-a1af-a7e8bd3180e8")
 	)
 	(no_connect
 		(at 237.49 52.07)
@@ -12592,7 +12547,7 @@
 	)
 	(wire
 		(pts
-			(xy 370.84 123.19) (xy 360.68 123.19)
+			(xy 368.3 123.19) (xy 360.68 123.19)
 		)
 		(stroke
 			(width 0)
@@ -13082,6 +13037,16 @@
 	)
 	(wire
 		(pts
+			(xy 384.81 120.65) (xy 394.97 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60eec5bd-b5f5-4917-a8bf-4da9640a6acd")
+	)
+	(wire
+		(pts
 			(xy 196.85 204.47) (xy 199.39 204.47)
 		)
 		(stroke
@@ -13199,16 +13164,6 @@
 			(type default)
 		)
 		(uuid "6e988311-abb9-49f8-bcae-4a74ba6fcc2b")
-	)
-	(wire
-		(pts
-			(xy 360.68 120.65) (xy 375.92 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7199b3a2-ee0e-440f-8194-375fefe926cf")
 	)
 	(wire
 		(pts
@@ -13409,16 +13364,6 @@
 			(type default)
 		)
 		(uuid "8368b800-277c-4c2b-be25-511747cb5732")
-	)
-	(wire
-		(pts
-			(xy 375.92 120.65) (xy 384.81 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "83d85559-b1d6-45cf-99b9-1e233149768d")
 	)
 	(wire
 		(pts
@@ -13772,6 +13717,16 @@
 	)
 	(wire
 		(pts
+			(xy 375.92 120.65) (xy 384.81 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c8f293d-a8c5-4278-b316-ae3eaefc82d4")
+	)
+	(wire
+		(pts
 			(xy 304.8 26.67) (xy 314.96 26.67)
 		)
 		(stroke
@@ -13782,7 +13737,7 @@
 	)
 	(wire
 		(pts
-			(xy 384.81 120.65) (xy 394.97 120.65)
+			(xy 360.68 120.65) (xy 375.92 120.65)
 		)
 		(stroke
 			(width 0)
@@ -13902,16 +13857,6 @@
 	)
 	(wire
 		(pts
-			(xy 295.91 120.65) (xy 322.58 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a92b6352-05e2-4432-8ccc-54c68f200808")
-	)
-	(wire
-		(pts
 			(xy 104.14 110.49) (xy 106.68 110.49)
 		)
 		(stroke
@@ -13932,7 +13877,7 @@
 	)
 	(wire
 		(pts
-			(xy 370.84 123.19) (xy 370.84 133.35)
+			(xy 368.3 123.19) (xy 368.3 128.27)
 		)
 		(stroke
 			(width 0)
@@ -14089,6 +14034,16 @@
 			(type default)
 		)
 		(uuid "b7b8f295-245b-4630-9bbc-d05297509360")
+	)
+	(wire
+		(pts
+			(xy 295.91 120.65) (xy 322.58 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b8d8c8fc-ddd4-47d8-a08c-cb860197d605")
 	)
 	(wire
 		(pts
@@ -14802,7 +14757,7 @@
 	)
 	(wire
 		(pts
-			(xy 303.53 123.19) (xy 303.53 133.35)
+			(xy 303.53 123.19) (xy 303.53 128.27)
 		)
 		(stroke
 			(width 0)
@@ -15278,7 +15233,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "36833926-0895-4db0-b32c-79580b9a87f6")
+		(uuid "36833926-0895-4db0-b32c-79580b9a87f7")
 	)
 	(label "oBIN_IN_B4"
 		(at 82.55 243.84 0)
@@ -15708,7 +15663,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7b")
+		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7c")
 	)
 	(label "EEPROM_nWP"
 		(at 48.26 130.81 180)
@@ -15718,7 +15673,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7b")
+		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7d")
 	)
 	(label "WL_nDisable"
 		(at 157.48 170.18 0)
@@ -15728,7 +15683,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7b")
+		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7e")
 	)
 	(label "BT_nDisable"
 		(at 157.48 167.64 0)
@@ -15738,7 +15693,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7b")
+		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7f")
 	)
 	(label "EEPROM_nWP"
 		(at 157.48 172.72 0)
@@ -15748,7 +15703,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b7b")
+		(uuid "67fd0ac5-cb4d-4729-84f4-cd200b6b0b80")
 	)
 	(label "MAP_ADDR_2"
 		(at 48.26 107.95 180)
@@ -16668,7 +16623,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d6ce9eba-e4ec-4f54-be53-fc968481006d")
+		(uuid "d6ce9eba-e4ec-4f54-be53-fc968481006e")
 	)
 	(label "oBIN_OUT_A6"
 		(at 82.55 229.87 0)
@@ -16868,7 +16823,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ee38a0d5-0441-41d3-93ec-a9095cc0c753")
+		(uuid "ee38a0d5-0441-41d3-93ec-a9095cc0c754")
 	)
 	(label "VBUS"
 		(at 308.61 185.42 90)
@@ -16878,7 +16833,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ee38a0d5-0441-41d3-93ec-a9095cc0c753")
+		(uuid "ee38a0d5-0441-41d3-93ec-a9095cc0c755")
 	)
 	(label "PD_CC2"
 		(at 361.95 57.15 270)
@@ -18176,6 +18131,75 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PCM_SL_Capacitors:100uF_25V")
+		(at 375.92 124.46 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0956b521-c12e-41bb-a63c-715d6aa4a16c")
+		(property "Reference" "C4"
+			(at 375.158 115.824 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uF_25V"
+			(at 372.872 118.364 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm"
+			(at 372.11 125.222 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 375.92 124.968 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "100uF, 25V Electrolytic Capacitor"
+			(at 375.92 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "639f207c-fa73-438a-ba2f-e442163e6d35")
+		)
+		(pin "2"
+			(uuid "5c1d0afd-5b9f-4c19-8551-db19dc124e5b")
+		)
+		(instances
+			(project ""
+				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -21218,7 +21242,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 317.5 86.36 0)
+		(at 317.5 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -21227,7 +21251,7 @@
 		(fields_autoplaced yes)
 		(uuid "2ba1983b-1b25-4ed3-b4ef-e183cf13b60c")
 		(property "Reference" "J18"
-			(at 320.04 86.3599 0)
+			(at 320.04 85.0899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21236,7 +21260,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 320.04 88.8999 0)
+			(at 320.04 87.6299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21245,7 +21269,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 317.5 86.36 0)
+			(at 317.5 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21254,7 +21278,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 317.5 86.36 0)
+			(at 317.5 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21263,7 +21287,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 317.5 86.36 0)
+			(at 317.5 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22293,10 +22317,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3674b628-267c-407f-92cb-731b8c3c1e96")
 		(property "Reference" "R7"
-			(at 50.8 106.68 90)
+			(at 50.8 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22563,7 +22586,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "fe233dcc-0fd9-4f04-b0c9-e6a65606536e")
+			(uuid "fe233dcc-0fd9-4f04-b0c9-e6a65606536f")
 		)
 		(instances
 			(project ""
@@ -22576,7 +22599,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 394.97 133.35 0)
+		(at 394.97 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -22585,7 +22608,7 @@
 		(fields_autoplaced yes)
 		(uuid "3c1f71d7-1502-46ae-9e46-951232f82940")
 		(property "Reference" "#PWR0156"
-			(at 394.97 139.7 0)
+			(at 394.97 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22594,7 +22617,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 394.97 138.43 0)
+			(at 394.97 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22602,7 +22625,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 394.97 133.35 0)
+			(at 394.97 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22611,7 +22634,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 394.97 133.35 0)
+			(at 394.97 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22620,7 +22643,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 394.97 133.35 0)
+			(at 394.97 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23533,7 +23556,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 370.84 133.35 0)
+		(at 368.3 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23542,7 +23565,7 @@
 		(fields_autoplaced yes)
 		(uuid "49caf854-cf36-4a0f-a5d8-efe715af4945")
 		(property "Reference" "#PWR0153"
-			(at 370.84 139.7 0)
+			(at 368.3 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23551,7 +23574,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 370.84 138.43 0)
+			(at 368.3 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23559,7 +23582,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 370.84 133.35 0)
+			(at 368.3 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23568,7 +23591,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 370.84 133.35 0)
+			(at 368.3 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23577,7 +23600,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 370.84 133.35 0)
+			(at 368.3 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23586,7 +23609,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "09abc0ed-295b-4be8-bb07-6f9441653605")
+			(uuid "09abc0ed-295b-4be8-bb07-6f9441653606")
 		)
 		(instances
 			(project ""
@@ -23887,7 +23910,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 384.81 133.35 0)
+		(at 384.81 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23896,7 +23919,7 @@
 		(fields_autoplaced yes)
 		(uuid "4b295845-247f-4f6e-a29b-25c7694ab672")
 		(property "Reference" "#PWR0155"
-			(at 384.81 139.7 0)
+			(at 384.81 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23905,7 +23928,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 384.81 138.43 0)
+			(at 384.81 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23913,7 +23936,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 384.81 133.35 0)
+			(at 384.81 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23922,7 +23945,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 384.81 133.35 0)
+			(at 384.81 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23931,7 +23954,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 384.81 133.35 0)
+			(at 384.81 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23940,7 +23963,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "09abc0ed-295b-4be8-bb07-6f9441653605")
+			(uuid "09abc0ed-295b-4be8-bb07-6f9441653607")
 		)
 		(instances
 			(project ""
@@ -23953,7 +23976,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 312.42 88.9 0)
+		(at 312.42 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23962,7 +23985,7 @@
 		(fields_autoplaced yes)
 		(uuid "4c70257e-4d00-4f04-be84-b310e5c2b510")
 		(property "Reference" "#PWR0106"
-			(at 312.42 95.25 0)
+			(at 312.42 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23971,7 +23994,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 312.42 93.98 0)
+			(at 312.42 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23979,7 +24002,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 312.42 88.9 0)
+			(at 312.42 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23988,7 +24011,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 312.42 88.9 0)
+			(at 312.42 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23997,7 +24020,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 312.42 88.9 0)
+			(at 312.42 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24204,6 +24227,202 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "J10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PCM_JLCPCB-Capacitors:0603,10uF,(2)")
+		(at 394.97 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5165b777-a245-4b1d-885b-ee6660261a05")
+		(property "Reference" "C3"
+			(at 397.51 121.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 397.51 124.46 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "PCM_JLCPCB:C_0603"
+			(at 393.192 124.46 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10A106MA8NRNC_C96446.pdf"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "25V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C96446"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Stock" "3388297"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0.021USD"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Process" "SMT"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Minimum Qty" "20"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Attrition Qty" "8"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Class" "Basic Component"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Category" "Capacitors,Multilayer Ceramic Capacitors MLCC - SMD/SMT"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A106MA8NRNC"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage Rated" "25V"
+			(at 397.51 127 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+				(justify left)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Capacitance" "10uF"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Temperature Coefficient" "X5R"
+			(at 394.97 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "16371702-8b78-4dba-abd3-c7d08b9bfdc5")
+		)
+		(pin "1"
+			(uuid "54e23853-25a8-41a5-b8e2-0f33a40ccb74")
+		)
+		(instances
+			(project "enigma_controller"
+				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -24780,7 +24999,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "986bccda-378f-4f66-b618-808c81776f1e")
+			(uuid "986bccda-378f-4f66-b618-808c81776f1f")
 		)
 		(instances
 			(project ""
@@ -25515,6 +25734,202 @@
 		)
 	)
 	(symbol
+		(lib_id "PCM_JLCPCB-Capacitors:0603,10uF,(2)")
+		(at 384.81 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "69df0322-e943-4308-aca3-ae81857828f4")
+		(property "Reference" "C19"
+			(at 387.35 121.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 387.35 124.46 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "PCM_JLCPCB:C_0603"
+			(at 383.032 124.46 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10A106MA8NRNC_C96446.pdf"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "25V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C96446"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Stock" "3388297"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0.021USD"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Process" "SMT"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Minimum Qty" "20"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Attrition Qty" "8"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Class" "Basic Component"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Category" "Capacitors,Multilayer Ceramic Capacitors MLCC - SMD/SMT"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A106MA8NRNC"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage Rated" "25V"
+			(at 387.35 127 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+				(justify left)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Capacitance" "10uF"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Temperature Coefficient" "X5R"
+			(at 384.81 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "382d6d7f-5a46-46cb-b7cc-bc80024e8892")
+		)
+		(pin "1"
+			(uuid "68677f6c-ca60-4eed-be8a-009c53d42c43")
+		)
+		(instances
+			(project "enigma_controller"
+				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 57.15 72.39 270)
 		(unit 1)
@@ -25792,10 +26207,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "726cdea0-30e7-4c8e-9d0e-13e34d2dfa4d")
 		(property "Reference" "R6"
-			(at 110.49 106.68 90)
+			(at 110.49 108.204 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25992,166 +26406,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "7ff9f666-0653-4a3d-8297-684a295677fc")
+			(uuid "7ff9f666-0653-4a3d-8297-684a295677fd")
 		)
 		(pin "2"
-			(uuid "e44c4af2-e0b6-4ab9-983a-45fdd3cb544d")
+			(uuid "e44c4af2-e0b6-4ab9-983a-45fdd3cb544e")
 		)
 		(instances
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Enigma_Components:CKG57NX7R1H106M500JH")
-		(at 394.97 120.65 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "72be638a-43d1-49c5-bf24-c610c730244b")
-		(property "Reference" "C4"
-			(at 393.192 127.762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "CKG57NX7R1H106M500JH"
-			(at 399.034 121.666 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Enigma_Components:CAPC6050X550N"
-			(at 396.24 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf"
-			(at 393.7 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-			(at 394.97 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-			(at 391.16 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "5.5"
-			(at 388.62 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "TDK"
-			(at 386.08 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "CKG57NX7R1H106M500JH"
-			(at 383.54 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "810-CKG57NX7R1H106M"
-			(at 381 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TDK/CKG57NX7R1H106M500JH?qs=NRhsANhppD9S1tw1iTnXgg%3D%3D"
-			(at 378.46 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "CKG57NX7R1H106M500JH"
-			(at 375.92 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "null?region=nac"
-			(at 373.38 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "0d260b49-4d3d-45b1-bedd-ef3f51c6ec3e")
-		)
-		(pin "1"
-			(uuid "103e76d7-414e-4b16-a0b2-4ff40cd18b34")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -26700,7 +26963,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "986bccda-378f-4f66-b618-808c81776f1e")
+			(uuid "986bccda-378f-4f66-b618-808c81776f20")
 		)
 		(instances
 			(project ""
@@ -26722,7 +26985,7 @@
 		(dnp no)
 		(uuid "7e4cf18f-4f4e-45e4-a7ed-33c0a8b9d176")
 		(property "Reference" "IC11"
-			(at 340.868 145.796 0)
+			(at 343.916 147.828 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27536,157 +27799,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Enigma_Components:CKG57NX7R1H106M500JH")
-		(at 384.81 120.65 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8c052674-baf0-4319-b546-013e1faf1e3a")
-		(property "Reference" "C5"
-			(at 382.524 128.016 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "CKG57NX7R1H106M500JH"
-			(at 389.128 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Enigma_Components:CAPC6050X550N"
-			(at 386.08 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf"
-			(at 383.54 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-			(at 384.81 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-			(at 381 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "5.5"
-			(at 378.46 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "TDK"
-			(at 375.92 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "CKG57NX7R1H106M500JH"
-			(at 373.38 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "810-CKG57NX7R1H106M"
-			(at 370.84 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TDK/CKG57NX7R1H106M500JH?qs=NRhsANhppD9S1tw1iTnXgg%3D%3D"
-			(at 368.3 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "CKG57NX7R1H106M500JH"
-			(at 365.76 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "null?region=nac"
-			(at 363.22 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "0d260b49-4d3d-45b1-bedd-ef3f51c6ec3e")
-		)
-		(pin "1"
-			(uuid "103e76d7-414e-4b16-a0b2-4ff40cd18b34")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 379.73 106.68 0)
 		(unit 1)
@@ -27971,157 +28083,6 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "J6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Enigma_Components:CKG57NX7R1H106M500JH")
-		(at 295.91 120.65 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "98d43c6e-30fa-4b73-80ae-11914d2673ec")
-		(property "Reference" "C3"
-			(at 292.862 131.064 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "CKG57NX7R1H106M500JH"
-			(at 299.974 146.558 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Enigma_Components:CAPC6050X550N"
-			(at 297.18 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf"
-			(at 294.64 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-			(at 295.91 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "TDK 10uF Multilayer Ceramic Capacitor MLCC 50V dc +/-20% SMD CKG57NX7R1H106M500JH"
-			(at 292.1 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "5.5"
-			(at 289.56 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "TDK"
-			(at 287.02 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "CKG57NX7R1H106M500JH"
-			(at 284.48 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "810-CKG57NX7R1H106M"
-			(at 281.94 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TDK/CKG57NX7R1H106M500JH?qs=NRhsANhppD9S1tw1iTnXgg%3D%3D"
-			(at 279.4 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "CKG57NX7R1H106M500JH"
-			(at 276.86 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "null?region=nac"
-			(at 274.32 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5fe6fbfa-47ca-4056-bea5-48cea34b6f2f")
-		)
-		(pin "2"
-			(uuid "157154d8-8c12-4465-a8dc-5d3880bda56c")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -29134,7 +29095,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "fc634eab-366e-4913-8249-de3cca8ed526")
+			(uuid "fc634eab-366e-4913-8249-de3cca8ed527")
 		)
 		(instances
 			(project ""
@@ -29535,7 +29496,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "986bccda-378f-4f66-b618-808c81776f1e")
+			(uuid "986bccda-378f-4f66-b618-808c81776f21")
 		)
 		(instances
 			(project ""
@@ -29607,6 +29568,202 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "#PWR082")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PCM_JLCPCB-Capacitors:0603,10uF,(2)")
+		(at 295.91 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b270a8c3-7da7-4f39-9e60-340e9f863ac2")
+		(property "Reference" "C18"
+			(at 298.45 121.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 298.45 124.46 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "PCM_JLCPCB:C_0603"
+			(at 294.132 124.46 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_Samsung-Electro-Mechanics-CL10A106MA8NRNC_C96446.pdf"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "25V 10uF X5R ±20% 0603 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C96446"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Stock" "3388297"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0.021USD"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Process" "SMT"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Minimum Qty" "20"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Attrition Qty" "8"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Class" "Basic Component"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Category" "Capacitors,Multilayer Ceramic Capacitors MLCC - SMD/SMT"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "CL10A106MA8NRNC"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Voltage Rated" "25V"
+			(at 298.45 127 0)
+			(effects
+				(font
+					(size 0.8 0.8)
+				)
+				(justify left)
+			)
+		)
+		(property "Tolerance" "±20%"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Capacitance" "10uF"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Temperature Coefficient" "X5R"
+			(at 295.91 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "382d6d7f-5a46-46cb-b7cc-bc80024e8892")
+		)
+		(pin "1"
+			(uuid "68677f6c-ca60-4eed-be8a-009c53d42c43")
+		)
+		(instances
+			(project ""
+				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -30428,7 +30585,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 303.53 133.35 0)
+		(at 303.53 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -30437,7 +30594,7 @@
 		(fields_autoplaced yes)
 		(uuid "bcd6ae41-bad0-46ba-a134-f4592c0e77dc")
 		(property "Reference" "#PWR0152"
-			(at 303.53 139.7 0)
+			(at 303.53 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30446,7 +30603,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 303.53 138.43 0)
+			(at 303.53 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30454,7 +30611,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 303.53 133.35 0)
+			(at 303.53 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30463,7 +30620,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 303.53 133.35 0)
+			(at 303.53 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30472,7 +30629,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 303.53 133.35 0)
+			(at 303.53 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30481,7 +30638,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "09abc0ed-295b-4be8-bb07-6f9441653605")
+			(uuid "09abc0ed-295b-4be8-bb07-6f9441653608")
 		)
 		(instances
 			(project ""
@@ -30494,7 +30651,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 295.91 133.35 0)
+		(at 295.91 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -30503,7 +30660,7 @@
 		(fields_autoplaced yes)
 		(uuid "bd8737de-b322-4396-8a52-e46975b03ccd")
 		(property "Reference" "#PWR079"
-			(at 295.91 139.7 0)
+			(at 295.91 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30512,7 +30669,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 295.91 138.43 0)
+			(at 295.91 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30520,7 +30677,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 295.91 133.35 0)
+			(at 295.91 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30529,7 +30686,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 295.91 133.35 0)
+			(at 295.91 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30538,7 +30695,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 295.91 133.35 0)
+			(at 295.91 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -30547,7 +30704,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "09abc0ed-295b-4be8-bb07-6f9441653605")
+			(uuid "09abc0ed-295b-4be8-bb07-6f9441653609")
 		)
 		(instances
 			(project ""
@@ -30832,10 +30989,10 @@
 			)
 		)
 		(pin "2"
-			(uuid "2ed2333b-cec9-411a-825e-b18f07b07333")
+			(uuid "2ed2333b-cec9-411a-825e-b18f07b07334")
 		)
 		(pin "1"
-			(uuid "a3886c40-7f7f-4fcf-acc1-9dde13f9b4ff")
+			(uuid "a3886c40-7f7f-4fcf-acc1-9dde13f9b500")
 		)
 		(instances
 			(project ""
@@ -31098,10 +31255,10 @@
 			)
 		)
 		(pin "2"
-			(uuid "c3d97650-d38b-4a32-9f7b-ea30e6da4e0c")
+			(uuid "c3d97650-d38b-4a32-9f7b-ea30e6da4e0d")
 		)
 		(pin "1"
-			(uuid "cf00eeb3-2bd7-4023-b195-1a5b12b413d9")
+			(uuid "cf00eeb3-2bd7-4023-b195-1a5b12b413da")
 		)
 		(instances
 			(project ""
@@ -31651,7 +31808,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 375.92 133.35 0)
+		(at 375.92 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -31660,7 +31817,7 @@
 		(fields_autoplaced yes)
 		(uuid "d11ff695-6ffe-4ac9-94b0-464f63aa69c6")
 		(property "Reference" "#PWR0154"
-			(at 375.92 139.7 0)
+			(at 375.92 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31669,7 +31826,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 375.92 138.43 0)
+			(at 375.92 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31677,7 +31834,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 375.92 133.35 0)
+			(at 375.92 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31686,7 +31843,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 375.92 133.35 0)
+			(at 375.92 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31695,7 +31852,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 375.92 133.35 0)
+			(at 375.92 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31704,7 +31861,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "09abc0ed-295b-4be8-bb07-6f9441653605")
+			(uuid "09abc0ed-295b-4be8-bb07-6f944165360a")
 		)
 		(instances
 			(project ""
@@ -31777,157 +31934,6 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "#PWR049")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Enigma_Components:CKG57NX7R1E107M500JH")
-		(at 375.92 120.65 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "d3ba120f-2a82-4bf6-8d53-b9c732a9618a")
-		(property "Reference" "C6"
-			(at 372.618 128.016 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "CKG57NX7R1E107M500JH"
-			(at 379.984 121.666 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Enigma_Components:CAPC6050X550N"
-			(at 377.19 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_megacap_en.pdf"
-			(at 374.65 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "Multilayer Ceramic Capacitors MLCC - SMD/SMT CKG 2220 25V 100uF X7R 20% T: 5mm"
-			(at 375.92 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "Multilayer Ceramic Capacitors MLCC - SMD/SMT CKG 2220 25V 100uF X7R 20% T: 5mm"
-			(at 372.11 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "5.5"
-			(at 369.57 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "TDK"
-			(at 367.03 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "CKG57NX7R1E107M500JH"
-			(at 364.49 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "810-CKG57NX7R1E107JH"
-			(at 361.95 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TDK/CKG57NX7R1E107M500JH?qs=%2FP2Ij7fVdhHC5m%2FfP7KbHA%3D%3D"
-			(at 359.41 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "CKG57NX7R1E107M500JH"
-			(at 356.87 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/ckg57nx7r1e107m500jh/tdk?utm_currency=USD&region=nac"
-			(at 354.33 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2a4ed90f-36fb-4137-8d9d-651516503b49")
-		)
-		(pin "2"
-			(uuid "1219a992-2dad-480f-b0b9-661ccb12fbe6")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -33088,7 +33094,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "efab59e5-e219-4e0d-bffc-3d88585c4930")
+			(uuid "efab59e5-e219-4e0d-bffc-3d88585c4931")
 		)
 		(instances
 			(project ""
@@ -33499,7 +33505,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 312.42 86.36 0)
+		(at 312.42 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -33508,7 +33514,7 @@
 		(fields_autoplaced yes)
 		(uuid "f77ad8a7-7f86-4493-9599-f299c90dd5a3")
 		(property "Reference" "#PWR0105"
-			(at 312.42 90.17 0)
+			(at 312.42 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33517,7 +33523,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 312.42 81.28 0)
+			(at 312.42 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33525,7 +33531,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 312.42 86.36 0)
+			(at 312.42 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33534,7 +33540,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 312.42 86.36 0)
+			(at 312.42 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33543,7 +33549,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 312.42 86.36 0)
+			(at 312.42 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -34130,10 +34136,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "6689f947-3b59-4af4-96f0-f270915a28d4")
+			(uuid "6689f947-3b59-4af4-96f0-f270915a28d5")
 		)
 		(pin "2"
-			(uuid "b83c0283-776f-4969-be6f-e7100b3189ba")
+			(uuid "b83c0283-776f-4969-be6f-e7100b3189bb")
 		)
 		(instances
 			(project ""
