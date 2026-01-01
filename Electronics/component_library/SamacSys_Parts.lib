@@ -930,5 +930,292 @@ P 5 0 1 6 200 100 900 100 900 -200 200 -200 200 100 N
 ENDDRAW
 ENDDEF
 #
+#SamacSys ECAD Model RCA06030000ZSEA
+#/617507/1775434/2.50/2/3/Resistor
+DEF RCA06030000ZSEA R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "RCA06030000ZSEA" 550 150 50 H V L CNN
+F2 "RESC1608X50N" 550 50 50 H I L CNN
+F3 "https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf" 550 -50 50 H I L CNN
+F4 "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA" 550 -150 50 H I L CNN "Description"
+F5 "0.5" 550 -250 50 H I L CNN "Height"
+F6 "Vishay" 550 -350 50 H I L CNN "Manufacturer_Name"
+F7 "RCA06030000ZSEA" 550 -450 50 H I L CNN "Manufacturer_Part_Number"
+F8 "71-RCA06030000ZSEA" 550 -550 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Vishay-Draloric/RCA06030000ZSEA?qs=4%252Ber4tcBTOg9nmK7yWNpHw%3D%3D" 550 -650 50 H I L CNN "Mouser Price/Stock"
+F10 "RCA06030000ZSEA" 550 -750 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/rca06030000zsea/vishay?utm_currency=USD&region=nac" 550 -850 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model A70-112-331N126
+#/13212344/1775434/2.50/20/4/Connector
+DEF A70-112-331N126 J 0 30 Y Y 1 F N
+F0 "J" 1450 300 50 H V L CNN
+F1 "A70-112-331N126" 1450 200 50 H V L CNN
+F2 "A70112331N126" 1450 100 50 H I L CNN
+F3 "https://www.mouser.in/ProductDetail/EDAC/A70-112-331N126?qs=3vio67wFuYr%2FLpvF4Nvj2w%3D%3D" 1450 0 50 H I L CNN
+F4 "poe rj45 pinout, rj45 power over ethernet" 1450 -100 50 H I L CNN "Description"
+F5 "13.65" 1450 -200 50 H I L CNN "Height"
+F6 "EDAC" 1450 -300 50 H I L CNN "Manufacturer_Name"
+F7 "A70-112-331N126" 1450 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "" 1450 -500 50 H I L CNN "Mouser Part Number"
+F9 "" 1450 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "" 1450 -700 50 H I L CNN "Arrow Part Number"
+F11 "" 1450 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X P1 P1 0 0 200 R 50 50 0 0 P
+X P2 P2 0 -100 200 R 50 50 0 0 P
+X P3 P3 0 -200 200 R 50 50 0 0 P
+X P4 P4 0 -300 200 R 50 50 0 0 P
+X P5 P5 0 -400 200 R 50 50 0 0 P
+X P6 P6 0 -500 200 R 50 50 0 0 P
+X P7 P7 0 -600 200 R 50 50 0 0 P
+X P8 P8 0 -700 200 R 50 50 0 0 P
+X P9 P9 0 -800 200 R 50 50 0 0 P
+X P10 P10 0 -900 200 R 50 50 0 0 P
+X P11 P11 1600 0 200 L 50 50 0 0 P
+X P12 P12 1600 -100 200 L 50 50 0 0 P
+X P13 P13 1600 -200 200 L 50 50 0 0 P
+X P14 P14 1600 -300 200 L 50 50 0 0 P
+X GREEN_ANODE P15 1600 -400 200 L 50 50 0 0 P
+X GREEN_CATHODE P16 1600 -500 200 L 50 50 0 0 P
+X YELLOW_ANODE P17 1600 -600 200 L 50 50 0 0 P
+X YELLOW_CATHODE P18 1600 -700 200 L 50 50 0 0 P
+X MH1 MH1 1600 -800 200 L 50 50 0 0 P
+X MH2 MH2 1600 -900 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1400 100 1400 -1000 200 -1000 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model ESD441DPLR
+#/19063521/1775434/2.50/2/3/TVS Diode (Uni-directional)
+DEF ESD441DPLR D 0 30 Y Y 1 F N
+F0 "D" 400 350 50 H V L BNN
+F1 "ESD441DPLR" 400 250 50 H V L BNN
+F2 "ESD441DPLR" 400 150 50 H I L BNN
+F3 "https://www.ti.com/lit/ds/symlink/esd441.pdf?ts=1730589139389&ref_url=https%253A%252F%252Fapp.ultralibrarian.com%252F" 400 50 50 H I L BNN
+F4 "ESD Suppressors / TVS Diodes 1-pF, 5.5-V, 30-KV ESD protection device in 0201 package 2-X2SON -40 to 125" 400 -50 50 H I L BNN "Description"
+F5 "0.32" 400 -150 50 H I L BNN "Height"
+F6 "Texas Instruments" 400 -250 50 H I L BNN "Manufacturer_Name"
+F7 "ESD441DPLR" 400 -350 50 H I L BNN "Manufacturer_Part_Number"
+F8 "595-ESD441DPLR" 400 -450 50 H I L BNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/ESD441DPLR?qs=1Kr7Jg1SGW9UQFJqGMkN7Q%3D%3D" 400 -550 50 H I L BNN "Mouser Price/Stock"
+F10 "ESD441DPLR" 400 -650 50 H I L BNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/esd441dplr/texas-instruments?utm_currency=USD&region=nac" 400 -750 50 H I L BNN "Arrow Price/Stock"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 600 0 200 L 50 50 0 0 P
+P 4 0 1 6 200 0 400 100 400 -100 200 0 N
+P 2 0 1 6 200 -80 240 -100 N
+P 2 0 1 6 200 -80 200 80 N
+P 2 0 1 6 160 100 200 80 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model TPD8S300ARUKR
+#/1300569/1775434/2.50/21/3/Integrated Circuit
+DEF TPD8S300ARUKR IC 0 30 Y Y 1 F N
+F0 "IC" 1150 700 50 H V L CNN
+F1 "TPD8S300ARUKR" 1150 600 50 H V L CNN
+F2 "QFN40P300X300X80-21N-D" 1150 500 50 H I L CNN
+F3 "http://www.ti.com/lit/gpn/tpd8s300a" 1150 400 50 H I L CNN
+F4 "USB Type-C Port Protector Short-to-VBUS Overvoltage and IEC ESD Protection" 1150 300 50 H I L CNN "Description"
+F5 "0.8" 1150 200 50 H I L CNN "Height"
+F6 "Texas Instruments" 1150 100 50 H I L CNN "Manufacturer_Name"
+F7 "TPD8S300ARUKR" 1150 0 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-TPD8S300ARUKR" 1150 -100 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPD8S300ARUKR?qs=%252BEew9%252B0nqrArhIA8n1KCyA%3D%3D" 1150 -200 50 H I L CNN "Mouser Price/Stock"
+F10 "TPD8S300ARUKR" 1150 -300 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/tpd8s300arukr/texas-instruments?utm_currency=USD&region=nac" 1150 -400 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X C_SBU1 1 0 0 200 R 50 50 0 0 P
+X C_SBU2 2 0 -100 200 R 50 50 0 0 P
+X VBIAS 3 0 -200 200 R 50 50 0 0 P
+X C_CC1 4 0 -300 200 R 50 50 0 0 P
+X C_CC2 5 0 -400 200 R 50 50 0 0 P
+X RPD_G2 6 400 -1100 200 U 50 50 0 0 P
+X RPD_G1 7 500 -1100 200 U 50 50 0 0 P
+X GND_1 8 600 -1100 200 U 50 50 0 0 P
+X ~FLT 9 700 -1100 200 U 50 50 0 0 P
+X VPWR 10 800 -1100 200 U 50 50 0 0 P
+X SBU1 15 1300 0 200 L 50 50 0 0 P
+X SBU2 14 1300 -100 200 L 50 50 0 0 P
+X GND_2 13 1300 -200 200 L 50 50 0 0 P
+X CC1 12 1300 -300 200 L 50 50 0 0 P
+X CC2 11 1300 -400 200 L 50 50 0 0 P
+X EP 21 400 700 200 D 50 50 0 0 P
+X D1 20 500 700 200 D 50 50 0 0 P
+X D2 19 600 700 200 D 50 50 0 0 P
+X GND_3 18 700 700 200 D 50 50 0 0 P
+X D3 17 800 700 200 D 50 50 0 0 P
+X D4 16 900 700 200 D 50 50 0 0 P
+P 5 0 1 6 200 500 1100 500 1100 -900 200 -900 200 500 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model ESD321DYAR
+#/18237836/1775434/2.50/2/4/Integrated Circuit
+DEF ESD321DYAR IC 0 30 Y Y 1 F N
+F0 "IC" 750 300 50 H V L CNN
+F1 "ESD321DYAR" 750 200 50 H V L CNN
+F2 "SODFL1608X77N" 750 100 50 H I L CNN
+F3 "https://www.ti.com/lit/ds/symlink/esd321.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&ts=1699925294630&ref_url=https%253A%252F%252Fwww.mouser.com%252F" 750 0 50 H I L CNN
+F4 "6.3V (Typ) Clamp 6A (8/20s) Ipp Tvs Diode Surface Mount SOT-5X3" 750 -100 50 H I L CNN "Description"
+F5 "0.77" 750 -200 50 H I L CNN "Height"
+F6 "Texas Instruments" 750 -300 50 H I L CNN "Manufacturer_Name"
+F7 "ESD321DYAR" 750 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-ESD321DYAR" 750 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/ESD321DYAR?qs=rQFj71Wb1eXoYwRMra0IYA%3D%3D" 750 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "ESD321DYAR" 750 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/esd321dyar/texas-instruments?utm_currency=USD&region=nac" 750 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X GND 1 0 0 200 R 50 50 0 0 P
+X IO 2 0 -100 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 700 100 700 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model TPD4E02B04DQAR
+#/330646/1775434/2.50/10/4/Diode
+DEF TPD4E02B04DQAR D 0 30 Y Y 1 F N
+F0 "D" 1050 300 50 H V L CNN
+F1 "TPD4E02B04DQAR" 1050 200 50 H V L CNN
+F2 "DQA(R-PUSON-N10)" 1050 100 50 H I L CNN
+F3 "http://www.ti.com/lit/gpn/tpd4e02b04" 1050 0 50 H I L CNN
+F4 "4-Channel ESD Protection Diode for USB Type-C and HDMI 2.0" 1050 -100 50 H I L CNN "Description"
+F5 "" 1050 -200 50 H I L CNN "Height"
+F6 "Texas Instruments" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "TPD4E02B04DQAR" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-TPD4E02B04DQAR" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPD4E02B04DQAR?qs=8%2FmU9qzJpL%2FFVYtHO1iV9g%3D%3D" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "TPD4E02B04DQAR" 1050 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/tpd4e02b04dqar/texas-instruments?utm_currency=USD&region=nac" 1050 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X IO1 1 0 0 200 R 50 50 0 0 P
+X IO2 2 0 -100 200 R 50 50 0 0 P
+X GND_1 3 0 -200 200 R 50 50 0 0 P
+X IO3 4 0 -300 200 R 50 50 0 0 P
+X IO4 5 0 -400 200 R 50 50 0 0 P
+X NC_1 6 1200 -400 200 L 50 50 0 0 P
+X NC_2 7 1200 -300 200 L 50 50 0 0 P
+X GND_2 8 1200 -200 200 L 50 50 0 0 P
+X NC_3 9 1200 -100 200 L 50 50 0 0 P
+X NC_4 10 1200 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -500 200 -500 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model TPD4E05U06DQAR
+#/690408/1775434/2.50/10/4/Diode
+DEF TPD4E05U06DQAR D 0 30 Y Y 1 F N
+F0 "D" 1050 300 50 H V L CNN
+F1 "TPD4E05U06DQAR" 1050 200 50 H V L CNN
+F2 "DQA(R-PUSON-N10)" 1050 100 50 H I L CNN
+F3 "http://www.ti.com/lit/gpn/tpd4e05u06" 1050 0 50 H I L CNN
+F4 "4-Channel Ultra-Low-Capacitance IEC ESD Protection Diode" 1050 -100 50 H I L CNN "Description"
+F5 "" 1050 -200 50 H I L CNN "Height"
+F6 "Texas Instruments" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "TPD4E05U06DQAR" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-TPD4E05U06DQAR" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPD4E05U06DQAR?qs=%2FCrDlo5IrVPi4woOvWz0qA%3D%3D" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "TPD4E05U06DQAR" 1050 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/tpd4e05u06dqar/texas-instruments?utm_currency=USD&region=nac" 1050 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X D1+ 1 0 0 200 R 50 50 0 0 P
+X D1- 2 0 -100 200 R 50 50 0 0 P
+X GND_1 3 0 -200 200 R 50 50 0 0 P
+X D2+ 4 0 -300 200 R 50 50 0 0 P
+X D2- 5 0 -400 200 R 50 50 0 0 P
+X NC_1 6 1200 -400 200 L 50 50 0 0 P
+X NC_2 7 1200 -300 200 L 50 50 0 0 P
+X GND_2 8 1200 -200 200 L 50 50 0 0 P
+X NC_3 9 1200 -100 200 L 50 50 0 0 P
+X NC_4 10 1200 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -500 200 -500 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model TPD1E05U06DPYT
+#/417588/1775434/2.50/2/4/Integrated Circuit
+DEF TPD1E05U06DPYT IC 0 30 Y Y 1 F N
+F0 "IC" 750 300 50 H V L CNN
+F1 "TPD1E05U06DPYT" 750 200 50 H V L CNN
+F2 "TPD1E05U06DPYT" 750 100 50 H I L CNN
+F3 "http://www.ti.com/lit/ds/symlink/tpd1e05u06.pdf" 750 0 50 H I L CNN
+F4 "Texas Instruments TPD1E05U06DPYT Uni-Directional TVS Diode, 2-Pin X2SON" 750 -100 50 H I L CNN "Description"
+F5 "0.5" 750 -200 50 H I L CNN "Height"
+F6 "Texas Instruments" 750 -300 50 H I L CNN "Manufacturer_Name"
+F7 "TPD1E05U06DPYT" 750 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-TPD1E05U06DPYT" 750 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPD1E05U06DPYT?qs=FBI%252BX3tnPf2COIuXujS44g%3D%3D" 750 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "TPD1E05U06DPYT" 750 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/tpd1e05u06dpyt/texas-instruments?utm_currency=USD&region=nac" 750 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X I/O 1 0 0 200 R 50 50 0 0 P
+X GND 2 0 -100 200 R 50 50 0 0 P
+P 5 0 1 6 200 100 700 100 700 -200 200 -200 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model ESD224DQAR
+#/1167022/1775434/2.50/10/4/Integrated Circuit
+DEF ESD224DQAR IC 0 30 Y Y 1 F N
+F0 "IC" 1050 300 50 H V L CNN
+F1 "ESD224DQAR" 1050 200 50 H V L CNN
+F2 "ESD224DQAR" 1050 100 50 H I L CNN
+F3 "http://www.ti.com/lit/gpn/esd224" 1050 0 50 H I L CNN
+F4 "4-Channel Low Clamping ESD Protection Device for HDMI Interface" 1050 -100 50 H I L CNN "Description"
+F5 "0.55" 1050 -200 50 H I L CNN "Height"
+F6 "Texas Instruments" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "ESD224DQAR" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-ESD224DQAR" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/ESD224DQAR?qs=F5EMLAvA7IDFPTOz5JtaBw%3D%3D" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "ESD224DQAR" 1050 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/esd224dqar/texas-instruments?utm_currency=USD&region=nac" 1050 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X IO1_C 1 0 0 200 R 50 50 0 0 P
+X IO2_C 2 0 -100 200 R 50 50 0 0 P
+X GND_1 3 0 -200 200 R 50 50 0 0 P
+X IO3_C 4 0 -300 200 R 50 50 0 0 P
+X IO4_C 5 0 -400 200 R 50 50 0 0 P
+X IO4_S 6 1200 -400 200 L 50 50 0 0 P
+X IO3_S 7 1200 -300 200 L 50 50 0 0 P
+X GND_2 8 1200 -200 200 L 50 50 0 0 P
+X IO2_S 9 1200 -100 200 L 50 50 0 0 P
+X IO1_S 10 1200 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -500 200 -500 200 100 N
+ENDDRAW
+ENDDEF
+#
+#SamacSys ECAD Model ESDS314DBVR
+#/1466807/1775434/2.50/5/3/Diode
+DEF ESDS314DBVR D 0 30 Y Y 1 F N
+F0 "D" 950 300 50 H V L CNN
+F1 "ESDS314DBVR" 950 200 50 H V L CNN
+F2 "SOT95P280X145-5N" 950 100 50 H I L CNN
+F3 "http://www.ti.com/lit/gpn/esds314" 950 0 50 H I L CNN
+F4 "Data-Line Surge and ESD Protection Diode Array" 950 -100 50 H I L CNN "Description"
+F5 "1.45" 950 -200 50 H I L CNN "Height"
+F6 "Texas Instruments" 950 -300 50 H I L CNN "Manufacturer_Name"
+F7 "ESDS314DBVR" 950 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "595-ESDS314DBVR" 950 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/ESDS314DBVR?qs=w%2Fv1CP2dgqpkGBpJKrSLAg%3D%3D" 950 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "ESDS314DBVR" 950 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/esds314dbvr/texas-instruments?utm_currency=USD&region=nac" 950 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X I/O1 1 0 0 200 R 50 50 0 0 P
+X GND 2 0 -100 200 R 50 50 0 0 P
+X I/O2 3 0 -200 200 R 50 50 0 0 P
+X I/O3 4 1100 0 200 L 50 50 0 0 P
+X I/O4 5 1100 -100 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 900 100 900 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
 #End Library
 

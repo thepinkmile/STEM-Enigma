@@ -168,4 +168,64 @@ K
 F https://datasheet.lcsc.com/szlcsc/Richtek-Tech-RT9742ANGJ5F_C147955.pdf
 $ENDCMP
 #
+$CMP RCA06030000ZSEA
+D VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA
+K
+F https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf
+$ENDCMP
+#
+$CMP A70-112-331N126
+D poe rj45 pinout, rj45 power over ethernet
+K
+F https://www.mouser.in/ProductDetail/EDAC/A70-112-331N126?qs=3vio67wFuYr%2FLpvF4Nvj2w%3D%3D
+$ENDCMP
+#
+$CMP ESD441DPLR
+D ESD Suppressors / TVS Diodes 1-pF, 5.5-V, 30-KV ESD protection device in 0201 package 2-X2SON -40 to 125
+K
+F https://www.ti.com/lit/ds/symlink/esd441.pdf?ts=1730589139389&ref_url=https%253A%252F%252Fapp.ultralibrarian.com%252F
+$ENDCMP
+#
+$CMP TPD8S300ARUKR
+D USB Type-C Port Protector Short-to-VBUS Overvoltage and IEC ESD Protection
+K
+F http://www.ti.com/lit/gpn/tpd8s300a
+$ENDCMP
+#
+$CMP ESD321DYAR
+D 6.3V (Typ) Clamp 6A (8/20s) Ipp Tvs Diode Surface Mount SOT-5X3
+K
+F https://www.ti.com/lit/ds/symlink/esd321.pdf?HQS=dis-mous-null-mousermode-dsf-pf-null-wwe&ts=1699925294630&ref_url=https%253A%252F%252Fwww.mouser.com%252F
+$ENDCMP
+#
+$CMP TPD4E02B04DQAR
+D 4-Channel ESD Protection Diode for USB Type-C and HDMI 2.0
+K
+F http://www.ti.com/lit/gpn/tpd4e02b04
+$ENDCMP
+#
+$CMP TPD4E05U06DQAR
+D 4-Channel Ultra-Low-Capacitance IEC ESD Protection Diode
+K
+F http://www.ti.com/lit/gpn/tpd4e05u06
+$ENDCMP
+#
+$CMP TPD1E05U06DPYT
+D Texas Instruments TPD1E05U06DPYT Uni-Directional TVS Diode, 2-Pin X2SON
+K
+F http://www.ti.com/lit/ds/symlink/tpd1e05u06.pdf
+$ENDCMP
+#
+$CMP ESD224DQAR
+D 4-Channel Low Clamping ESD Protection Device for HDMI Interface
+K
+F http://www.ti.com/lit/gpn/esd224
+$ENDCMP
+#
+$CMP ESDS314DBVR
+D Data-Line Surge and ESD Protection Diode Array
+K
+F http://www.ti.com/lit/gpn/esds314
+$ENDCMP
+#
 #End Doc Library
