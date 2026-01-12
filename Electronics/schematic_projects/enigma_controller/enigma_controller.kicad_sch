@@ -2236,194 +2236,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Enigma_Components:BS-02-A1AJ006"
-			(pin_names
-				(offset 0.762)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "BT"
-				(at 16.51 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "BS-02-A1AJ006"
-				(at 16.51 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "BS02A1AJ006"
-				(at 16.51 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2109141830_MYOUNG-BS-02-A1AJ006_C964745.pdf"
-				(at 16.51 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Description" "Battery base -25+85 CR2032 Plugin  Button And Strip Battery Connector ROHS"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "Battery base -25+85 CR2032 Plugin  Button And Strip Battery Connector ROHS"
-				(at 16.51 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Height" "9.1"
-				(at 16.51 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "MYOUNG"
-				(at 16.51 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "BS-02-A1AJ006"
-				(at 16.51 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" ""
-				(at 16.51 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" ""
-				(at 16.51 -15.24 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" ""
-				(at 16.51 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" ""
-				(at 16.51 -20.32 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(symbol "BS-02-A1AJ006_0_0"
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "BS-02-A1AJ006_0_1"
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 15.24 2.54) (xy 15.24 -5.08) (xy 5.08 -5.08) (xy 5.08 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Enigma_Components:CL21B105KAFNNNG"
 			(pin_names
 				(offset 0.762)
@@ -2636,6 +2448,194 @@
 				(polyline
 					(pts
 						(xy 7.112 0) (xy 7.62 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Enigma_Components:CR2032-BS-6-1"
+			(pin_names
+				(offset 0.762)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 16.51 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "CR2032-BS-6-1"
+				(at 16.51 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "CR2032BS61"
+				(at 16.51 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://datasheet.lcsc.com/szlcsc/Q-J-CR2032-BS-6-1_C70377.pdf"
+				(at 16.51 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "Battery Holders, Clips & Contacts SMD RoHS"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description_1" "Battery Holders, Clips & Contacts SMD RoHS"
+				(at 16.51 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Height" "6"
+				(at 16.51 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Q&J"
+				(at 16.51 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "CR2032-BS-6-1"
+				(at 16.51 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" ""
+				(at 16.51 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" ""
+				(at 16.51 -15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" ""
+				(at 16.51 -17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" ""
+				(at 16.51 -20.32 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(symbol "CR2032-BS-6-1_0_0"
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "CR2032-BS-6-1_0_1"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 15.24 2.54) (xy 15.24 -5.08) (xy 5.08 -5.08) (xy 5.08 2.54)
 					)
 					(stroke
 						(width 0.1524)
@@ -3976,194 +3976,6 @@
 				(polyline
 					(pts
 						(xy 5.08 2.54) (xy 25.4 2.54) (xy 25.4 -35.56) (xy 5.08 -35.56) (xy 5.08 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Enigma_Components:RCA06030000ZSEA"
-			(pin_names
-				(offset 0.762)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 13.97 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "RCA06030000ZSEA"
-				(at 13.97 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "RESC1608X50N"
-				(at 13.97 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf"
-				(at 13.97 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Description" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description_1" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-				(at 13.97 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Height" "0.5"
-				(at 13.97 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Vishay"
-				(at 13.97 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "RCA06030000ZSEA"
-				(at 13.97 -11.43 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "71-RCA06030000ZSEA"
-				(at 13.97 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Vishay-Draloric/RCA06030000ZSEA?qs=4%252Ber4tcBTOg9nmK7yWNpHw%3D%3D"
-				(at 13.97 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "RCA06030000ZSEA"
-				(at 13.97 -19.05 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/rca06030000zsea/vishay?utm_currency=USD&region=nac"
-				(at 13.97 -21.59 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(symbol "RCA06030000ZSEA_0_0"
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 17.78 0 180)
-					(length 5.08)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "RCA06030000ZSEA_0_1"
-				(polyline
-					(pts
-						(xy 5.08 1.27) (xy 12.7 1.27) (xy 12.7 -1.27) (xy 5.08 -1.27) (xy 5.08 1.27)
 					)
 					(stroke
 						(width 0.1524)
@@ -12076,12 +11888,6 @@
 		(uuid "29d99b6b-3fb6-43f5-bc23-4dd825fe2f0b")
 	)
 	(junction
-		(at 190.5 231.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3438072f-6c48-448a-a25f-7d60180ad7cd")
-	)
-	(junction
 		(at 336.55 231.14)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12094,22 +11900,10 @@
 		(uuid "38058e15-a9cb-45c9-b5b5-b0d689be08b0")
 	)
 	(junction
-		(at 237.49 231.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "43a8b28a-0b42-41b6-8d7b-5acef198f9cb")
-	)
-	(junction
 		(at 193.04 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5b6897cd-802a-4dbe-a538-6de3f39261b7")
-	)
-	(junction
-		(at 295.91 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6178c37a-4a7c-4416-b5f5-bf82ab3c7007")
 	)
 	(junction
 		(at 68.58 217.17)
@@ -12208,12 +12002,6 @@
 		(uuid "cd4632ca-80f3-4583-8feb-8bb921a3b4c4")
 	)
 	(junction
-		(at 298.45 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d174e3b9-2d2d-456d-b593-22610ff8568a")
-	)
-	(junction
 		(at 255.27 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12236,8 +12024,16 @@
 		(uuid "05b8030b-c927-4432-87ce-27915e5b3386")
 	)
 	(no_connect
+		(at 355.6 101.6)
+		(uuid "06f1b4d2-7e91-4003-af88-9ff337aa44fa")
+	)
+	(no_connect
 		(at 120.65 69.85)
 		(uuid "14632a49-0487-428d-aa56-8ccaf16df607")
+	)
+	(no_connect
+		(at 295.91 50.8)
+		(uuid "1548cd08-005a-41b9-bf27-bf0541e5b8b2")
 	)
 	(no_connect
 		(at 120.65 85.09)
@@ -12264,6 +12060,14 @@
 		(uuid "369dd115-31b5-4a3c-8626-4df7d2044e6b")
 	)
 	(no_connect
+		(at 293.37 50.8)
+		(uuid "3821a15b-0536-4d86-bd87-4fd85c9fd0ed")
+	)
+	(no_connect
+		(at 353.06 68.58)
+		(uuid "397d154e-c7d4-47d0-b9bd-b797e254a821")
+	)
+	(no_connect
 		(at 280.67 163.83)
 		(uuid "399dbc17-3c89-4afe-b1da-8907f9be5847")
 	)
@@ -12284,8 +12088,16 @@
 		(uuid "44ec6aeb-7167-4e77-9224-4a4e5cd8262e")
 	)
 	(no_connect
+		(at 300.99 50.8)
+		(uuid "45cbfd31-e874-469c-adbe-41ba4e10df00")
+	)
+	(no_connect
 		(at 373.38 83.82)
 		(uuid "4ddcbe5f-c4a0-49fe-b304-963ab94a7a0f")
+	)
+	(no_connect
+		(at 298.45 50.8)
+		(uuid "4eaa50ff-edb8-4edd-a0cd-910edf6d308a")
 	)
 	(no_connect
 		(at 148.59 267.97)
@@ -12318,6 +12130,10 @@
 	(no_connect
 		(at 46.99 270.51)
 		(uuid "776223e2-4267-4a88-a1b4-6dc3506e182f")
+	)
+	(no_connect
+		(at 355.6 68.58)
+		(uuid "7d31f215-ee0e-4f96-8092-d86707944f57")
 	)
 	(no_connect
 		(at 73.66 120.65)
@@ -12414,6 +12230,10 @@
 	(no_connect
 		(at 135.89 270.51)
 		(uuid "d4e7961a-e2eb-4f6a-8841-b4b0212d9bcb")
+	)
+	(no_connect
+		(at 353.06 101.6)
+		(uuid "d8d564a3-edb1-4285-a6cf-389502bb08a9")
 	)
 	(no_connect
 		(at 120.65 77.47)
@@ -12519,16 +12339,6 @@
 	)
 	(wire
 		(pts
-			(xy 355.6 66.04) (xy 355.6 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "036d4053-e20a-42c3-94b7-ecf64942d214")
-	)
-	(wire
-		(pts
 			(xy 304.8 186.69) (xy 308.61 186.69)
 		)
 		(stroke
@@ -12566,16 +12376,6 @@
 			(type default)
 		)
 		(uuid "059d6ff5-8fbf-48c3-80ce-5cf49cfd6479")
-	)
-	(wire
-		(pts
-			(xy 190.5 226.06) (xy 190.5 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "05f303ce-0905-4b95-ab31-a48573d9454a")
 	)
 	(wire
 		(pts
@@ -13339,16 +13139,6 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 50.8) (xy 295.91 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "52cf6885-50ef-42a9-a2b2-384395afef06")
-	)
-	(wire
-		(pts
 			(xy 247.65 189.23) (xy 250.19 189.23)
 		)
 		(stroke
@@ -13429,16 +13219,6 @@
 	)
 	(wire
 		(pts
-			(xy 353.06 66.04) (xy 353.06 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c9280cb-f89f-4d10-bced-1b716de99e6f")
-	)
-	(wire
-		(pts
 			(xy 354.33 228.6) (xy 358.14 228.6)
 		)
 		(stroke
@@ -13476,16 +13256,6 @@
 			(type default)
 		)
 		(uuid "63865f64-b348-4af2-8e06-d3b01a60d5e6")
-	)
-	(wire
-		(pts
-			(xy 355.6 101.6) (xy 355.6 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65243ad2-d49b-4926-bbd1-c02827c05814")
 	)
 	(wire
 		(pts
@@ -13619,16 +13389,6 @@
 	)
 	(wire
 		(pts
-			(xy 237.49 226.06) (xy 237.49 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f624346-f0bc-409b-9551-f92750b8a2f2")
-	)
-	(wire
-		(pts
 			(xy 304.8 191.77) (xy 308.61 191.77)
 		)
 		(stroke
@@ -13716,16 +13476,6 @@
 			(type default)
 		)
 		(uuid "7796f5ca-4829-4134-9772-7f1354ee09e1")
-	)
-	(wire
-		(pts
-			(xy 186.69 231.14) (xy 190.5 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "779af7d3-7aac-4c92-bea7-84d3d1321858")
 	)
 	(wire
 		(pts
@@ -14059,16 +13809,6 @@
 	)
 	(wire
 		(pts
-			(xy 353.06 101.6) (xy 353.06 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a8d5e6d-a436-4782-ad19-ef640450616b")
-	)
-	(wire
-		(pts
 			(xy 66.04 153.67) (xy 73.66 153.67)
 		)
 		(stroke
@@ -14219,16 +13959,6 @@
 	)
 	(wire
 		(pts
-			(xy 298.45 50.8) (xy 298.45 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5cc5afc-40e7-4380-870e-ad779d2e4c9f")
-	)
-	(wire
-		(pts
 			(xy 381 135.89) (xy 383.54 135.89)
 		)
 		(stroke
@@ -14276,16 +14006,6 @@
 			(type default)
 		)
 		(uuid "a9d3e3f1-6fdf-422e-a6da-73ace80f4000")
-	)
-	(wire
-		(pts
-			(xy 233.68 231.14) (xy 237.49 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "abd43186-06ea-443f-830d-dcb0c730175d")
 	)
 	(wire
 		(pts
@@ -14849,16 +14569,6 @@
 	)
 	(wire
 		(pts
-			(xy 295.91 50.8) (xy 295.91 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee600889-be92-4a2a-a11d-c6163789f646")
-	)
-	(wire
-		(pts
 			(xy 336.55 223.52) (xy 336.55 226.06)
 		)
 		(stroke
@@ -14936,16 +14646,6 @@
 			(type default)
 		)
 		(uuid "f53fa18d-a368-4b5a-8260-ec412733b121")
-	)
-	(wire
-		(pts
-			(xy 298.45 50.8) (xy 300.99 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5cc7048-a391-4b0d-ad5b-d99d81b23128")
 	)
 	(wire
 		(pts
@@ -15147,16 +14847,6 @@
 		)
 		(uuid "10b6f524-67e1-4d68-99df-27af2fe8e3af")
 	)
-	(label "JTAG_USB_N"
-		(at 208.28 226.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "10ece26b-4a6f-40ff-b6b0-a709a9808cfd")
-	)
 	(label "pBIN_IN_B4"
 		(at 265.43 189.23 0)
 		(effects
@@ -15196,6 +14886,16 @@
 			(justify left bottom)
 		)
 		(uuid "15d431f8-aab0-47db-a823-bb2aa4de7878")
+	)
+	(label "JTAG_USB_P"
+		(at 236.22 250.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "175bc0d3-98a9-4894-81a2-eaa5994a7788")
 	)
 	(label "Fan_Tacho"
 		(at 66.04 138.43 180)
@@ -15397,16 +15097,6 @@
 		)
 		(uuid "435d47e0-80fc-4043-b9fb-36d60bc2459c")
 	)
-	(label "FLASH_D+"
-		(at 353.06 104.14 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "43dea2c5-e3a5-47a6-8744-bddb507f8d4c")
-	)
 	(label "WL_nDisable"
 		(at 358.14 223.52 0)
 		(effects
@@ -15567,6 +15257,16 @@
 		)
 		(uuid "59787c90-93aa-490f-a538-3cbfdf8e34be")
 	)
+	(label "JTAG_USB_N"
+		(at 236.22 252.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5a13820e-ad4e-4f4d-8aca-6a3db1316b87")
+	)
 	(label "C_CC2"
 		(at 306.07 53.34 270)
 		(effects
@@ -15666,16 +15366,6 @@
 			(justify right bottom)
 		)
 		(uuid "63809780-3562-4f46-bf50-370eea5e5590")
-	)
-	(label "C_D+"
-		(at 295.91 53.34 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "649291dd-54fd-4f15-893b-f854950e98b1")
 	)
 	(label "MAP_ADDR_4"
 		(at 383.54 185.42 0)
@@ -15857,16 +15547,6 @@
 		)
 		(uuid "72b09b15-9082-4cae-a5fa-18117c4ae5df")
 	)
-	(label "JTAG_USB_P"
-		(at 255.27 226.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "76277f00-614e-4c90-873b-a76b4fafb812")
-	)
 	(label "ETH_PAIR0_P"
 		(at 191.77 252.73 180)
 		(effects
@@ -15967,16 +15647,6 @@
 		)
 		(uuid "83d41133-0b6d-494f-9221-1d0176f72cca")
 	)
-	(label "FLASH_D-"
-		(at 355.6 104.14 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "849a3f0d-21c2-466c-b6da-56dd1662c8f6")
-	)
 	(label "EXP2_INT_A"
 		(at 383.54 151.13 0)
 		(effects
@@ -15996,46 +15666,6 @@
 			(justify left bottom)
 		)
 		(uuid "87cf8b46-107d-4ad6-a73b-9c1989901ffc")
-	)
-	(label "FLASH_D+"
-		(at 255.27 231.14 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "890d533f-2032-443a-b8c8-e86b0727a314")
-	)
-	(label "C_D-"
-		(at 353.06 66.04 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "890d533f-2032-443a-b8c8-e86b0727a315")
-	)
-	(label "C_D+"
-		(at 355.6 66.04 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "890d533f-2032-443a-b8c8-e86b0727a316")
-	)
-	(label "FLASH_D-"
-		(at 208.28 231.14 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "890d533f-2032-443a-b8c8-e86b0727a317")
 	)
 	(label "ETH_PAIR2_N"
 		(at 191.77 267.97 180)
@@ -16397,46 +16027,6 @@
 		)
 		(uuid "c40bde81-2284-4d7a-a2fe-e7754c9991c6")
 	)
-	(label "USB_DN"
-		(at 236.22 252.73 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c58e78bb-2f76-4711-aeb3-b2ac53664caa")
-	)
-	(label "USB_DP"
-		(at 236.22 250.19 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c58e78bb-2f76-4711-aeb3-b2ac53664cab")
-	)
-	(label "USB_DP"
-		(at 233.68 231.14 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c58e78bb-2f76-4711-aeb3-b2ac53664cac")
-	)
-	(label "USB_DN"
-		(at 186.69 231.14 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c58e78bb-2f76-4711-aeb3-b2ac53664cad")
-	)
 	(label "PD_CC1"
 		(at 66.04 39.37 180)
 		(effects
@@ -16486,16 +16076,6 @@
 			(justify right bottom)
 		)
 		(uuid "c8d8e8bf-65d1-496f-83a0-ea2cd1aa2f03")
-	)
-	(label "C_D-"
-		(at 298.45 53.34 270)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c9cb9fc0-6175-4e23-b804-be17f49b4265")
 	)
 	(label "pBIN_IN_B2"
 		(at 265.43 184.15 0)
@@ -19053,155 +18633,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Enigma_Components:RCA06030000ZSEA")
-		(at 237.49 231.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1285cb84-5dfd-43c9-8c15-74ea0a455e6c")
-		(property "Reference" "R12"
-			(at 246.38 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "RCA06030000ZSEA"
-			(at 246.38 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Enigma_Components:RESC1608X50N"
-			(at 251.46 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf"
-			(at 251.46 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 237.49 231.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 251.46 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.5"
-			(at 251.46 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Vishay"
-			(at 251.46 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "RCA06030000ZSEA"
-			(at 251.46 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "71-RCA06030000ZSEA"
-			(at 251.46 245.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Vishay-Draloric/RCA06030000ZSEA?qs=4%252Ber4tcBTOg9nmK7yWNpHw%3D%3D"
-			(at 251.46 247.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "RCA06030000ZSEA"
-			(at 251.46 250.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/rca06030000zsea/vishay?utm_currency=USD&region=nac"
-			(at 251.46 252.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d95a7991-12fb-420a-9ec6-f005860da92a")
-		)
-		(pin "2"
-			(uuid "096f6372-ee78-463e-96e9-b73ec174166d")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 73.66 156.21 270)
 		(unit 1)
@@ -19263,156 +18694,6 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "#PWR043")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Enigma_Components:RCA06030000ZSEA")
-		(at 237.49 226.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "1780b552-643d-474c-befa-e4f92ec1eb16")
-		(property "Reference" "R11"
-			(at 246.38 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "RCA06030000ZSEA"
-			(at 246.38 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Enigma_Components:RESC1608X50N"
-			(at 251.46 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf"
-			(at 251.46 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 237.49 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 251.46 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.5"
-			(at 251.46 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Vishay"
-			(at 251.46 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "RCA06030000ZSEA"
-			(at 251.46 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "71-RCA06030000ZSEA"
-			(at 251.46 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Vishay-Draloric/RCA06030000ZSEA?qs=4%252Ber4tcBTOg9nmK7yWNpHw%3D%3D"
-			(at 251.46 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "RCA06030000ZSEA"
-			(at 251.46 245.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/rca06030000zsea/vishay?utm_currency=USD&region=nac"
-			(at 251.46 247.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d95a7991-12fb-420a-9ec6-f005860da92b")
-		)
-		(pin "2"
-			(uuid "096f6372-ee78-463e-96e9-b73ec174166e")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -19698,156 +18979,6 @@
 			(project "enigma_controller"
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "J17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Enigma_Components:BS-02-A1AJ006")
-		(at 57.15 64.77 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "196d4c17-0f72-4c48-bdac-a21365dd9a39")
-		(property "Reference" "BT1"
-			(at 46.99 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "BS-02-A1AJ006"
-			(at 46.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Enigma_Components:BS02A1AJ006"
-			(at 40.64 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2109141830_MYOUNG-BS-02-A1AJ006_C964745.pdf"
-			(at 40.64 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "Battery base -25+85 CR2032 Plugin  Button And Strip Battery Connector ROHS"
-			(at 57.15 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "Battery base -25+85 CR2032 Plugin  Button And Strip Battery Connector ROHS"
-			(at 40.64 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "9.1"
-			(at 40.64 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "MYOUNG"
-			(at 40.64 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "BS-02-A1AJ006"
-			(at 40.64 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 40.64 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 40.64 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" ""
-			(at 40.64 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" ""
-			(at 40.64 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "9edf7f1c-f9eb-473c-8ef4-884f3c3fe735")
-		)
-		(pin "1"
-			(uuid "ecc390fa-8c5a-44b9-821f-69596c1cb263")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "BT1")
 					(unit 1)
 				)
 			)
@@ -24401,156 +23532,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Enigma_Components:RCA06030000ZSEA")
-		(at 190.5 226.06 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "62cafd0e-c1d3-4d10-8072-9e145b67796e")
-		(property "Reference" "R13"
-			(at 199.39 219.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "RCA06030000ZSEA"
-			(at 199.39 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Enigma_Components:RESC1608X50N"
-			(at 204.47 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf"
-			(at 204.47 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 190.5 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 204.47 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.5"
-			(at 204.47 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Vishay"
-			(at 204.47 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "RCA06030000ZSEA"
-			(at 204.47 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "71-RCA06030000ZSEA"
-			(at 204.47 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Vishay-Draloric/RCA06030000ZSEA?qs=4%252Ber4tcBTOg9nmK7yWNpHw%3D%3D"
-			(at 204.47 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "RCA06030000ZSEA"
-			(at 204.47 245.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/rca06030000zsea/vishay?utm_currency=USD&region=nac"
-			(at 204.47 247.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d95a7991-12fb-420a-9ec6-f005860da92c")
-		)
-		(pin "2"
-			(uuid "096f6372-ee78-463e-96e9-b73ec174166f")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "R13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 207.01 88.9 0)
 		(unit 1)
@@ -26835,6 +25816,156 @@
 			(project "enigma_controller"
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "#PWR0133")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Enigma_Components:CR2032-BS-6-1")
+		(at 57.15 62.23 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "91f6d752-8442-4450-a858-baff461752f9")
+		(property "Reference" "BT1"
+			(at 46.736 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "CR2032-BS-6-1"
+			(at 47.244 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Enigma_Components:CR2032BS61"
+			(at 40.64 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/szlcsc/Q-J-CR2032-BS-6-1_C70377.pdf"
+			(at 40.64 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "Battery Holders, Clips & Contacts SMD RoHS"
+			(at 57.15 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "Battery Holders, Clips & Contacts SMD RoHS"
+			(at 40.64 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Height" "6"
+			(at 40.64 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Q&J"
+			(at 40.64 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CR2032-BS-6-1"
+			(at 40.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 40.64 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 40.64 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 40.64 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 40.64 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "abe6f3f5-19c0-4e66-bf85-769e35310341")
+		)
+		(pin "2"
+			(uuid "74583f9d-0102-4aba-8849-33e0f5653041")
+		)
+		(instances
+			(project ""
+				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
+					(reference "BT1")
 					(unit 1)
 				)
 			)
@@ -32413,155 +31544,6 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Enigma_Components:RCA06030000ZSEA")
-		(at 190.5 231.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f6d21118-c5a8-4c7d-9fd6-8c3f2990278a")
-		(property "Reference" "R14"
-			(at 199.39 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "RCA06030000ZSEA"
-			(at 199.39 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Enigma_Components:RESC1608X50N"
-			(at 204.47 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://componentsearchengine.com/Datasheets/2/RCA06030000ZSEA.pdf"
-			(at 204.47 232.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 190.5 231.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "VISHAY - RCA06030000ZSEA - Zero Ohm Resistor, Jumper, 0603 [1608 Metric], Thick Film, 100 mW, 2 A, Surface Mount Device, RCA"
-			(at 204.47 234.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.5"
-			(at 204.47 237.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Vishay"
-			(at 204.47 240.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "RCA06030000ZSEA"
-			(at 204.47 242.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "71-RCA06030000ZSEA"
-			(at 204.47 245.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Vishay-Draloric/RCA06030000ZSEA?qs=4%252Ber4tcBTOg9nmK7yWNpHw%3D%3D"
-			(at 204.47 247.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "RCA06030000ZSEA"
-			(at 204.47 250.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/rca06030000zsea/vishay?utm_currency=USD&region=nac"
-			(at 204.47 252.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d95a7991-12fb-420a-9ec6-f005860da92d")
-		)
-		(pin "2"
-			(uuid "096f6372-ee78-463e-96e9-b73ec1741670")
-		)
-		(instances
-			(project ""
-				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
-					(reference "R14")
 					(unit 1)
 				)
 			)

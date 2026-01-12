@@ -228,4 +228,10 @@ K
 F http://www.ti.com/lit/gpn/esds314
 $ENDCMP
 #
+$CMP CR2032-BS-6-1
+D Battery Holders, Clips & Contacts SMD RoHS
+K
+F https://datasheet.lcsc.com/szlcsc/Q-J-CR2032-BS-6-1_C70377.pdf
+$ENDCMP
+#
 #End Doc Library
