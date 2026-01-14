@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.2
+          "min_clearance": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -60,144 +60,20 @@
       ],
       "drc_exclusions": [
         [
-          "lib_footprint_mismatch|187355000|144612620|9b8911ff-5e5e-4262-8eb5-751038082e0b|00000000-0000-0000-0000-000000000000",
-          "Modified MH3 & MH4 to just be holes (Mechanical)"
+          "annular_width|170253026|136467756|582bad89-2cbf-41e6-9cac-50549a99654c|00000000-0000-0000-0000-000000000000",
+          "Mounting hole so don't care"
         ],
         [
-          "silk_edge_clearance|134850000|153683389|b3a31880-559e-4ac8-b67b-8714e53bd407|77ca8e5c-abad-49c5-9962-114c1affe2d2",
-          ""
+          "annular_width|181683026|136467756|adbbada1-f0e0-4c28-850e-c45351a3d02b|00000000-0000-0000-0000-000000000000",
+          "Mounting hole so don't care"
         ],
         [
-          "silk_edge_clearance|151050000|153683389|b3a31880-559e-4ac8-b67b-8714e53bd407|e6222747-76e4-4cc0-a7ac-a4e645abfd29",
-          ""
+          "padstack|170253026|136467756|582bad89-2cbf-41e6-9cac-50549a99654c|00000000-0000-0000-0000-000000000000",
+          "Mounting hole so don't care"
         ],
         [
-          "silk_edge_clearance|179587500|153683389|b3a31880-559e-4ac8-b67b-8714e53bd407|3a4b53c1-f50a-4fc6-821f-d7239db21c6a",
-          ""
-        ],
-        [
-          "silk_edge_clearance|179587500|153683389|b3a31880-559e-4ac8-b67b-8714e53bd407|f3533492-8e86-46a8-9a1a-6ee5c27fb1d1",
-          ""
-        ],
-        [
-          "silk_edge_clearance|195487500|153683389|b3a31880-559e-4ac8-b67b-8714e53bd407|421fae9f-916a-419e-945e-b59fa98bf1e0",
-          ""
-        ],
-        [
-          "silk_edge_clearance|195487500|153683389|b3a31880-559e-4ac8-b67b-8714e53bd407|a06f12e0-4e89-42bd-9d84-1e82d4a7ee55",
-          ""
-        ],
-        [
-          "silk_over_copper|113370000|145112620|9b0e6939-d24e-4f3d-b2ae-9c187d8e6d24|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|113637876|137465904|a0e6c908-0add-43f1-96f3-199ae5841362|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|113637876|139965904|63d23cb7-effd-46fb-b9cb-ea6412b302d4|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|113637876|141965904|f3e921d4-9ebb-40c3-931f-0bf6592b2945|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|115995163|133332379|98278d6b-357d-41f7-ac07-a793a7303757|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|117480241|148407783|84de43e9-aaef-4256-9dc4-0c0954bdf36e|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|128228095|146752858|21abbbd9-084f-46f6-9831-b576f69dac07|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|129898471|92038352|164133c8-6843-4e1f-9468-31ada063cfcb|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|180872726|143535341|e6e53b19-98c5-422a-8fc6-b327ff9fdd1c|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|181252900|149792711|ef10277f-4931-4755-b62c-1dd93ab68f39|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|182090376|136860904|fa1f1174-bbef-4043-88bb-ab03c6220385|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|182509049|142704186|3229b22a-0883-4eb6-974a-2a418dffcdc3|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|182955934|140734169|e98563ed-8ba6-48bb-8f8a-a8e88f8e4f4e|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|183792900|149792711|9566c98e-638e-452d-bee7-e0c7d3acf7e6|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|184630376|136860904|57c809d9-45ec-4f9d-9c5f-55739f8fe21a|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|184630376|143190904|1ea88fef-8b2e-4cab-91fe-d699d75b9b0f|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|185900376|139400904|4ed2d79c-ab24-4015-bf20-e385e44b9baa|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|187170376|136860904|6ec97284-e186-494c-8cf3-1e20fd8b9ad5|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|188035934|140734169|66d6dc0c-301e-4f0d-806b-54d299b88274|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|189710376|136860904|cf58b008-a550-484f-ae83-83dc71488ac3|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|190575934|140734169|40b9ae56-0c8f-4d25-ace4-e29e4563d8b2|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|191359216|143569744|c25967ff-c4e6-43c4-8af4-392b33d91e3a|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|191992900|149792711|1ff1f3cf-de5e-4cbd-9f17-aca97db5c786|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|192250376|136860904|8f36bd58-9eef-402b-b6b3-a9ea409521cc|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|193520376|139400904|d391c5f2-afd4-4064-99dd-cb0947a5b623|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|193834530|142178723|982a682b-683b-4f7f-94a7-94fb4501cff1|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|194532900|149792711|be608d6e-5a6e-4308-9dd8-c6ac9c74076f|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "silk_over_copper|195199779|144532846|c8c3c669-3b49-4945-8649-a68be41e66e2|00000000-0000-0000-0000-000000000000",
-          ""
+          "padstack|181683026|136467756|adbbada1-f0e0-4c28-850e-c45351a3d02b|00000000-0000-0000-0000-000000000000",
+          "Mounting hole so don't care"
         ]
       ],
       "meta": {
@@ -241,8 +117,8 @@
         "padstack": "warning",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
-        "silk_edge_clearance": "warning",
-        "silk_over_copper": "warning",
+        "silk_edge_clearance": "ignore",
+        "silk_over_copper": "ignore",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
@@ -643,7 +519,7 @@
         "microvia_drill": 0.1,
         "name": "Ethernet",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.22352,
         "via_diameter": 0.4,
@@ -657,9 +533,23 @@
         "microvia_drill": 0.1,
         "name": "HDMI",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.22352,
+        "via_diameter": 0.4,
+        "via_drill": 0.2
+      },
+      {
+        "clearance": 0.1016,
+        "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.2,
+        "microvia_drill": 0.1,
+        "name": "MAP",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
         "via_diameter": 0.4,
         "via_drill": 0.2
       },
@@ -671,7 +561,7 @@
         "microvia_drill": 0.1,
         "name": "PWR_3V3",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
         "via_diameter": 0.4,
@@ -685,7 +575,7 @@
         "microvia_drill": 0.1,
         "name": "PWR_5V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
         "via_diameter": 0.4,
@@ -699,7 +589,7 @@
         "microvia_drill": 0.1,
         "name": "USB_2.0",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 7,
+        "priority": 8,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.11684,
         "via_diameter": 0.4,
@@ -713,7 +603,7 @@
         "microvia_drill": 0.1,
         "name": "USB_3.0",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.11684,
         "via_diameter": 0.4,
@@ -727,7 +617,7 @@
         "microvia_drill": 0.1,
         "name": "VBUS",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.4,
@@ -741,7 +631,7 @@
         "microvia_drill": 0.1,
         "name": "VBUS_EN",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.11684,
         "via_diameter": 0.4,
@@ -793,6 +683,22 @@
       {
         "netclass": "VBUS_EN",
         "pattern": "*VBUS_EN"
+      },
+      {
+        "netclass": "MAP",
+        "pattern": "*MAP*"
+      },
+      {
+        "netclass": "MAP",
+        "pattern": "*PROG_*"
+      },
+      {
+        "netclass": "MAP",
+        "pattern": "*pBIN*"
+      },
+      {
+        "netclass": "MAP",
+        "pattern": "*EXP*"
       }
     ]
   },

@@ -234,4 +234,10 @@ K
 F https://datasheet.lcsc.com/szlcsc/Q-J-CR2032-BS-6-1_C70377.pdf
 $ENDCMP
 #
+$CMP ESW-120-33-G-D
+D 40 Position, .100&quot; Elevated Socket Strip, Double Row
+K
+F http://suddendocs.samtec.com/prints/esw-1xx-xx-x-x-xx-xx-mkt.pdf
+$ENDCMP
+#
 #End Doc Library
