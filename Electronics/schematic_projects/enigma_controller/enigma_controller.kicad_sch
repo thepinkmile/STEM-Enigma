@@ -12101,10 +12101,6 @@
 		(uuid "6af5ab53-7def-46d4-b408-7afca714a8f6")
 	)
 	(no_connect
-		(at 73.66 133.35)
-		(uuid "7162d927-b225-4719-af87-ae9a229f64c7")
-	)
-	(no_connect
 		(at 73.66 67.31)
 		(uuid "7198bd8e-eaa8-4a5f-affc-775362fb3593")
 	)
@@ -20835,6 +20831,73 @@
 			(project ""
 				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
 					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 73.66 133.35 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3ed9b021-7d13-4cde-817b-d5da27990ca3")
+		(property "Reference" "#PWR069"
+			(at 67.31 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 69.85 133.3499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 73.66 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 73.66 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2106f548-335c-411a-9ff1-6b82e17308fd")
+		)
+		(instances
+			(project "enigma_controller"
+				(path "/f6846724-845b-4e7d-9c42-5003d8826a6e"
+					(reference "#PWR069")
 					(unit 1)
 				)
 			)
