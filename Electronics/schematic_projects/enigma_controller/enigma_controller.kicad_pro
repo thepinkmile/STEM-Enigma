@@ -717,7 +717,7 @@
       "specctra_dsn": "",
       "step": "../../dependency_outputs/enigma_controller.step",
       "svg": "",
-      "vrml": ""
+      "vrml": "../../dependency_outputs/VRML/enigma_controller.wrl"
     },
     "page_layout_descr_file": ""
   },
