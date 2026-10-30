@@ -13,6 +13,7 @@ public class Rotor
     private int _ringSetting;
 
     public int WiringLength => _wiring.Length;
+    public IReadOnlyList<int> Wiring => Array.AsReadOnly(_wiring);
 
     /// <summary>
     /// Gets or sets the current position of the rotor.

@@ -52,8 +52,19 @@ public class EnigmaMachine
     /// <param name="input">The character to encode/decode.</param>
     /// <returns>The encoded/decoded character.</returns>
     public char EncodeChar(char input)
+        => EncodeCharCore(input, null);
+
+    public KeyStroke EncodeCharWithTrace(char input)
     {
-        input = char.ToUpper(input);
+        var before = GetRotorPositions();
+        var hops = new List<SignalHop>();
+        var output = EncodeCharCore(input, hops);
+        return new(char.ToUpperInvariant(input), output, before, GetRotorPositions(), hops.AsReadOnly());
+    }
+
+    private char EncodeCharCore(char input, List<SignalHop>? hops)
+    {
+        input = char.ToUpperInvariant(input);
         int position = CharacterSet.IndexOf(input);
         if (position == -1)
             throw new ArgumentException($"Input character '{input}' is not in the valid character set [{string.Join("", CharacterSet)}]");
@@ -62,25 +73,45 @@ public class EnigmaMachine
         StepRotors();
 
         // Through plugboard
+        var source = position;
         position = _plugboard.Remap(position);
+        hops?.Add(new("Plugboard in", source, position));
 
         // Forward through rotors (right to left)
         for (int i = Rotors.Count - 1; i >= 0; i--)
         {
+            source = position;
             position = Rotors[i].Forward(position);
+            if (hops != null)
+            {
+                var offset = Rotors[i].Position - Rotors[i].RingSetting;
+                hops.Add(new($"Rotor {i + 1}", source, position, i,
+                    Mod(source + offset), Mod(position + offset)));
+            }
         }
 
         // Through reflector
+        source = position;
         position = _reflector.Reflect(position);
+        hops?.Add(new("Reflector", source, position));
 
         // Backward through rotors (left to right)
         for (int i = 0; i < Rotors.Count; i++)
         {
+            source = position;
             position = Rotors[i].Backward(position);
+            if (hops != null)
+            {
+                var offset = Rotors[i].Position - Rotors[i].RingSetting;
+                hops.Add(new($"Rotor {i + 1} return", source, position, i,
+                    Mod(source + offset), Mod(position + offset), true));
+            }
         }
 
         // Through plugboard again
+        source = position;
         position = _plugboard.Remap(position);
+        hops?.Add(new("Plugboard out", source, position, Returning: true));
 
         // Convert back to letter
         return CharacterSet[position];
@@ -110,14 +141,17 @@ public class EnigmaMachine
     /// </summary>
     private void StepRotors()
     {
+        var step = new bool[Rotors.Count];
         for(int i = 0; i < Rotors.Count; i++)
         {
-            if (i == Rotors.Count - 1 || Rotors[i + 1].IsAtNotch())
-            {
-                Rotors[i].Step();
-            }
+            step[i] = i == Rotors.Count - 1 || Rotors[i + 1].IsAtNotch() ||
+                (i > 0 && Rotors[i].IsAtNotch());
         }
+        for (var i = 0; i < Rotors.Count; i++)
+            if (step[i]) Rotors[i].Step();
     }
+
+    private int Mod(int value) => (value % CharacterSet.Length + CharacterSet.Length) % CharacterSet.Length;
 
     /// <summary>
     /// Resets the rotor positions to the specified settings.
