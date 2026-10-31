@@ -28,7 +28,7 @@ public sealed class MachineLabView : UserControl
     private readonly TextBlock _status = new() { Text = "Starting renderer...", TextWrapping = TextWrapping.Wrap, Foreground = Brush("#F9CB78") };
     private readonly CheckBox _exploded = new() { Content = "Exploded assembly" };
     private readonly CheckBox _xray = new() { Content = "See inside rotors" };
-    private readonly Slider _speed = new() { Minimum = 0.1, Maximum = 3.5, Value = 0.3 };
+    private readonly Slider _speed = new() { Minimum = 0.3, Maximum = 8, Value = 3 };
     private float _smokeKeyDepression;
     private bool _smokeKeyPressed;
     private MachineScene? _scene;
@@ -88,7 +88,7 @@ public sealed class MachineLabView : UserControl
         foreach (var target in new[] { "Keyboard / lamps", "Rotor lettering", "Stepping arm", "Reflector", "Plugboard", "Plugboard back" })
             controls.Children.Add(ActionButton(target, () => _scene?.Inspect(target)));
         controls.Children.Add(Label("Plugboard: click two unused letters to connect. Click a plugged socket to remove its cable; click the selected socket again to cancel."));
-        controls.Children.Add(Heading("SECONDS PER KEY"));
+        controls.Children.Add(Heading("SECONDS PER LETTER (KEY TO LAMP)"));
         controls.Children.Add(_speed);
         controls.Children.Add(Heading("SEND A MESSAGE"));
         controls.Children.Add(_message);
@@ -308,6 +308,7 @@ public sealed class MachineLabView : UserControl
                 throw new InvalidOperationException("The 3D view is not synchronized with the existing main viewmodel.");
             _scene.VerifyInteraction();
             CaptureSmokeFrame("exploded");
+            _scene.VerifyPulseCycle(CaptureSmokeFrame);
             _scene.Inspect("Stepping arm");
             _scene.VerifyRotorDriveCycle(CaptureSmokeFrame);
             _scene.Inspect("Plugboard");

@@ -37,8 +37,8 @@ internal sealed class MachineScene : IDisposable
     private static readonly ColorVect Ivory = new(0.86f, 0.85f, 0.71f);
     private static readonly ColorVect KeyBlack = new(0.022f, 0.025f, 0.024f);
     private static readonly ColorVect Nickel = new(0.68f, 0.65f, 0.52f);
-    private static readonly PrimitivePaintbrush Forward = new(new ColorVect(1f, 0.63f, 0.12f));
-    private static readonly PrimitivePaintbrush Return = new(new ColorVect(0.12f, 0.9f, 1f));
+    private static readonly ColorVect ForwardColor = new(1f, 0.63f, 0.12f);
+    private static readonly ColorVect ReturnColor = new(0.12f, 0.9f, 1f);
     private static readonly PrimitivePaintbrush Inactive = new(new ColorVect(0.16f, 0.25f, 0.32f));
     private static readonly string[] RotorNames = ["I", "II", "III"];
     private readonly string[] _captions = new string[3];
@@ -59,23 +59,35 @@ internal sealed class MachineScene : IDisposable
     private readonly ModelInstance[] _rearPlugModels = new ModelInstance[26];
     private readonly ModelInstance[] _driveModels = new ModelInstance[7];
     private const int CableSegments = 32;
-    private const float FlowSpacing = 2.25f;
-    private const float FlowSpeed = 0.9f;
-    private const float FlowRadius = 0.012f;
-    private const float CableFlowRadius = 0.018f;
+    private const int RouteCapacity = 640;
+    private const int IdleSamples = 8;
+    private const float WireRadius = 0.022f;
+    private const float CableWireRadius = 0.02f;
+    private const float IdleWireRadius = 0.011f;
+    private const float HeadRadius = 0.055f;
     private readonly ModelInstance[,] _plugCables = new ModelInstance[10, CableSegments];
     private readonly ModelInstance[,] _cablePlugs = new ModelInstance[10, 2];
     private IReadOnlyList<(int First, int Second)> _plugboardPairs = Array.Empty<(int, int)>();
-    private readonly ScenePrimitive[,,] _wires = new ScenePrimitive[3, 26, 3];
-    private readonly ScenePrimitive[,] _reflectorWires = new ScenePrimitive[13, 2];
+    private readonly ModelInstance[,,] _rotorWires = new ModelInstance[3, 26, IdleSamples];
+    private readonly ScenePrimitive[,] _contactMarkers = new ScenePrimitive[3, 26];
+    private readonly ModelInstance[,] _reflectorWires = new ModelInstance[13, IdleSamples];
     private readonly ModelInstance[] _reflectorPins = new ModelInstance[26];
     private static readonly Reflector ReflectorB = Reflector.EnigmaI.UKW_B();
-    private readonly ScenePrimitive[] _path = new ScenePrimitive[144];
-    private readonly ModelInstance[] _flowWires = new ModelInstance[144];
+    private readonly ModelInstance[] _routeTubes = new ModelInstance[RouteCapacity];
+    private readonly Material?[] _routeTubeMaterials = new Material?[RouteCapacity];
+    private readonly HashSet<ModelInstance> _wireModels = [];
+    private ModelInstance _pulseHead;
+    private PointLight _pulseLight;
+    private Material _wireMaterial;
+    private Material _forwardMaterial;
+    private Material _returnMaterial;
+    private Material _forwardHeadMaterial;
+    private Material _returnHeadMaterial;
     private readonly ModelInstance[] _pickHits;
-    private readonly Transform2D?[] _flowTextureTransforms = new Transform2D?[144];
-    private readonly List<(Location Start, Location End, bool Returning, int Stage, bool Cable)> _flowSegments = [];
-    private float _flowTime;
+    // The signal route from key to lamp, in signal order, with each segment's starting arc length.
+    private readonly List<(Location Start, Location End, bool Returning, bool Cable, float Arc)> _route = [];
+    private readonly List<Location> _samples = [];
+    private float _routeLength;
     private readonly ScenePrimitive[] _rotorLabels = new ScenePrimitive[3];
     private readonly List<(ScenePrimitive Primitive, Location Start, Location End, Vect Explosion)> _caseLetters = [];
     private readonly ScenePrimitive _reflectorLabel;
@@ -131,15 +143,10 @@ internal sealed class MachineScene : IDisposable
             for (var r = 0; r < 3; r++)
             {
                 _rotorLabels[r] = _scene.AddPrimitive();
-                for (var i = 0; i < 26; i++)
-                    for (var s = 0; s < 3; s++) _wires[r, i, s] = _scene.AddPrimitive();
+                for (var i = 0; i < 26; i++) _contactMarkers[r, i] = _scene.AddPrimitive();
             }
-            for (var i = 0; i < _path.Length; i++) _path[i] = _scene.AddPrimitive();
-            for (var wire = 0; wire < 13; wire++)
-                for (var segment = 0; segment < 2; segment++)
-                    _reflectorWires[wire, segment] = _scene.AddPrimitive();
-            BuildFlowWires();
-            _pickHits = new ModelInstance[_parts.Count + _flowWires.Length + _plugCables.Length + _cablePlugs.Length];
+            BuildWires();
+            _pickHits = new ModelInstance[_parts.Count + _wireModels.Count + _plugCables.Length + _cablePlugs.Length];
             _reflectorLabel = _scene.AddPrimitive();
             Renderer = Own(_factory.RendererBuilder.CreateBindableRenderer(_scene, _camera, _factory.ResourceAllocator));
             Renderer.SetQuality(new RenderQualityConfig(BuiltInQualityConfiguration.Medium) { BloomStrength = 0.35f });
@@ -179,9 +186,42 @@ internal sealed class MachineScene : IDisposable
             tick(dt);
             Update(dt);
             _orbit.Progress(dt);
-            ApplyFlowTextureTransforms();
             Renderer.Render();
         }, tickRateHz: 60);
+
+    // Key press and rotor step take a short fixed window; the pulse then travels until the lamp
+    // lights, and the key releases while the lamp is lit. The whole trip lasts CycleSeconds.
+    private float StepSeconds => MathF.Min(0.35f, CycleSeconds * 0.25f);
+    private float ArrivalSeconds => CycleSeconds - StepSeconds;
+
+    // Maps elapsed time onto the original 0..1 key/rotor animation progress (press 0-0.22, held
+    // 0.22-0.68, release 0.68-0.9), stretching the held phase across the pulse's travel.
+    private float MechanicalProgress(float elapsed)
+    {
+        if (elapsed < StepSeconds) return 0.22f * MathF.Max(elapsed, 0f) / StepSeconds;
+        if (elapsed < ArrivalSeconds) return 0.22f + 0.46f * (elapsed - StepSeconds) / (ArrivalSeconds - StepSeconds);
+        if (elapsed < CycleSeconds) return 0.68f + 0.22f * (elapsed - ArrivalSeconds) / StepSeconds;
+        return 1f;
+    }
+
+    private float ElapsedForProgress(float progress)
+    {
+        if (progress < 0.22f) return StepSeconds * progress / 0.22f;
+        if (progress < 0.68f) return StepSeconds + (ArrivalSeconds - StepSeconds) * (progress - 0.22f) / 0.46f;
+        if (progress < 0.9f) return ArrivalSeconds + StepSeconds * (progress - 0.68f) / 0.22f;
+        return CycleSeconds;
+    }
+
+    // Fraction of the route the pulse has covered. After arriving, the lit route holds, then the
+    // pulse replays from the key until the next letter.
+    private float PulseFraction(float elapsed)
+    {
+        var travel = ArrivalSeconds - StepSeconds;
+        if (elapsed < ArrivalSeconds) return Math.Clamp((elapsed - StepSeconds) / travel, 0f, 1f);
+        var hold = MathF.Max(0.6f, travel * 0.3f);
+        var replay = (elapsed - ArrivalSeconds) % (hold + travel);
+        return replay < hold ? 1f : (replay - hold) / travel;
+    }
 
     private void PanCamera(float deltaX, float deltaY)
     {
@@ -320,8 +360,8 @@ internal sealed class MachineScene : IDisposable
     {
         VerifyReflectorView();
         VerifyRotorDrive();
-        if (!Exploded && _flowTextureTransforms.Any(transform => transform != null))
-            throw new InvalidOperationException("Signal textures must be hidden in the assembled view.");
+        if (!Exploded && (_routeTubes.Any(tube => tube.Position.Y > -50f) || _pulseHead.Position.Y > -50f))
+            throw new InvalidOperationException("Signal wires must be hidden in the assembled view.");
         var frontLampEdge = Enumerable.Range(0, 26).Min(i => LampPosition(i, 0f).Z) - 0.145f;
         var rearKeyEdge = Enumerable.Range(0, 26).Max(i => KeyPosition(i, 0f).Z) + 0.195f;
         var rearLampEdge = Enumerable.Range(0, 26).Max(i => LampPosition(i, 0f).Z) + 0.145f;
@@ -362,21 +402,25 @@ internal sealed class MachineScene : IDisposable
         if (_stroke != null)
         {
             var elapsed = _elapsed;
-            foreach (var progress in new[] { 0f, 0.2f, 0.9f, 1f })
+            var travelling = (StepSeconds + ArrivalSeconds) * 0.5f;
+            foreach (var time in new[] { 0f, travelling, ArrivalSeconds - 0.001f, ArrivalSeconds, CycleSeconds })
             {
-                _elapsed = CycleSeconds * progress;
+                _elapsed = time;
                 Update(0f);
                 VerifyRotorDrive();
-                if (MathF.Abs(_lampLight.Brightness - (progress >= 0.92f ? 0.08f : 0f)) > 0.001f)
+                var lit = time >= ArrivalSeconds;
+                if (MathF.Abs(_lampLight.Brightness - (lit ? 0.08f : 0f)) > 0.001f)
                     throw new InvalidOperationException("The output bulb light did not follow the signal timing.");
-                if (progress >= 0.92f &&
+                if (lit &&
                     (_lampLight.Position - (LampPosition(_stroke.Output - 'A', _explosion) + new Vect(0f, 0.18f, 0f))).Length > 0.001f)
                     throw new InvalidOperationException("The output bulb light did not follow the lamp assembly.");
                 foreach (var part in _parts.Where(p => p.Key >= 0))
                 {
                     var expected = part.Home + part.Explosion * _explosion;
-                    if (part.Key == _stroke.Input - 'A' && progress == 0.2f)
+                    if (part.Key == _stroke.Input - 'A' && time == travelling)
                         expected += new Vect(0f, -0.16f, 0f);
+                    else if (part.Key == _stroke.Input - 'A' && time != 0f && time != CycleSeconds)
+                        continue;
                     if (MathF.Abs(part.Instance.Position.Y - expected.Y) > 0.001f)
                         throw new InvalidOperationException("Key cap, rim and stem did not complete their press/release travel.");
                 }
@@ -411,14 +455,14 @@ internal sealed class MachineScene : IDisposable
     {
         var count = _scene.QueryProvider.FindIntersections(ray, _pickHits);
         for (var i = 0; i < count; i++)
-            if (!Array.Exists(_flowWires, wire => wire == _pickHits[i]))
+            if (!_wireModels.Contains(_pickHits[i]))
                 return _pickHits[i];
         return null;
     }
 
     public void VerifyCableFlow()
     {
-        VerifyFlowVelocity();
+        VerifyPulseTiming();
         var machine = new LabMachine();
         machine.Configure("AAA", "AAA", string.Join(" ", _plugboardPairs.Select(p => $"{(char)('A' + p.First)}{(char)('A' + p.Second)}")));
         var exploded = Exploded;
@@ -428,17 +472,22 @@ internal sealed class MachineScene : IDisposable
             Play(machine.Press(letter));
             _elapsed = CycleSeconds;
             Update(0f);
-            for (var i = 1; i < _flowSegments.Count; i++)
-                if ((_flowSegments[i].Start - _flowSegments[i - 1].End).Length > 0.001f)
-                    throw new InvalidOperationException("The signal texture route must be ordered continuously from key to lamp.");
-            foreach (var hop in new[] { _stroke!.Hops[0], _stroke.Hops[8] })
-            {
-                var rear = RearPlugPosition(hop.Input, _explosion);
-                var front = PlugPosition(hop.Input, _explosion);
-                if (!_flowSegments.Any(s => s.Returning == hop.Returning &&
-                    (s.Start - rear).Length < 0.001f && (s.End - front).Length < 0.001f))
-                    throw new InvalidOperationException("The plugboard input must enter from its rear terminal.");
-            }
+            for (var i = 1; i < _route.Count; i++)
+                if ((_route[i].Start - _route[i - 1].End).Length > 0.001f)
+                    throw new InvalidOperationException("The signal route must be ordered continuously from key to lamp.");
+            var lampTip = LampPosition(_stroke!.Output - 'A', _explosion) + new Vect(0f, -0.06f, 0f);
+            if ((_route[^1].End - lampTip).Length > 0.001f)
+                throw new InvalidOperationException("The signal route must end beneath the output lamp.");
+            var entry = _stroke!.Hops[0];
+            if (!_route.Any(s => !s.Returning &&
+                (s.Start - RearPlugPosition(entry.Input, _explosion)).Length < 0.001f &&
+                (s.End - PlugPosition(entry.Input, _explosion)).Length < 0.001f))
+                throw new InvalidOperationException("The plugboard input must enter from its rear terminal.");
+            var exit = _stroke.Hops[8];
+            if (!_route.Any(s => s.Returning &&
+                (s.Start - PlugPosition(exit.Output, _explosion)).Length < 0.001f &&
+                (s.End - RearPlugPosition(exit.Output, _explosion)).Length < 0.001f))
+                throw new InvalidOperationException("The plugboard return must leave through its rear terminal.");
             foreach (var hop in _stroke!.Hops.Where(h => h.Stage.StartsWith("Plug", StringComparison.OrdinalIgnoreCase) && h.Input != h.Output))
             {
                 var cable = Enumerable.Range(0, _plugboardPairs.Count)
@@ -446,7 +495,7 @@ internal sealed class MachineScene : IDisposable
                 var reverse = _plugboardPairs[cable].First != hop.Input;
                 var start = CablePoint(cable, reverse ? 1f : 0f);
                 var end = CablePoint(cable, reverse ? 1f - 1f / CableSegments : 1f / CableSegments);
-                if (!_flowSegments.Any(s => s.Returning == hop.Returning &&
+                if (!_route.Any(s => s.Returning == hop.Returning &&
                     (s.Start - start).Length < 0.001f && (s.End - end).Length < 0.001f))
                     throw new InvalidOperationException("The plugboard trace does not follow the cable in signal order.");
             }
@@ -454,32 +503,31 @@ internal sealed class MachineScene : IDisposable
         Exploded = exploded;
     }
 
-    private static Transform2D FlowTextureTransform(float length, float offset, float time) =>
-        new(scaling: (FlowSpacing / length, 1f),
-            translation: ((time * FlowSpeed - offset) / FlowSpacing % 1f, 0f));
-
-    private static void VerifyFlowVelocity()
+    private void VerifyPulseTiming()
     {
-        foreach (var length in new[] { 0.03f, 0.18f, 1.2f, 4.5f })
-        foreach (var offset in new[] { 0f, 0.4f, 3f, 12f })
-        foreach (var time in new[] { 0.8f, 2.45f, 8f })
+        var cycle = CycleSeconds;
+        foreach (var seconds in new[] { 0.3f, 3f, 8f })
         {
-            const float dt = 0.1f;
-            var start = FlowTextureTransform(length, offset, time);
-            var end = FlowTextureTransform(length, offset, time + dt);
-            // TinyFFR applies UV / scale - translation, not (UV - translation) / scale.
-            var phaseChange = end.Translation.X - start.Translation.X;
-            phaseChange -= MathF.Round(phaseChange);
-            var travel = phaseChange * start.Scaling.X * length;
-            if (MathF.Abs(travel / dt - FlowSpeed) > 0.0001f)
-                throw new InvalidOperationException("The wire texture must scroll at a constant world-space speed.");
-            var adjacent = FlowTextureTransform(length * 2f, offset + length, time);
-            var endPhase = 1f / start.Scaling.X - start.Translation.X;
-            var nextPhase = -adjacent.Translation.X;
-            if (MathF.Abs(endPhase - nextPhase - MathF.Round(endPhase - nextPhase)) > 0.0001f)
-                throw new InvalidOperationException("The pulse phase must be continuous between adjacent wire segments.");
+            CycleSeconds = seconds;
+            var previous = 0f;
+            for (var time = 0f; time < ArrivalSeconds; time += seconds / 50f)
+            {
+                var fraction = PulseFraction(time);
+                if (fraction < previous || fraction >= 1f)
+                    throw new InvalidOperationException("The pulse must advance steadily until it reaches the lamp.");
+                previous = fraction;
+            }
+            if (PulseFraction(ArrivalSeconds) != 1f || MechanicalProgress(CycleSeconds) != 1f)
+                throw new InvalidOperationException("The pulse must reach the lamp before the key finishes releasing.");
+            var mid = PulseFraction(ArrivalSeconds + MathF.Max(0.6f, (ArrivalSeconds - StepSeconds) * 0.3f) + 0.001f);
+            if (mid > 0.05f)
+                throw new InvalidOperationException("The pulse must restart from the key after holding at the lamp.");
+            foreach (var progress in new[] { 0f, 0.1f, 0.22f, 0.5f, 0.79f })
+                if (MathF.Abs(MechanicalProgress(ElapsedForProgress(progress)) - progress) > 0.0001f)
+                    throw new InvalidOperationException("The key timeline mapping must be invertible.");
         }
-        if (CableFlowRadius >= 0.1f * 0.26f)
+        CycleSeconds = cycle;
+        if (CableWireRadius >= 0.1f * 0.26f)
             throw new InvalidOperationException("The signal core must fit inside the physical cable sleeve.");
     }
 
@@ -632,7 +680,7 @@ internal sealed class MachineScene : IDisposable
 
     private void UpdateRotorDrive()
     {
-        var progress = _stroke == null ? 1f : _elapsed / CycleSeconds;
+        var progress = _stroke == null ? 1f : MechanicalProgress(_elapsed);
         var advance = _stroke == null ? 0f : _angles[2] - _from[2];
         var (fulcrum, rear, tip) = RotorDrivePose(progress, advance, _explosion);
         void Beam(int index, Location start, Location end, float width, float depth)
@@ -673,7 +721,7 @@ internal sealed class MachineScene : IDisposable
                     MathF.Abs((sample.Tip - sample.Rear).Length - 0.65f) > 0.001f)
                     throw new InvalidOperationException("The stepping arm links must rotate without stretching.");
         }
-        var progress = _stroke == null ? 1f : _elapsed / CycleSeconds;
+        var progress = _stroke == null ? 1f : MechanicalProgress(_elapsed);
         var advance = _stroke == null ? 0f : _angles[2] - _from[2];
         var pose = RotorDrivePose(progress, advance, _explosion);
         if ((_driveModels[3].Position - pose.Rear).Length > 0.001f ||
@@ -690,13 +738,40 @@ internal sealed class MachineScene : IDisposable
         {
             foreach (var progress in new[] { 0f, 0.1f, 0.22f, 0.79f, 1f })
             {
-                _elapsed = CycleSeconds * progress;
+                _elapsed = ElapsedForProgress(progress);
                 Update(0f);
                 VerifyRotorDrive();
-                ApplyFlowTextureTransforms();
                 Renderer.Render();
                 if (progress == 0f) capture("stepping-arm-rest");
                 if (progress == 0.22f) capture("stepping-arm-drive");
+            }
+        }
+        finally
+        {
+            _elapsed = elapsed;
+            Update(0f);
+        }
+    }
+
+    public void VerifyPulseCycle(Action<string> capture)
+    {
+        if (_stroke == null || !Exploded)
+            throw new InvalidOperationException("The pulse check needs a key stroke in the exploded view.");
+        var elapsed = _elapsed;
+        try
+        {
+            var lit = -1;
+            foreach (var fraction in new[] { 0.3f, 0.65f, 1f })
+            {
+                _elapsed = StepSeconds + (ArrivalSeconds - StepSeconds) * fraction;
+                Update(0f);
+                var count = Enumerable.Range(0, _routeTubes.Length).Count(i => _routeTubes[i].Position.Y > -50f &&
+                    !Equals(_routeTubeMaterials[i], _wireMaterial));
+                if (count <= lit || (fraction < 1f) != (_pulseHead.Position.Y > -50f))
+                    throw new InvalidOperationException("The pulse must leave a growing lit wake and vanish at the lamp.");
+                lit = count;
+                Renderer.Render();
+                capture($"pulse-{(int)(fraction * 100)}");
             }
         }
         finally
@@ -855,19 +930,76 @@ internal sealed class MachineScene : IDisposable
 
     private Location ReflectorContact(int letter) => FixedContact(1.48f + 1.5f * _explosion, letter);
 
-    private Location ReflectorBend(Location input, Location output) =>
-        new(1.94f + 1.5f * _explosion, (input.Y + output.Y) / 2f, (input.Z + output.Z) / 2f);
+    // The reflector's internal wires loop out toward the casing and back to the paired pin.
+    private Location ReflectorCurve(Location input, Location output, float t)
+    {
+        var bend = 1.94f + 1.5f * _explosion;
+        return Cubic(input, new(bend, input.Y, input.Z), new(bend, output.Y, output.Z), output, t);
+    }
+
+    // Wires leave each contact square to the disc face, then sweep across along the axle.
+    private static Location AxialCurve(Location a, Location b, float t)
+    {
+        var reach = (b.X - a.X) * 0.45f;
+        return Cubic(a, a + new Vect(reach, 0f, 0f), b + new Vect(-reach, 0f, 0f), b, t);
+    }
+
+    private static Location Cubic(Location p0, Location p1, Location p2, Location p3, float t)
+    {
+        var u = 1f - t;
+        var v = p0.AsVect() * (u * u * u) + p1.AsVect() * (3f * u * u * t) +
+            p2.AsVect() * (3f * u * t * t) + p3.AsVect() * (t * t * t);
+        return new Location(v.X, v.Y, v.Z);
+    }
+
+    // Centripetal Catmull-Rom (Barry-Goldman form): passes through every anchor without the
+    // overshoot or self-loops a uniform spline makes when anchors are unevenly spaced.
+    private static Vect CatmullRom(Vect p0, Vect p1, Vect p2, Vect p3, float t)
+    {
+        static float Knot(Vect a, Vect b) => MathF.Max(MathF.Sqrt((b - a).Length), 0.0001f);
+        static Vect Mix(Vect a, Vect b, float ta, float tb, float u) => (a * (tb - u) + b * (u - ta)) * (1f / (tb - ta));
+        var t1 = Knot(p0, p1);
+        var t2 = t1 + Knot(p1, p2);
+        var t3 = t2 + Knot(p2, p3);
+        var u = t1 + (t2 - t1) * t;
+        var a1 = Mix(p0, p1, 0f, t1, u);
+        var a2 = Mix(p1, p2, t1, t2, u);
+        var a3 = Mix(p2, p3, t2, t3, u);
+        return Mix(Mix(a1, a2, 0f, t2, u), Mix(a2, a3, t1, t3, u), t1, t2, u);
+    }
+
+    private void AppendSmooth(Location[] anchors)
+    {
+        var points = new List<Vect>(anchors.Length);
+        foreach (var anchor in anchors)
+            if (points.Count == 0 || (anchor.AsVect() - points[^1]).Length > 0.001f)
+                points.Add(anchor.AsVect());
+        _samples.Add(anchors[0]);
+        for (var i = 0; i + 1 < points.Count; i++)
+        {
+            var p1 = points[i];
+            var p2 = points[i + 1];
+            var p0 = i > 0 ? points[i - 1] : p1 * 2f - p2;
+            var p3 = i + 2 < points.Count ? points[i + 2] : p2 * 2f - p1;
+            var steps = Math.Clamp((int)MathF.Ceiling((p2 - p1).Length / 0.15f), 2, 16);
+            for (var k = 1; k < steps; k++)
+            {
+                var v = CatmullRom(p0, p1, p2, p3, k / (float)steps);
+                _samples.Add(new Location(v.X, v.Y, v.Z));
+            }
+            _samples.Add(new Location(p2.X, p2.Y, p2.Z));
+        }
+    }
 
     private void Update(float dt)
     {
-        _flowTime += dt;
         _elapsed += dt;
         _explosion += Math.Clamp((Exploded ? 1f : 0f) - _explosion, -dt * 1.8f, dt * 1.8f);
-        var turn = Math.Clamp(_elapsed / (CycleSeconds * 0.22f), 0f, 1f);
+        var turn = Math.Clamp(MechanicalProgress(_elapsed) / 0.22f, 0f, 1f);
         turn = turn * turn * (3f - 2f * turn);
         for (var r = 0; r < 3; r++) _angles[r] = _from[r] + (_to[r] - _from[r]) * turn;
-        var depression = _stroke == null ? 0f : EnigmaKeyboard.Depression(_elapsed / CycleSeconds);
-        var activeLamp = _stroke != null && _elapsed >= CycleSeconds * 0.92f ? _stroke.Output - 'A' : -1;
+        var depression = _stroke == null ? 0f : EnigmaKeyboard.Depression(MechanicalProgress(_elapsed));
+        var activeLamp = _stroke != null && _elapsed >= ArrivalSeconds ? _stroke.Output - 'A' : -1;
         // Soft bloom identifies the lit lens; the point light illuminates nearby parts.
         _lampLight.Brightness = activeLamp >= 0 ? 0.08f : 0f;
         if (activeLamp >= 0)
@@ -906,40 +1038,26 @@ internal sealed class MachineScene : IDisposable
         {
             _rotorLabels[r].SetGeometryString(new Location(RotorX(r, _explosion), 2.35f + _explosion * 1.2f, 1.8f + _explosion * 0.8f),
                 _captions[r], 0.024f);
-            if (!Exploded)
-            {
-                for (var wire = 0; wire < 26; wire++)
-                    for (var segment = 0; segment < 3; segment++)
-                        HideLine(_wires[r, wire, segment]);
-                continue;
-            }
             for (var wire = 0; wire < 26; wire++)
             {
-                var output = LabMachine.Wirings[r][wire] - 'A';
                 var a = Contact(r, wire, true);
-                var b = Contact(r, output, false);
-                var mid = new Location((a.X + b.X) * 0.5f, (a.Y + b.Y) * 0.5f, (a.Z + b.Z) * 0.5f);
-                var brush = Inactive;
-                if (_stroke != null && _elapsed >= CycleSeconds * 0.22f)
-                    for (var h = 0; h < _stroke.Hops.Count; h++)
-                    {
-                        var hop = _stroke.Hops[h];
-                        if (hop.Rotor == r && (hop.Returning ? hop.LocalOutput : hop.LocalInput) == wire &&
-                            _elapsed >= CycleSeconds * (0.22f + h * 0.075f))
-                            brush = hop.Returning ? Return : Forward;
-                    }
-                if (brush.Equals(Inactive))
+                var b = Contact(r, LabMachine.Wirings[r][wire] - 'A', false);
+                // The signal route draws its own copy of the wires it passes through.
+                var routed = false;
+                if (_stroke != null)
+                    foreach (var hop in _stroke.Hops)
+                        routed |= hop.Rotor == r && (hop.Returning ? hop.LocalOutput : hop.LocalInput) == wire;
+                for (var sample = 0; sample < IdleSamples; sample++)
                 {
-                    SetLine(_wires[r, wire, 0], a, mid, brush);
-                    SetLine(_wires[r, wire, 1], mid, b, brush);
+                    if (Exploded && !routed)
+                        PlaceTube(_rotorWires[r, wire, sample], AxialCurve(a, b, sample / (float)IdleSamples),
+                            AxialCurve(a, b, (sample + 1f) / IdleSamples), IdleWireRadius);
+                    else
+                        _rotorWires[r, wire, sample].Position = new Location(0f, -100f, 0f);
                 }
-                else
-                {
-                    HideLine(_wires[r, wire, 0]);
-                    HideLine(_wires[r, wire, 1]);
-                }
-                // Third segment is a small contact marker extending beyond the disc face.
-                SetLine(_wires[r, wire, 2], a, a + new Vect(-0.06f, 0f, 0f), brush);
+                // A small contact marker extends beyond the disc face.
+                if (Exploded) SetLine(_contactMarkers[r, wire], a, a + new Vect(-0.06f, 0f, 0f));
+                else HideLine(_contactMarkers[r, wire]);
             }
         }
         UpdateReflectorWires();
@@ -954,20 +1072,21 @@ internal sealed class MachineScene : IDisposable
     private void UpdateReflectorWires()
     {
         var wire = 0;
+        var routed = _stroke == null ? -1 : _stroke.Hops[4].Input;
         for (var input = 0; input < 26; input++)
         {
             var output = ReflectorB.Reflect(input);
             if (input > output) continue;
             var a = ReflectorContact(input);
             var b = ReflectorContact(output);
-            var bend = ReflectorBend(a, b);
-            for (var segment = 0; segment < 2; segment++)
+            var visible = Exploded && routed != input && routed != output;
+            for (var sample = 0; sample < IdleSamples; sample++)
             {
-                if (Exploded)
-                    SetLine(_reflectorWires[wire, segment], segment == 0 ? a : bend,
-                        segment == 0 ? bend : b, Inactive);
+                if (visible)
+                    PlaceTube(_reflectorWires[wire, sample], ReflectorCurve(a, b, sample / (float)IdleSamples),
+                        ReflectorCurve(a, b, (sample + 1f) / IdleSamples), IdleWireRadius);
                 else
-                    HideLine(_reflectorWires[wire, segment]);
+                    _reflectorWires[wire, sample].Position = new Location(0f, -100f, 0f);
             }
             wire++;
         }
@@ -1020,25 +1139,38 @@ internal sealed class MachineScene : IDisposable
 
     private void UpdatePath()
     {
-        var count = 0;
-        _flowSegments.Clear();
+        _route.Clear();
+        _routeLength = 0f;
         foreach (var plug in _plugModels) plug.SetDefaultMaterialBaseColor(Brass);
         foreach (var plug in _rearPlugModels) plug.SetDefaultMaterialBaseColor(Brass);
         if (Exploded && _stroke != null)
         {
-            void Segment(Location a, Location b, bool returning, int stage, bool cable = false)
+            void Segment(Location a, Location b, bool returning, bool cable = false)
             {
-                var reached = _elapsed >= CycleSeconds * (0.22f + stage * 0.075f);
-                var line = _path[count++];
-                if (reached)
-                {
-                    HideLine(line);
-                    _flowSegments.Add((a, b, returning, stage, cable));
-                }
-                else if (cable) HideLine(line);
-                else SetLine(line, a, b, Inactive);
+                var length = (b - a).Length;
+                if (length < 0.0001f) return;
+                _route.Add((a, b, returning, cable, _routeLength));
+                _routeLength += length;
             }
-            void ThroughCable(int input, int output, bool returning, int stage)
+            void Emit(bool returning)
+            {
+                for (var i = 1; i < _samples.Count; i++) Segment(_samples[i - 1], _samples[i], returning);
+                _samples.Clear();
+            }
+            void Route(bool returning, params Location[] anchors)
+            {
+                AppendSmooth(anchors);
+                Emit(returning);
+            }
+            void Axial(Location a, Location b, bool returning)
+            {
+                var steps = Math.Clamp((int)MathF.Ceiling((b - a).Length / 0.08f), 6, 16);
+                for (var i = 0; i <= steps; i++) _samples.Add(AxialCurve(a, b, i / (float)steps));
+                Emit(returning);
+            }
+            // Forward signals enter a rear terminal and leave a front socket; the return enters a
+            // front socket and leaves through the rear terminal.
+            void ThroughCable(int input, int output, bool returning)
             {
                 var cable = -1;
                 for (var i = 0; i < _plugboardPairs.Count; i++)
@@ -1053,94 +1185,94 @@ internal sealed class MachineScene : IDisposable
                 if (cable < 0) throw new InvalidOperationException("The signal's plugboard mapping has no physical cable.");
                 var reverse = _plugboardPairs[cable].First != input;
                 float Parameter(int segment) => reverse ? 1f - segment / (float)CableSegments : segment / (float)CableSegments;
-                Segment(RearPlugPosition(input, _explosion), PlugPosition(input, _explosion), returning, stage);
-                Segment(PlugPosition(input, _explosion), CablePoint(cable, Parameter(0)), returning, stage, true);
+                if (!returning) Segment(RearPlugPosition(input, _explosion), PlugPosition(input, _explosion), returning);
+                Segment(PlugPosition(input, _explosion), CablePoint(cable, Parameter(0)), returning, true);
                 for (var i = 0; i < CableSegments; i++)
-                    Segment(CablePoint(cable, Parameter(i)), CablePoint(cable, Parameter(i + 1)), returning, stage, true);
-                Segment(CablePoint(cable, Parameter(CableSegments)), PlugPosition(output, _explosion), returning, stage, true);
-            }
-            void Route(bool returning, int stage, params Location[] points)
-            {
-                for (var i = 1; i < points.Length; i++)
-                    Segment(points[i - 1], points[i], returning, stage);
+                    Segment(CablePoint(cable, Parameter(i)), CablePoint(cable, Parameter(i + 1)), returning, true);
+                Segment(CablePoint(cable, Parameter(CableSegments)), PlugPosition(output, _explosion), returning, true);
+                if (returning) Segment(PlugPosition(output, _explosion), RearPlugPosition(output, _explosion), returning);
             }
             var forwardLane = -3.1f - 1.1f * _explosion;
             var returnLane = forwardLane - 0.3f;
             var belowKeyboard = 0.3f + 0.5f * _explosion;
             var boardFront = -3.15f - 1.5f * _explosion;
-            void BoardToRotor(Location board, Location rotor, bool returning, int stage)
+            // Runs beside the case on its own lane, rising gently toward the rotor and meeting it along the axle.
+            void BoardToRotor(Location board, Location rotor, bool returning)
             {
                 var lane = returning ? returnLane : forwardLane;
-                var boardZ = returning ? board.Z + 0.2f : boardFront;
-                var face = new Location(board.X, board.Y, boardZ);
-                var side = new Location(lane, board.Y, boardZ);
-                var rear = new Location(lane, board.Y, rotor.Z);
-                var rise = new Location(lane, rotor.Y, rotor.Z);
-                // Approach the rotor along its axle, outside the adjacent disc face.
-                var approach = new Location(rotor.X - 0.18f, rotor.Y, rotor.Z);
-                if (returning) Route(true, stage, rotor, approach, rise, rear, side, face, board);
-                else Route(false, stage, board, face, side, rear, rise, approach, rotor);
+                // Both legs approach the front sockets, on separate rows so they never overlap.
+                var boardZ = returning ? boardFront - 0.25f : boardFront;
+                Location[] anchors =
+                [
+                    board,
+                    new(board.X, board.Y, boardZ),
+                    new(lane, board.Y, boardZ),
+                    new(lane, rotor.Y, rotor.Z - 0.7f),
+                    new(rotor.X - 0.4f, rotor.Y, rotor.Z),
+                    rotor,
+                ];
+                if (returning) Array.Reverse(anchors);
+                Route(returning, anchors);
             }
             var hops = _stroke.Hops;
             var plugIn = RearPlugPosition(hops[0].Input, _explosion);
             var plugInMapped = PlugPosition(hops[0].Output, _explosion);
-            var plugOut = RearPlugPosition(hops[8].Input, _explosion);
-            var plugOutMapped = PlugPosition(hops[8].Output, _explosion);
+            var plugOut = PlugPosition(hops[8].Input, _explosion);
+            var plugOutMapped = RearPlugPosition(hops[8].Output, _explosion);
             var keyPosition = KeyPosition(_stroke.Input - 'A', _explosion) +
-                new Vect(0f, -0.31f - 0.16f * EnigmaKeyboard.Depression(_elapsed / CycleSeconds), 0f);
-            Route(false, 0, keyPosition,
+                new Vect(0f, -0.31f - 0.16f * EnigmaKeyboard.Depression(MechanicalProgress(_elapsed)), 0f);
+            Route(false, keyPosition,
                 new(keyPosition.X, belowKeyboard, keyPosition.Z),
-                new(keyPosition.X, belowKeyboard, plugIn.Z + 0.2f),
-                new(plugIn.X, belowKeyboard, plugIn.Z + 0.2f),
-                new(plugIn.X, plugIn.Y, plugIn.Z + 0.2f), plugIn);
+                new(plugIn.X, plugIn.Y, plugIn.Z + 0.25f), plugIn);
             if (hops[0].Input != hops[0].Output)
-                ThroughCable(hops[0].Input, hops[0].Output, false, 0);
-            else Segment(plugIn, plugInMapped, false, 0);
-            BoardToRotor(plugInMapped, Contact(2, hops[1].LocalInput, true), false, 1);
+                ThroughCable(hops[0].Input, hops[0].Output, false);
+            else Segment(plugIn, plugInMapped, false);
+            BoardToRotor(plugInMapped, Contact(2, hops[1].LocalInput, true), false);
             for (var r = 2; r > 0; r--)
             {
-                Segment(Contact(r, hops[3 - r].LocalInput, true), Contact(r, hops[3 - r].LocalOutput, false), false, 3 - r);
-                Segment(Contact(r, hops[3 - r].LocalOutput, false), Contact(r - 1, hops[4 - r].LocalInput, true), false, 3 - r);
+                Axial(Contact(r, hops[3 - r].LocalInput, true), Contact(r, hops[3 - r].LocalOutput, false), false);
+                Axial(Contact(r, hops[3 - r].LocalOutput, false), Contact(r - 1, hops[4 - r].LocalInput, true), false);
             }
-            Segment(Contact(0, hops[3].LocalInput, true), Contact(0, hops[3].LocalOutput, false), false, 3);
+            Axial(Contact(0, hops[3].LocalInput, true), Contact(0, hops[3].LocalOutput, false), false);
             var reflectorIn = ReflectorContact(hops[4].Input);
             var reflectorOut = ReflectorContact(hops[4].Output);
-            Segment(Contact(0, hops[3].LocalOutput, false), reflectorIn, false, 4);
-            var bend = ReflectorBend(reflectorIn, reflectorOut);
-            Segment(reflectorIn, bend, false, 4);
-            Segment(bend, reflectorOut, true, 4);
-            Segment(reflectorOut, Contact(0, hops[5].LocalInput, false), true, 5);
+            Axial(Contact(0, hops[3].LocalOutput, false), reflectorIn, false);
+            // The signal turns around halfway through the reflector's looped wire.
+            for (var i = 0; i <= 6; i++) _samples.Add(ReflectorCurve(reflectorIn, reflectorOut, i / 12f));
+            Emit(false);
+            for (var i = 6; i <= 12; i++) _samples.Add(ReflectorCurve(reflectorIn, reflectorOut, i / 12f));
+            Emit(true);
+            Axial(reflectorOut, Contact(0, hops[5].LocalInput, false), true);
             for (var r = 0; r < 2; r++)
             {
-                Segment(Contact(r, hops[5 + r].LocalInput, false), Contact(r, hops[5 + r].LocalOutput, true), true, 5 + r);
-                Segment(Contact(r, hops[5 + r].LocalOutput, true), Contact(r + 1, hops[6 + r].LocalInput, false), true, 6 + r);
+                Axial(Contact(r, hops[5 + r].LocalInput, false), Contact(r, hops[5 + r].LocalOutput, true), true);
+                Axial(Contact(r, hops[5 + r].LocalOutput, true), Contact(r + 1, hops[6 + r].LocalInput, false), true);
             }
-            Segment(Contact(2, hops[7].LocalInput, false), Contact(2, hops[7].LocalOutput, true), true, 7);
-            BoardToRotor(plugOut, Contact(2, hops[7].LocalOutput, true), true, 8);
+            Axial(Contact(2, hops[7].LocalInput, false), Contact(2, hops[7].LocalOutput, true), true);
+            BoardToRotor(plugOut, Contact(2, hops[7].LocalOutput, true), true);
             if (hops[8].Input != hops[8].Output)
-                ThroughCable(hops[8].Input, hops[8].Output, true, 8);
-            else Segment(plugOut, plugOutMapped, true, 8);
+                ThroughCable(hops[8].Input, hops[8].Output, true);
+            else Segment(plugOut, plugOutMapped, true);
+            // From the rear terminal the lamp feed stays inside the case, just inside the left wall.
             var lamp = LampPosition(_stroke.Output - 'A', _explosion);
-            var lampUnderside = lamp + new Vect(0f, -0.2f, 0f);
-            Route(true, 9, plugOutMapped,
-                new(plugOutMapped.X, plugOutMapped.Y, boardFront - 0.16f),
-                new(returnLane + 0.15f, plugOutMapped.Y, boardFront - 0.16f),
-                new(returnLane + 0.15f, lampUnderside.Y, boardFront - 0.16f),
-                new(returnLane + 0.15f, lampUnderside.Y, lamp.Z),
-                lampUnderside, lamp + new Vect(0f, -0.06f, 0f));
-            _plugModels[hops[0].Input].SetDefaultMaterialBaseColor(new ColorVect(1f, 0.63f, 0.12f));
-            _plugModels[hops[0].Output].SetDefaultMaterialBaseColor(new ColorVect(1f, 0.63f, 0.12f));
-            _plugModels[hops[8].Input].SetDefaultMaterialBaseColor(new ColorVect(0.12f, 0.9f, 1f));
-            _plugModels[hops[8].Output].SetDefaultMaterialBaseColor(new ColorVect(0.12f, 0.9f, 1f));
-            _rearPlugModels[hops[0].Input].SetDefaultMaterialBaseColor(new ColorVect(1f, 0.63f, 0.12f));
-            _rearPlugModels[hops[8].Input].SetDefaultMaterialBaseColor(new ColorVect(0.12f, 0.9f, 1f));
+            var insideWall = -2.75f - 0.35f * _explosion;
+            var behindBoard = plugOutMapped.Z + 0.35f;
+            Route(true, plugOutMapped,
+                new(plugOutMapped.X, plugOutMapped.Y, behindBoard),
+                new(insideWall, plugOutMapped.Y, behindBoard),
+                new(insideWall, lamp.Y - 0.28f, lamp.Z),
+                lamp + new Vect(0f, -0.28f, 0f), lamp + new Vect(0f, -0.06f, 0f));
+            _plugModels[hops[0].Input].SetDefaultMaterialBaseColor(ForwardColor);
+            _plugModels[hops[0].Output].SetDefaultMaterialBaseColor(ForwardColor);
+            _plugModels[hops[8].Input].SetDefaultMaterialBaseColor(ReturnColor);
+            _plugModels[hops[8].Output].SetDefaultMaterialBaseColor(ReturnColor);
+            _rearPlugModels[hops[0].Input].SetDefaultMaterialBaseColor(ForwardColor);
+            _rearPlugModels[hops[8].Output].SetDefaultMaterialBaseColor(ReturnColor);
         }
-        for (; count < _path.Length; count++)
-            HideLine(_path[count]);
-        UpdateFlowWires();
+        UpdateRouteTubes();
     }
 
-    private void BuildFlowWires()
+    private void BuildWires()
     {
         const int sides = 12;
         var vertices = new List<MeshVertex>();
@@ -1158,93 +1290,124 @@ internal sealed class MachineScene : IDisposable
             indices.Add(new(i, i + 2, i + 1));
             indices.Add(new(i + 1, i + 2, i + 3));
         }
-        var mesh = Own(_factory.MeshBuilder.CreateFromVertices(vertices.ToArray(), indices.ToArray()));
-        Material CreateFlowMaterial(ColorVect color)
+        var tube = Own(_factory.MeshBuilder.CreateFromVertices(vertices.ToArray(), indices.ToArray()));
+        Material CreateWireMaterial(ColorVect color, float glow)
         {
-            var baseMap = Own(_factory.TextureBuilder.CreateColorMap(
-                TexturePattern.GradientHorizontal(color, color, resolution: (128, 2)), includeAlpha: true,
-                TextureCreationConfig.ForColorMap() with { AllowsDynamicWrites = true }));
-            var emission = Own(_factory.TextureBuilder.CreateEmissiveMap(
-                TexturePattern.GradientHorizontal(color, color, resolution: (128, 2)),
-                TexturePattern.GradientHorizontal((Real)0f, (Real)1f, resolution: (128, 2)),
-                TextureCreationConfig.ForEmissiveMap() with { AllowsDynamicWrites = true }));
-            var texels = new TexelRgba32[256];
-            var colors = new TexelRgba32[256];
-            for (var i = 0; i < texels.Length; i++)
-            {
-                var u = (i % 128) / 128f;
-                var distance = MathF.Min(u, 1f - u);
-                var pulse = MathF.Exp(-distance * distance / 0.0008f);
-                texels[i] = ITextureBuilder.CreateEmissiveTexel(color, 0.04f + 0.96f * pulse);
-                colors[i] = new TexelRgba32(new ColorVect(color.Red, color.Green, color.Blue, 0.22f + 0.63f * pulse));
-            }
-            baseMap.OverwriteTexels<TexelRgba32>(colors);
-            emission.OverwriteTexels<TexelRgba32>(texels);
-            return Own(_factory.MaterialBuilder.CreateStandardMaterial(baseMap, emissiveMap: emission,
-                alphaMode: StandardMaterialAlphaMode.FullBlending, enablePerInstanceEffects: true));
+            var colorMap = Own(_factory.TextureBuilder.CreateColorMap(color, includeAlpha: false));
+            if (glow <= 0f) return Own(_factory.MaterialBuilder.CreateStandardMaterial(colorMap));
+            var emission = Own(_factory.TextureBuilder.CreateEmissiveMap(color, intensity: glow));
+            return Own(_factory.MaterialBuilder.CreateStandardMaterial(colorMap, emissiveMap: emission));
         }
-        var forward = CreateFlowMaterial(new ColorVect(1f, 0.63f, 0.12f));
-        var returning = CreateFlowMaterial(new ColorVect(0.12f, 0.9f, 1f));
-        // Separate pools preserve direction colors without changing materials every frame.
-        for (var i = 0; i < _flowWires.Length; i++)
+        _wireMaterial = CreateWireMaterial(new ColorVect(0.13f, 0.135f, 0.145f), 0f);
+        _forwardMaterial = CreateWireMaterial(ForwardColor, 0.35f);
+        _returnMaterial = CreateWireMaterial(ReturnColor, 0.35f);
+        _forwardHeadMaterial = CreateWireMaterial(new ColorVect(1f, 0.86f, 0.55f), 1f);
+        _returnHeadMaterial = CreateWireMaterial(new ColorVect(0.7f, 0.97f, 1f), 1f);
+        ModelInstance Wire(Mesh mesh, Material material)
         {
-            _flowWires[i] = Own(_factory.ObjectBuilder.CreateModelInstance(mesh, i < 72 ? forward : returning,
+            var instance = Own(_factory.ObjectBuilder.CreateModelInstance(mesh, material,
                 initialPosition: new Location(0f, -100f, 0f)));
-            _scene.Add(_flowWires[i]);
+            _scene.Add(instance);
+            _wireModels.Add(instance);
+            return instance;
         }
+        for (var r = 0; r < 3; r++)
+            for (var wire = 0; wire < 26; wire++)
+                for (var sample = 0; sample < IdleSamples; sample++)
+                    _rotorWires[r, wire, sample] = Wire(tube, _wireMaterial);
+        for (var wire = 0; wire < 13; wire++)
+            for (var sample = 0; sample < IdleSamples; sample++)
+                _reflectorWires[wire, sample] = Wire(tube, _wireMaterial);
+        for (var i = 0; i < _routeTubes.Length; i++)
+        {
+            _routeTubes[i] = Wire(tube, _wireMaterial);
+            _routeTubeMaterials[i] = _wireMaterial;
+        }
+        _pulseHead = Wire(Own(_factory.MeshBuilder.CreateSphere(new Sphere(1f))), _forwardHeadMaterial);
+        _pulseLight = Own(_factory.LightBuilder.CreatePointLight(color: ForwardColor,
+            brightness: 0f, maxIlluminationRadius: 0.9f));
+        _scene.Add(_pulseLight);
     }
 
-    private void UpdateFlowWires()
+    private static void PlaceTube(ModelInstance tube, Location a, Location b, float radius)
     {
-        var forwardCount = 0;
-        var returnCount = 72;
-        var offset = 0f;
-        foreach (var segment in _flowSegments)
+        var delta = b - a;
+        var length = delta.Length;
+        if (length < 0.0001f)
         {
-            var delta = segment.End - segment.Start;
-            var length = delta.Length;
-            if (length < 0.001f) continue;
-            var index = segment.Returning ? returnCount++ : forwardCount++;
-            if (index >= (segment.Returning ? 144 : 72))
-                throw new InvalidOperationException("Signal flow exceeded its textured wire capacity.");
-            var wire = _flowWires[index];
-            var radius = segment.Cable ? CableFlowRadius : FlowRadius;
-            wire.SetTransform(new Transform(translation: (segment.Start + delta * 0.5f).AsVect(),
-                rotation: new Direction(1f, 0f, 0f) >> delta.Direction,
-                scaling: new Vect(length, radius, radius)));
-            _flowTextureTransforms[index] = FlowTextureTransform(length, offset, _flowTime);
-            offset += length;
+            tube.Position = new Location(0f, -100f, 0f);
+            return;
         }
-        for (var i = forwardCount; i < 72; i++)
-        {
-            _flowWires[i].Position = new Location(0f, -100f, 0f);
-            _flowTextureTransforms[i] = null;
-        }
-        for (var i = returnCount; i < 144; i++)
-        {
-            _flowWires[i].Position = new Location(0f, -100f, 0f);
-            _flowTextureTransforms[i] = null;
-        }
+        // A slight overlap closes the seams between consecutive segments on a bend.
+        tube.SetTransform(new Transform(translation: (a + delta * 0.5f).AsVect(),
+            rotation: new Direction(1f, 0f, 0f) >> delta.Direction,
+            scaling: new Vect(length + radius, radius, radius)));
     }
 
-    private void ApplyFlowTextureTransforms()
+    // Wire behind the pulse takes its direction's color; wire ahead stays gray.
+    private void UpdateRouteTubes()
     {
-        for (var i = 0; i < _flowWires.Length; i++)
-            if (_flowTextureTransforms[i] is { } transform)
+        var used = 0;
+        void Tube(Location a, Location b, float radius, Material material)
+        {
+            if (used >= _routeTubes.Length)
+                throw new InvalidOperationException("Signal route exceeded its wire capacity.");
+            PlaceTube(_routeTubes[used], a, b, radius);
+            if (!Equals(_routeTubeMaterials[used], material))
             {
-                var effects = _flowWires[i].MaterialEffects ??
-                    throw new InvalidOperationException("Wire material requires texture transforms.");
-                effects.SetTransform(transform);
+                _routeTubes[used].SetMaterial(material);
+                _routeTubeMaterials[used] = material;
             }
+            used++;
+        }
+        var fraction = _route.Count == 0 ? 1f : PulseFraction(_elapsed);
+        var head = fraction * _routeLength;
+        Location? headPosition = null;
+        var headReturning = false;
+        foreach (var segment in _route)
+        {
+            var length = (segment.End - segment.Start).Length;
+            var radius = segment.Cable ? CableWireRadius : WireRadius;
+            var lit = segment.Returning ? _returnMaterial : _forwardMaterial;
+            if (segment.Arc + length <= head) Tube(segment.Start, segment.End, radius, lit);
+            else if (segment.Arc >= head) Tube(segment.Start, segment.End, radius, _wireMaterial);
+            else
+            {
+                var split = segment.Start + (segment.End - segment.Start) * ((head - segment.Arc) / length);
+                Tube(segment.Start, split, radius, lit);
+                Tube(split, segment.End, radius, _wireMaterial);
+            }
+            if (headPosition == null && fraction < 1f && head <= segment.Arc + length)
+            {
+                headPosition = segment.Start + (segment.End - segment.Start) * Math.Clamp((head - segment.Arc) / length, 0f, 1f);
+                headReturning = segment.Returning;
+            }
+        }
+        for (var i = used; i < _routeTubes.Length; i++)
+            _routeTubes[i].Position = new Location(0f, -100f, 0f);
+        if (headPosition is { } position)
+        {
+            _pulseHead.SetTransform(new Transform(translation: position.AsVect(),
+                scaling: new Vect(HeadRadius, HeadRadius, HeadRadius)));
+            _pulseHead.SetMaterial(headReturning ? _returnHeadMaterial : _forwardHeadMaterial);
+            _pulseLight.Position = position;
+            _pulseLight.Color = headReturning ? ReturnColor : ForwardColor;
+            _pulseLight.Brightness = 0.05f;
+        }
+        else
+        {
+            _pulseHead.Position = new Location(0f, -100f, 0f);
+            _pulseLight.Brightness = 0f;
+        }
     }
 
     private static void HideLine(ScenePrimitive primitive) =>
         primitive.SetGeometryPoint(new Location(0f, -100f, 0f), 0f);
 
-    private static void SetLine(ScenePrimitive primitive, Location a, Location b, PrimitivePaintbrush brush)
+    private static void SetLine(ScenePrimitive primitive, Location a, Location b)
     {
-        primitive.SetPaintbrush(brush);
-        primitive.SetGeometryShape(new BoundedRay(a, b), size: brush.Equals(Inactive) ? 0.0008f : 0.0035f, includeEndpoints: false);
+        primitive.SetPaintbrush(Inactive);
+        primitive.SetGeometryShape(new BoundedRay(a, b), size: 0.0016f, includeEndpoints: false);
     }
 
     public void Dispose()
