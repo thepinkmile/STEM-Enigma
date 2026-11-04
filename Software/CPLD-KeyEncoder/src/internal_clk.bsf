@@ -35,7 +35,7 @@ on the Quartus Prime software download page.
 		(pt 160 48)
 		(output)
 		(text "osc" (rect 0 0 21 12)(font "Arial" (font_size 8)))
-		(text "osc" (rect 139 36 155 47)(font "Arial" (font_size 8)))
+		(text "osc" (rect 139 36 156 47)(font "Arial" (font_size 8)))
 		(line (pt 160 48)(pt 112 48))
 	)
 	(drawing

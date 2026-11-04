@@ -1,5 +1,5 @@
 --lpm_mux CASCADE_CHAIN="MANUAL" DEVICE_FAMILY="MAX II" IGNORE_CASCADE_BUFFERS="OFF" LPM_SIZE=2 LPM_WIDTH=6 LPM_WIDTHS=1 data result sel
---VERSION_BEGIN 24.1 cbx_lpm_mux 2025:03:05:20:06:36:SC cbx_mgl 2025:03:05:20:07:01:SC  VERSION_END
+--VERSION_BEGIN 25.1 cbx_lpm_mux 2025:10:22:10:31:26:SC cbx_mgl 2025:10:22:10:31:44:SC  VERSION_END
 
 
 -- Copyright (C) 2025  Altera Corporation. All rights reserved.

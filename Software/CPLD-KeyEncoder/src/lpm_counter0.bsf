@@ -28,7 +28,7 @@ on the Quartus Prime software download page.
 		(pt 0 32)
 		(input)
 		(text "clock" (rect 0 0 29 12)(font "Arial" (font_size 8)))
-		(text "clock" (rect 26 26 49 37)(font "Arial" (font_size 8)))
+		(text "clock" (rect 26 26 50 37)(font "Arial" (font_size 8)))
 		(line (pt 0 32)(pt 16 32))
 	)
 	(port

@@ -1,0 +1,69 @@
+IP Upgrade report for mux_rom_demux
+Thu Mar 12 07:49:20 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------+
+; IP Upgrade Summary                                                             ;
++------------------------------+-------------------------------------------------+
+; IP Components Upgrade Status ; Passed - Thu Mar 12 07:49:20 2026               ;
+; Quartus Prime Version        ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                ; mux_rom_demux                                   ;
+; Top-level Entity Name        ; mux_rom_demux                                   ;
+; Family                       ; MAX II                                          ;
++------------------------------+-------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                         ;
++--------------+-------------------------+---------+----------------------+----------------------+------------------+---------+
+; Entity Name  ; Component Name          ; Version ; Original Source File ; Generation File Path ; New Source File  ; Message ;
++--------------+-------------------------+---------+----------------------+----------------------+------------------+---------+
+; internal_clk ; MAX II/MAX V oscillator ; 24.1    ; internal_clk.qip     ; internal_clk.v       ; internal_clk.qip ;         ;
++--------------+-------------------------+---------+----------------------+----------------------+------------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "internal_clk.v" to "internal_clk.BAK.v"
+Info (11837): Started upgrading IP component MAX II/MAX V oscillator with file "internal_clk.v"
+Info (11131): Completed upgrading IP component MAX II/MAX V oscillator with file "internal_clk.v"
+Info (23030): Evaluation of Tcl script c:/altera_lite/25.1std/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4900 megabytes
+    Info: Processing ended: Thu Mar 12 07:49:20 2026
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:10
+
+

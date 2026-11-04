@@ -22,7 +22,7 @@ on the Quartus Prime software download page.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 160 96)
-	(text "conditional_adder" (rect 31 0 150 15)(font "Arial" (font_size 10)))
+	(text "conditional_adder" (rect 31 0 151 15)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 82 25 92)(font "Arial" ))
 	(port
 		(pt 0 40)
@@ -41,7 +41,7 @@ on the Quartus Prime software download page.
 	(drawing
 		(text "A-B" (rect 77 53 171 117)(font "Arial" (font_size 8)))
 		(text "36" (rect 8 61 26 133)(font "Arial" (font_size 8)))
-		(text "A" (rect 64 37 134 85)(font "Arial" (font_size 8)))
+		(text "A" (rect 64 37 135 85)(font "Arial" (font_size 8)))
 		(text "B" (rect 65 69 135 149)(font "Arial" (font_size 8)))
 		(line (pt 64 32)(pt 64 80))
 		(line (pt 64 32)(pt 96 40))

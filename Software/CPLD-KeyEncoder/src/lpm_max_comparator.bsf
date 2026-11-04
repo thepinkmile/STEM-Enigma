@@ -22,7 +22,7 @@ on the Quartus Prime software download page.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 128 96)
-	(text "lpm_max_comparator" (rect 2 0 149 15)(font "Arial" (font_size 10)))
+	(text "lpm_max_comparator" (rect 2 0 150 15)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 82 25 92)(font "Arial" ))
 	(port
 		(pt 0 48)

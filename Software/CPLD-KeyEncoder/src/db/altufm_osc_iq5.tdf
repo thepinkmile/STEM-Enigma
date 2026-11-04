@@ -1,5 +1,5 @@
 --altufm_osc OSC_FREQUENCY=136000 osc oscena DEVICE_FAMILY="MAX II"
---VERSION_BEGIN 24.1 cbx_altufm_osc 2025:03:05:20:06:36:SC cbx_maxii 2025:03:05:20:06:36:SC cbx_mgl 2025:03:05:20:07:01:SC cbx_stratixii 2025:03:05:20:06:36:SC cbx_util_mgl 2025:03:05:20:06:36:SC  VERSION_END
+--VERSION_BEGIN 25.1 cbx_altufm_osc 2025:10:22:10:31:27:SC cbx_maxii 2025:10:22:10:31:27:SC cbx_mgl 2025:10:22:10:31:44:SC cbx_stratixii 2025:10:22:10:31:26:SC cbx_util_mgl 2025:10:22:10:31:27:SC  VERSION_END
 
 
 -- Copyright (C) 2025  Altera Corporation. All rights reserved.

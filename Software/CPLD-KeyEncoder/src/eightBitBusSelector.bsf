@@ -22,7 +22,7 @@ on the Quartus Prime software download page.
 (header "symbol" (version "1.2"))
 (symbol
 	(rect 0 0 144 80)
-	(text "eightBitBusSelector" (rect 16 0 151 15)(font "Arial" (font_size 10)))
+	(text "eightBitBusSelector" (rect 16 0 152 15)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 66 25 76)(font "Arial" ))
 	(port
 		(pt 0 40)
