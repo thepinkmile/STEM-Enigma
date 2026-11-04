@@ -7,7 +7,15 @@ namespace CodeBreakers.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
-    private readonly EnigmaMachine _enigmaMachine = EnigmaMachine.CreateModelI();
+    public Visualization.LabMachine Machine { get; } = new();
+    private EnigmaMachine _enigmaMachine => Machine.Engine;
+
+    public void NotifyMachineReset()
+    {
+        OnPropertyChanged(nameof(LeftRotor));
+        OnPropertyChanged(nameof(MiddleRotor));
+        OnPropertyChanged(nameof(RightRotor));
+    }
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(ProcessInputCommand))]

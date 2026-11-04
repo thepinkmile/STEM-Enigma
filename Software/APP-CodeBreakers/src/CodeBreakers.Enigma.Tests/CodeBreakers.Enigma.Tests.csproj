@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodeBreakers.Enigma\CodeBreakers.Enigma.csproj" />
+    <Compile Include="..\CodeBreakers\Visualization\LabMachine.cs" Link="LabMachine.cs" />
+    <Compile Include="..\CodeBreakers\Visualization\EnigmaKeyboard.cs" Link="EnigmaKeyboard.cs" />
   </ItemGroup>
 
   <ItemGroup>
