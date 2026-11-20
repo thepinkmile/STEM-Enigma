@@ -122,15 +122,22 @@ to the bottom of the moving key stem, run beneath the keyboard and lampboard,
 and use separated perimeter lanes to reach the rotor assembly without crossing
 the keys. These bent teaching routes and the exploded spacing are schematic.
 Plugboard swaps follow the same curved geometry as the connected physical cable,
-in either direction. Scrolling emissive textures carry amber/cyan pulses through
-translucent wires at 0.9 world units per second, with 2.25 units between pulses.
-Arc-length texture coordinates keep their speed and phase consistent through
-short segments and bends, including reversed cable traversal. The brighter
-pulse stays within the wire diameter; physical cords have a translucent sleeve
-around the smaller signal core. Soft bloom remains enabled so the output lamp
-stands out clearly. Signal textures are exploded-only and do not block picking.
-Incoming traces terminate at labeled rear plugboard terminals; outgoing traces
-leave from the front sockets. Rear terminals and their letters are shown only
+in either direction. Routes are smoothed through a few anchor points with a
+centripetal Catmull-Rom spline; rotor and reflector wires leave their contacts
+square to the face and sweep across as Bézier curves. All wires are solid dark
+gray tubes. On each key press a single glowing pulse travels from the key stem
+to the lamp at constant speed along the route's arc length, leaving the wire
+behind it amber (toward the reflector) or cyan (on the return). The lamp lights
+when the pulse arrives; the lit route then holds briefly and the pulse replays
+from the key until the next letter. **Seconds per letter** sets the full
+key-to-lamp trip, including a short key press and rotor step. Physical cords
+have a translucent sleeve around the smaller signal core. Soft bloom remains
+enabled so the pulse and output lamp stand out clearly. Signal wires are
+exploded-only and do not block picking.
+The keyboard signal enters at a labeled rear plugboard terminal and leaves from
+the front socket toward the rotors. The return enters at the front socket and
+leaves through the rear terminal, then runs to the lamp inside the left case
+wall. Rear terminals and their letters are shown only
 in exploded view. Use **Plugboard back** to inspect them.
 The rotor gears follow the real stepping decisions. A pivoting brass rocker and
 nickel pawl beside the right-hand (fast) rotor animate on every key press:
